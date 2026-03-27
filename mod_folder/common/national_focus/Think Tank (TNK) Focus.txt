@@ -19,8 +19,17 @@ focus_tree = {
 		completion_reward = {
 			country_event = nf_tnk.1
 			hidden_effect = {
-				set_variable = { global.tnk_ncr_war_countdown = 460 }
-				set_variable = { global.tnk_ces_war_countdown = 460 }
+				if = {
+					limit = {
+						is_ai = yes
+					}
+					set_variable = { global.tnk_ncr_war_countdown = 920 }
+					set_variable = { global.tnk_ces_war_countdown = 920 }
+				}
+				else = {
+					set_variable = { global.tnk_ncr_war_countdown = 460 }
+					set_variable = { global.tnk_ces_war_countdown = 460 }
+				}
 				activate_mission = tnkd_ncr_war_mission
 				activate_mission = tnkd_ces_war_mission
 				NCR = {
@@ -76,6 +85,9 @@ focus_tree = {
 		}
 
 		relative_position_id = tnk_personality_restoration
+		ai_will_do = {
+			base = 20
+		}
 		completion_reward = {
 			activate_advisor = TNK_0_air_chief
             if = {
@@ -117,7 +129,9 @@ focus_tree = {
 		prerequisite = {
 			focus = tnk_0
 		}
-
+		ai_will_do = {
+			base = 10
+		}
 		relative_position_id = tnk_0
 		will_lead_to_war_with = VEG
 		available = {
@@ -388,7 +402,9 @@ focus_tree = {
 		prerequisite = {
 			focus = tnk_personality_restoration
 		}
-
+		ai_will_do = {
+			base = 20
+		}
 		relative_position_id = tnk_personality_restoration
 		completion_reward = {
 			activate_advisor = TNK_8_navy_chief
@@ -694,7 +710,9 @@ focus_tree = {
 		prerequisite = {
 			focus = tnk_personality_restoration
 		}
-
+		ai_will_do = {
+			base = 20
+		}
 		relative_position_id = tnk_personality_restoration
 		completion_reward = {
 			activate_advisor = TNK_mobius_theorist
@@ -988,7 +1006,9 @@ focus_tree = {
 		prerequisite = {
 			focus = tnk_personality_restoration
 		}
-
+		ai_will_do = {
+			base = 20
+		}
 		relative_position_id = tnk_personality_restoration
 		completion_reward = {
 			activate_advisor = TNK_klein_army_chief
@@ -1290,7 +1310,9 @@ focus_tree = {
 		prerequisite = {
 			focus = tnk_personality_restoration
 		}
-
+		ai_will_do = {
+			base = 20
+		}
 		relative_position_id = tnk_personality_restoration
 		completion_reward = {
 			activate_advisor = TNK_dala_high_command
@@ -1517,7 +1539,9 @@ focus_tree = {
 		prerequisite = {
 			focus = tnk_personality_restoration
 		}
-
+		ai_will_do = {
+			base = 20
+		}
 		relative_position_id = tnk_personality_restoration
 		completion_reward = {
 			activate_advisor = TNK_borus_high_command
@@ -1812,6 +1836,9 @@ focus_tree = {
 		prerequisite = {
 			focus = tnk_personality_restoration
 		}
+		ai_will_do = {
+			base = 10
+		}
 		relative_position_id = tnk_personality_restoration
 		completion_reward = {
 			custom_effect_tooltip = tnkd_new_mojave_tt_2
@@ -1877,6 +1904,9 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = tnkd_new_mojave
+		}
+		ai_will_do = {
+			base = 10
 		}
 		mutually_exclusive = {
 			focus = tnkd_new_mojave_1
@@ -1982,6 +2012,9 @@ focus_tree = {
 		prerequisite = {
 			focus = tnkd_new_mojave_1
 			focus = tnkd_new_mojave_2
+		}
+		ai_will_do = {
+			base = 10
 		}
 		relative_position_id = tnkd_new_mojave
 		completion_reward = {
@@ -2114,7 +2147,7 @@ focus_tree = {
 		y = 3
 		x = 1
 		ai_will_do = {
-			base = 1
+			base = 10
 		}
 		available = {
 			custom_trigger_tooltip = {
@@ -2164,6 +2197,9 @@ focus_tree = {
 		prerequisite = {
 			focus = tnkd_new_mojave_4
 		}
+		ai_will_do = {
+			base = 10
+		}
 		mutually_exclusive = {
 			focus = tnkd_new_mojave_6
 		}
@@ -2193,9 +2229,14 @@ focus_tree = {
 		available = {
 			has_stability > 0.5
 			has_war_support > 0.5
-			OR = {
-				is_in_faction_with = VEG
-				NOT = { country_exists = VEG }
+			if = {
+				limit = {
+					is_ai = no
+				}
+				OR = {
+					is_in_faction_with = VEG
+					NOT = { country_exists = VEG }
+				}
 			}
 			custom_trigger_tooltip = {
 				tooltip = tnkd_new_mojave_tt
@@ -2213,6 +2254,9 @@ focus_tree = {
 		prerequisite = {
 			focus = tnkd_new_mojave_6
 			focus = tnkd_new_mojave_7
+		}
+		ai_will_do = {
+			base = 10
 		}
 		relative_position_id = tnkd_new_mojave
 		completion_reward = {
@@ -2248,6 +2292,9 @@ focus_tree = {
 		relative_position_id = tnk_personality_restoration
 		available = {
 			has_completed_focus = tnk_personality_restoration
+		}
+		ai_will_do = {
+			base = 20
 		}
 		completion_reward = {
 			add_war_support = 0.05
@@ -2303,6 +2350,9 @@ focus_tree = {
 		relative_position_id = tnkd_defensive_infrastructure
 		prerequisite = {
 			focus = tnkd_defensive_infrastructure
+		}
+		ai_will_do = {
+			base = 20
 		}
 		completion_reward = {
 			add_stability = 0.05
@@ -2375,7 +2425,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = tnkd_picking_sides
 		ai_will_do = {
-			base = 1
+			base = 10
 		}
 		prerequisite = {
 			focus = tnkd_picking_sides
@@ -2676,6 +2726,9 @@ focus_tree = {
 		relative_position_id = tnkd_defensive_infrastructure
 		available = {
 			has_completed_focus = tnk_personality_restoration
+		}
+		ai_will_do = {
+			base = 20
 		}
 		completion_reward = {
 			add_war_support = 0.05
@@ -3063,6 +3116,9 @@ focus_tree = {
 		prerequisite = {
 			focus = tnkd_going_alone
 		}
+		ai_will_do = {
+			base = 20
+		}
 		completion_reward = {
 			add_ideas = tnkd_new_era_idea
 		}
@@ -3182,6 +3238,9 @@ focus_tree = {
 		prerequisite = {
 			focus = tnkd_defensive_infrastructure
 		}
+		ai_will_do = {
+			base = 20
+		}
 		completion_reward = {
 			custom_effect_tooltip = tnkd_larping_luddites_tt
 			add_political_power = 60
@@ -3281,6 +3340,9 @@ focus_tree = {
 		relative_position_id = tnkd_defensive_infrastructure
 		prerequisite = {
 			focus = tnkd_defensive_infrastructure
+		}
+		ai_will_do = {
+			base = 20
 		}
 		completion_reward = {
 			custom_effect_tooltip = tnkd_ncr_defence_tt
@@ -3382,6 +3444,9 @@ focus_tree = {
 		prerequisite = {
 			focus = tnkd_next_steps
 		}
+		ai_will_do = {
+			base = 10
+		}
 		completion_reward = {
 			add_stability = 0.15
 			add_war_support = 0.15
@@ -3395,6 +3460,9 @@ focus_tree = {
 		relative_position_id = tnkd_unity
 		prerequisite = {
 			focus = tnkd_unity
+		}
+		ai_will_do = {
+			base = 10
 		}
 		available = {
 			if = {
@@ -3452,7 +3520,9 @@ focus_tree = {
 		available = {
 			has_completed_focus = tnkd_balanced_science
 		}
-
+		ai_will_do = {
+			base = 20
+		}
 		completion_reward = {
 			swap_ideas = {
 				remove_idea = tnk_rule_of_six
@@ -3488,6 +3558,9 @@ focus_tree = {
 		relative_position_id = tnkd_cohesion
 		prerequisite = {
 			focus = tnkd_cohesion
+		}
+		ai_will_do = {
+			base = 20
 		}
 		completion_reward = {
 			custom_effect_tooltip = tnkd_brain_drain_improve
@@ -3532,6 +3605,9 @@ focus_tree = {
 					}
 				}
 			}
+		}
+		ai_will_do = {
+			base = 20
 		}
 		completion_reward = {
 			every_state = {
@@ -3630,6 +3706,9 @@ focus_tree = {
 				}
 			}
 		}
+		ai_will_do = {
+			base = 10
+		}
 		completion_reward = {
 			add_stability = 0.1
 			every_state = {
@@ -3668,6 +3747,9 @@ focus_tree = {
 					}
 				}
 			}
+		}
+		ai_will_do = {
+			base = 10
 		}
 		completion_reward = {
 			add_stability = 0.1
@@ -3810,7 +3892,7 @@ focus_tree = {
 		x = 3
 		relative_position_id = tnkd_convergance
 		ai_will_do = {
-			base = 1
+			base = 10
 		}
 		prerequisite = {
 			focus = tnkd_convergance
@@ -4427,7 +4509,9 @@ focus_tree = {
 			has_completed_focus = tnk_dala
 			has_completed_focus = tnk_borous
 		}
-
+		ai_will_do = {
+			base = 20
+		}
 		relative_position_id = tnk_personality_restoration
 		completion_reward = {
 			add_research_slot = -1
@@ -4476,6 +4560,9 @@ focus_tree = {
 		y = 1
 		prerequisite = {
 			focus = tnkd_balanced_science
+		}
+		ai_will_do = {
+			base = 20
 		}
 		relative_position_id = tnkd_balanced_science
 		completion_reward = {

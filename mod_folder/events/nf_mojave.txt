@@ -756,6 +756,7 @@ country_event = {
 				type = support_robot_scurry_equipment
 				amount = 3200
 			}
+			add_research_slot = 2
 		}
 	}
 }

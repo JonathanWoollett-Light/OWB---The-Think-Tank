@@ -17,8 +17,8 @@ tnk_brain_drain_dynamic_modifier = {
 }
 tnk_angels_of_death_dynamic_modifier = {
 	icon = GFX_idea_generic_catastrophe
-	non_core_manpower = global.tnk_angels_of_death_var
-	enemy_justify_war_goal_time = global.tnk_angels_of_death_var
+	non_core_manpower = tnk_angels_of_death_var
+	enemy_justify_war_goal_time = tnk_angels_of_death_var
 }
 tnk_broken_mojave_dynamic_modifier = {
 	icon = GFX_idea_mot_pacification_not_emancipation

@@ -16,6 +16,7 @@
 
 ### Very High Priority
 
+- add decisions to buff popularity of each political party (probably lock them behind some focuses).
 - "reunification" and "give an inch?" should require tnk owns land, not just controls it
 - when AI controls think tank make it a mid-late game crisis
 - need to do another playthrough to re-balance things

@@ -410,7 +410,7 @@ country_event = {
 				tag = CES
 			}
 			set_temp_variable = {
-				global.tnk_ces_war_countdown_temp = 60
+				global.tnk_ces_war_countdown_temp = 90
 			}
 			increase_tnk_ces_war_countdown = yes
 		}
@@ -419,7 +419,7 @@ country_event = {
 				tag = NCR
 			}
 			set_temp_variable = {
-				global.tnk_ncr_war_countdown_temp = 60
+				global.tnk_ncr_war_countdown_temp = 90
 			}
 			increase_tnk_ncr_war_countdown = yes
 		}

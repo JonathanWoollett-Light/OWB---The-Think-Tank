@@ -198,7 +198,7 @@ recruit_character = TNK_sink_muggy
 
 set_variable = { science = 10000 }
 
-set_variable = { global.tnk_angels_of_death_var = -0.1 }
+set_variable = { tnk_angels_of_death_var = -0.1 }
 add_dynamic_modifier = {
 	modifier = tnk_angels_of_death_dynamic_modifier
 }

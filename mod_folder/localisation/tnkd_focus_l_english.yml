@@ -69,7 +69,7 @@
  tnkd_elijah_back_desc:0 "Through communication with [MOJ.GetName] remnant elements, Elijah has come out of hiding, perhaps we can use his knowledge to our advantage... or perhaps he will be a thorn in our side."
 
  tnkd_new_mojave_4:0 "Patrolling the Mojave"
- tnkd_new_mojave_4_desc:0 "If we are to spread out control beyound our lab, we need to setup regular patrols of the territory."
+ tnkd_new_mojave_4_desc:0 "If we are to spread out control beyond our lab, we need to setup regular patrols of the territory."
  tnkd_new_mojave_4_tt:0 "Modifies §HNo Compliance Gain§! for §H$tnk_broken_mojave_dynamic_modifier$§! to §GNo§! (Current §RYes§!)."
 
  tnkd_new_mojave_5:0 "Exploiting the Mojave"
@@ -273,7 +273,7 @@
  tnkd_robotic_supremacy_desc:0 "We can redirect our research into optimizing our robotic executors."
 
  tnkd_exotic_research:0 "Exotic Research Expeditions"
- tnkd_exotic_research_desc:0 "There is much to discover, much beyound the decrepit ancient relics our neighbours spend their lives stealing."
+ tnkd_exotic_research_desc:0 "There is much to discover, much beyond the decrepit ancient relics our neighbours spend their lives stealing."
  
  tnkd_ship_tt:0 "Will give §YIntermediate Naval Tech§! if §YBasic Naval Tech§! is already researched."
  

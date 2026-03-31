@@ -181,7 +181,7 @@
  increase_tnk_ces_war_countdown_tt:0 "§Y$tnkd_ces_war_mission$§! will be §Ypushed back§! by §G[?global.tnk_ces_war_countdown_temp]§! days."
  decrease_tnk_ncr_war_countdown_tt:0 "§Y$tnkd_ncr_war_mission$§! will be §Ybrought forward§! by §R[?global.tnk_ncr_war_countdown_temp]§! days."
  decrease_tnk_ces_war_countdown_tt:0 "§Y$tnkd_ces_war_mission$§! will be §Ybrought forward§! by §R[?global.tnk_ces_war_countdown_temp]§! days."
- modify_tnk_angels_of_death_tt:0 "Modifies §Y$tnk_angels_of_death_dynamic_modifier$§! by §R[?global.tnk_angels_of_death_var_change|+%]§! (Current: [?global.tnk_angels_of_death_var|+%])\n"
+ modify_tnk_angels_of_death_tt:0 "Modifies §Y$tnk_angels_of_death_dynamic_modifier$§! by §R[?tnk_angels_of_death_var_change|+%]§! (Current: [?tnk_angels_of_death_var|+%])\n"
 
  tnk_broken_mojave_consumer_goods_factor_var_tt:0 "Modifies §H£consumer_goods_texticon Consumer Goods Factor§! for §H$tnk_broken_mojave_dynamic_modifier$§! by [?tnk_broken_mojave_consumer_goods_factor_var_change|-%] (Current: [?tnk_broken_mojave_consumer_goods_factor_var|-%])"
  tnk_broken_mojave_resistance_activity_var_tt:0 "Modifies §H£GFX_legitimacy Resistance Activity§! for §H$tnk_broken_mojave_dynamic_modifier$§! by [?tnk_broken_mojave_resistance_activity_var_change|-%] (Current: [?tnk_broken_mojave_resistance_activity_var|-%])"

@@ -2062,25 +2062,46 @@ focus_tree = {
 				tooltip = tnkd_new_mojave_6_tt
 				AND = {
 					47 = {
-						compliance > 30
+						OR = {
+							is_core_of = TNK
+							compliance > 30
+						}
 					}
 					67 = {
-						compliance > 30
+						OR = {
+							is_core_of = TNK
+							compliance > 30
+						}
 					}
 					137 = {
-						compliance > 30
+						OR = {
+							is_core_of = TNK
+							compliance > 30
+						}
 					}
 					417 = {
-						compliance > 30
+						OR = {
+							is_core_of = TNK
+							compliance > 30
+						}
 					}
 					46 = {
-						compliance > 30
+						OR = {
+							is_core_of = TNK
+							compliance > 30
+						}
 					}
 					573 = {
-						compliance > 30
+						OR = {
+							is_core_of = TNK
+							compliance > 30
+						}
 					}
 					552 = {
-						compliance > 30
+						OR = {
+							is_core_of = TNK
+							compliance > 30
+						}
 					}
 				}
 			}

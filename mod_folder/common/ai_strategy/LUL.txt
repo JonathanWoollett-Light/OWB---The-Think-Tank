@@ -1,0 +1,152 @@
+# The Lunar Legion AI behaviour.
+#
+# Goal: a turtley ghoul nation that mass-produces cheap ghoul/militia divisions,
+# walls up its holds and works through its focus tree (common/ai_strategy_plans/LUL.txt).
+# The divisions it builds are defined in common/ai_templates/templates_LUL.txt.
+
+# ---------------------------------------------------------------------------
+# Production: spam ghoul legions.
+# ---------------------------------------------------------------------------
+LUL_build_ghoul_army = {
+	allowed = {
+		original_tag = LUL
+	}
+	enable = { always = yes }
+	abort = { always = no }
+
+	# Build our unique ghoul/militia mainline (templates_LUL.txt).
+	ai_strategy = {
+		type = role_ratio
+		id = unique_mainline
+		value = 1000
+	}
+
+	# Cancel the generic human infantry/marines the base game pushes onto every
+	# nation - the Legion fields ghouls and militia, not standard troopers.
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = -500
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = marines
+		value = -500
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = mountaineers
+		value = -500
+	}
+
+	# Keep recruiting. Militia/ghouls are cheap, and the Legion's focuses hand it
+	# large manpower injections, so let it swarm.
+	ai_strategy = {
+		type = force_build_armies
+		value = 25
+	}
+}
+
+LUL_build_more_when_at_war = {
+	allowed = {
+		original_tag = LUL
+	}
+	enable = {
+		has_war = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = force_build_armies
+		value = 25
+	}
+	ai_strategy = {
+		type = added_military_to_civilian_factory_ratio
+		value = 40
+	}
+}
+
+# ---------------------------------------------------------------------------
+# Economy: a little industry, then war production.
+# ---------------------------------------------------------------------------
+LUL_build_industry_early = {
+	allowed = {
+		original_tag = LUL
+	}
+	enable = {
+		num_of_civilian_factories < 24
+		date < 2277.1.1
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = building_target
+		id = industrial_complex
+		value = 24
+	}
+}
+
+LUL_keep_some_mils_coming = {
+	allowed = {
+		original_tag = LUL
+	}
+	enable = {
+		num_of_civilian_factories_available_for_projects > 10
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = added_military_to_civilian_factory_ratio
+		value = 30
+	}
+}
+
+# ---------------------------------------------------------------------------
+# Turtle: hold the line, fortify, don't over-extend.
+# ---------------------------------------------------------------------------
+LUL_fortify = {
+	allowed = {
+		original_tag = LUL
+	}
+	enable = { always = yes }
+	abort = { always = no }
+
+	ai_strategy = {
+		type = building_target
+		id = bunker
+		value = 6
+	}
+}
+
+LUL_defensive_posture = {
+	allowed = {
+		original_tag = LUL
+	}
+	enable = { always = yes }
+	abort = { always = no }
+
+	# Defend fronts patiently rather than throwing the holds' legions away.
+	ai_strategy = {
+		type = front_control
+		country_trigger = { always = yes }
+		ordertype = front
+		execution_type = careful
+		execute_order = yes
+		manual_attack = no
+		priority = 50
+	}
+}
+
+LUL_concentrate_on_home = {
+	allowed = {
+		original_tag = LUL
+	}
+	enable = { always = yes }
+	abort = { always = no }
+
+	ai_strategy = { type = area_priority id = new_vegas              value = 100 }
+	ai_strategy = { type = area_priority id = nevada                 value = 90  }
+	ai_strategy = { type = area_priority id = arizona_sonora         value = 50  }
+	ai_strategy = { type = area_priority id = utah                   value = 50  }
+	ai_strategy = { type = area_priority id = out_of_bounds          value = 1   }
+}

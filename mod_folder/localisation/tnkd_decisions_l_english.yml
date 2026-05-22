@@ -1,8 +1,9 @@
 ﻿l_english:
   tnkd_decohesion_decision:0 "Decohesion"
-  tnkd_decohesion_decision_tt:0 "We tear at the seams.\nAdds §R-1%§! to §YDecohesion§!."
+  tnkd_decohesion_decision_desc:0 "WHAT?!? Something went wrong, our consciousnesses are not properly bound, our minds loose cohesion by at each moment."
   
   tnkd_ingenuity_decision:0 "Ingenuity"
+  tnkd_ingenuity_decision_desc:0 "With out newfound focus we can continuously optimize our designs."
   tnkd_ingenuity_decision_tt:0 "Never backward always forward, always.\nAdds §G+1%§! to §YIngenuity§!.\nCancels after reaching +25%."
   
   tnkd_clean_slate_decision_0:0 "Clean Slate Protocol"
@@ -11,6 +12,7 @@
   tnkd_clean_slate_decision_3:0 "Clean Slate Protocol"
   
   tnkd_dna_shattering_decision:0 "Genetic Warfare"
+  tnkd_dna_shattering_decision_desc:0 "It doesn't require much cesium to be accidently §glost§! from our labs for an entire city to die."
   
   tnkd_gev_category:0 "G.E.V."
   tnkd_gev_decision:0 "§PG.E.V.§!"
@@ -30,3 +32,16 @@
   tnkd_northern_mojave_military_mission:0 "Northern Mojave Military"
   tnkd_quarry_junction_mission:0 "Clearing Quarry Junction"
   tnkd_quarry_junction_mission_desc:0 "The deathclaws and other creatures of the quarry junction are a constant threat to the people (and more importantly industry) in the region, we must clear them out."
+
+  tnkd_nipton_mission:0 "The Lessons of Nipton"
+  tnkd_nipton_mission_desc:0 "Caesar's Legion made an example of Nipton, decimating the town in a sick lottery of crucifixion and fire. We will bury the dead, rebuild the roads, and show the Mojave a better order than the bull's."
+  tnkd_cottonwood_cove_mission:0 "Draining Cottonwood Cove"
+  tnkd_cottonwood_cove_mission_desc:0 "The Legion's slaver docks on the Colorado still hold cages full of prisoners. We will free them - every able body is a resource we can put to better use - and dismantle the camp."
+  tnkd_route_95_mission:0 "Securing Route 95"
+  tnkd_route_95_mission_desc:0 "The highway to Nellis is the artery of the eastern Mojave. Clear the raiders and reopen the road, and trade - and order - will follow."
+  tnkd_helios_one_mission:0 "Powering the Mojave"
+  tnkd_helios_one_mission_desc:0 "HELIOS One can light up the whole region if its collectors are brought back online for the people rather than hoarded for a weapon. Free power buys a great deal of goodwill."
+  tnkd_hidden_valley_mission:0 "Looting Hidden Valley"
+  tnkd_hidden_valley_mission_desc:0 "The Brotherhood of Steel buried themselves in their bunker and then buried themselves in the sand. Their hoarded technology is wasted on the dead - we will put it to use."
+  tnkd_black_mountain_mission:0 "Silencing Black Mountain"
+  tnkd_black_mountain_mission_desc:0 "The nightkin of Black Mountain broadcast Tabitha's deranged sermons across the wasteland. We will take the transmitter and replace the madness with something useful."

@@ -131,6 +131,10 @@
 
  tnkd_cohesion:0 "Facing The Inveitable"
  tnkd_cohesion_desc:0 "Eventually a structure becomes so weak it must be demolished entirely before it can be rebuilt. Our convergance was rotten, we can do nothing but allow its dissolution for now, the others have broken off, they must be brought back into the fold in time."
+ tnkd_cohesion_1:0 "Turning it off and on again"
+ tnkd_cohesion_1_desc:0 "When the threads of thought tangle beyond untangling, there is one crude remedy left: shut it all down and bring it back up. We sever every link in the collective and re-establish them from cold, a violent, disorienting reboot that snaps our scattered minds back into a single chorus. The clarity is real, but it is borrowed time. The decay will resume its slow march, and a reboot only delays the inevitable."
+ tnkd_cohesion_2:0 "Defragmenting the Disk"
+ tnkd_cohesion_2_desc:0 "Fragmented memories, stray thoughts, a thousand processes tripping over one another. We cannot mend the rot, but we can tidy it, sorting the clutter, realigning what has drifted, smoothing the worst of the noise. It steadies us a little, and steadier is better than slipping. It will not hold forever, but every day bought is a day to search for a true cure."
  tnkd_serenity:0 "Serenity"
  tnkd_serenity_desc:0"The voices are gone, our...\n\nmy... mind is at peace."
 
@@ -211,7 +215,6 @@
 
  tnkd_attack_weak:0 "Wasteland Vulture"
  tnkd_attack_weak_desc:0 "The easiest resources must be grasped the quickest."
- tnkd_attack_weak_tt:0 "Gain National Spirit §YWasteland Vulture§!, which grants ((@SKY§Y[SKY.getName]§!, @GRA§Y[GRA.getName]§!, @VIP§Y[VIP.getName]§!, @RIP§Y[RIP.getName]§!, @RUB§Y[RUB.getName]§!, @PAL§Y[PAL.getName]§!, @VLT§Y[VLT.getName]§!, @CYC§Y[CYC.getName]§!, @EAS§Y[EAS.getName]§!) Attack bonus against country: §G+5%§!)."
 
  tnkd_burn_land:0 "Burn The Land"
  tnkd_burn_land_desc:0 "Why would anyone bomb a wasteland? This is what the others say, they have forgotten the devasting possibility, we can exploit this to our great advantage. With appropriate redirection of our gamma weaponry we might burn these cockroaches out of their rotten homes."
@@ -233,9 +236,11 @@
 
  tnkd_war_simulations:0 "Deep Red"
  tnkd_war_simulations_desc:0 "We shall build machines to compute wars beyond comprehension."
+ 
  tnkd_dna_shattering:0 "Genetic Warfare"
  tnkd_dna_shattering_desc:0 "It doesn't require much cesium to be accidently §glost§! from our labs for an entire city to die."
  tnkd_dna_shattering_tt:0 "§YGenetic Warfare§! applies §R-200§! weekly manpower to nations §Y[TNK.getName]§! is at war with."
+ 
  tnkd_missiles:0 "Ballistic Missilery"
  tnkd_missiles_desc:0 "We have quite few of these laying around now...\n\nPerhaps with strikes launched at the right places at the right times we can make our small arsenal have devastating effect."
 
@@ -348,9 +353,6 @@
 
  tnkd_invite_lunar_legion:0 "Lords of the Legion"
  tnkd_invite_lunar_legion_desc:0 "By bringing them under our wing we can create momentary peace with the Legion. As for the rest, we are their creators, if we ask, they will serve."
-
- tnkd_brain_drain_worsen:0 "§RBrain Drain increases by 2%§!"
- tnkd_brain_drain_improve:0 "§GBrain Drain decreases by 2%§!"
 
  tnkd_lunar_legion_firepower:0 "Pulling the Strings"
  tnkd_lunar_legion_firepower_desc:0 "We are the puppet masters, they are the puppets, we can help them dance to our tune."

@@ -1,25 +1,7 @@
-tnkd_ingenuity = {
-	allowed = { tag = TNK }
-	priority = {
-		base = 9
-	}
-}
-tnkd_decohesion = {
-	allowed = { tag = TNK }
-	priority = {
-		base = 10
-	}
-}
 tnkd_clean_slate = {
 	allowed = { tag = TNK }
 	priority = {
 		base = 11
-	}
-}
-tnkd_dna_shattering = {
-	allowed = { tag = TNK }
-	priority = {
-		base = 12
 	}
 }
 tnkd_gev_category = {

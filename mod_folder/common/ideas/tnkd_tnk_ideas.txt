@@ -316,41 +316,8 @@ ideas = {
 				always = no
 			}
 			removal_cost = -1
-			targeted_modifier = {
-				tag = SKY
-				attack_bonus_against = 0.05
-			}
-			targeted_modifier = {
-				tag = GRA
-				attack_bonus_against = 0.05
-			}
-			targeted_modifier = {
-				tag = VIP
-				attack_bonus_against = 0.05
-			}
-			targeted_modifier = {
-				tag = RIP
-				attack_bonus_against = 0.05
-			}
-			targeted_modifier = {
-				tag = RUB
-				attack_bonus_against = 0.05
-			}
-			targeted_modifier = {
-				tag = PAL
-				attack_bonus_against = 0.05
-			}
-			targeted_modifier = {
-				tag = VLT
-				attack_bonus_against = 0.05
-			}
-			targeted_modifier = {
-				tag = CYC
-				attack_bonus_against = 0.05
-			}
-			targeted_modifier = {
-				tag = EAS
-				attack_bonus_against = 0.05
+			modifier = {
+				equipment_capture_factor = 0.25
 			}
 		}
 		tnkd_burn_land = {
@@ -390,17 +357,6 @@ ideas = {
 				breakthrough_factor = 0.2
 			}
 		}
-		tnkd_fractured_mind = {
-            allowed = {
-                always = no
-            }
-
-            removal_cost = -1
-            modifier = {
-				stability_factor = -0.3
-				army_org_factor = -0.3
-            }
-        }
 		tnkd_expertise = {
 			allowed = {
 				always = no

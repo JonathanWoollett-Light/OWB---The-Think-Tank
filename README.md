@@ -8,7 +8,15 @@
 ## Update process
 
 1. Get [WinMerge](https://winmerge.org/)
-2. Go through every file in the mod and compare to OWB files, resoling conflicts.
+2. Go through every file in the mod and compare to OWB files, updating mod files.
+   Don't worry about being too thorough here, just check every file for obvious easy things to
+   update, smaller thhings can be fixed in play testing.
+  1. Set 1st folder as `C:\Program Files (x86)\Steam\steamapps\workshop\content\394360\2265420196\`
+  2. Set 2nd folder as `tnkd\mod_folder\tnkd\`
+  3. Untick `View > Show Left Unique Items`.
+  4. **Optional:** Right click each item, and click `Hide Item` as you go through them to keep track of progress.
+  5. **Optional:** If you need to move a file, copy the contents, delete the old file, create the new file in the mod, then right click and `Refresh Selected` the subdirectory with the file in winmerge.
+  6. Delete the `.bak` files after.
 3. Play game to test.
 4. Done.
 
@@ -17,26 +25,22 @@
 ### Very High Priority
 
 - add decisions to buff popularity of each political party (probably lock them behind some focuses).
-- "reunification" and "give an inch?" should require tnk owns land, not just controls it
-- when AI controls think tank make it a mid-late game crisis
 - need to do another playthrough to re-balance things
 - balance `tnkd_next_steps` stability and war support requirements so they are difficult to meet and take some time and focus to get
 - focus icons for attacking tar walkers and ouroboros are duplicated and wrong. Fix this.
-- lul seems to never train new units likely bug in base mod
+- tnk and lul when ai controlled seem to never train new units likely bug in base mod, this should be fixed in recent update, test this.
 
 ### High Priority
 
 - add focuses that give civ/mils in capital (maybe some missions that allow economic raids with neighbours to steal civs/mils)
 - re-industrializing the Mojave should be similar to convergance in that it should be a mission and various events that give buffs.
 - balance robo-scorpions and other units so think tank is forced to have a varied army e.g. also using infantry (lobotomites).
-- When NCR/CES refuses/accepts to return land it should trigger an event that communicates this rather than the affect happening silently (e.g. they could refuse and someone doesn't notice the border war mission is now avaible).
 
 ### Medium Priority
 
 - add these guns https://fallout.fandom.com/wiki/Category:Old_World_Blues_weapons
 - change convergance to be a decision category with a bunch of missions that spawn negative events related to the convergance (e.g. lobotomites escapes, robots self destruct, factories deconstructs itself, etc.) to give a more impactful feeling of things falling apart.
 - allow same usage of archimedes as Mojave Chapter has
-- the fixing mojave focuses should be about specific states instead of the whole
 - G.E.V should have a nice decision category image
 - the carrot focus should trigger an event for each neighbour where we can decide if we want to give them the offer (it doesn't make sense to give an evil faction the offer)
 - update ncr and ces peace deal decisions to instead be missions which start when capturing capitols then when timing out trigger the peace deal event (where you choose if peace)
@@ -54,7 +58,6 @@
   - Always beats Mojave Brotherhood
   - Spawn with more units
   - Code AI path through focus tree
-  - Possibly give AI buffs not given to players
 - add a blowing up the hoover damn decisions/focus (bc whole point is for the think tank is that they fck around and find out)
 - add decisions that allow temporarily occupying territory for expeditions without declaring war
 - add more NCR/CES targeted buffs for TNK to help win but not be op

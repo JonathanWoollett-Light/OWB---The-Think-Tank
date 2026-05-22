@@ -1,5 +1,5 @@
 tnk_decohesion_dynamic_modifier = {
-	icon = GFX_idea_EDN_unprepared
+	icon = GFX_idea_tnkd_fractured_mind
 	stability_factor = tnk_decohesion_stability_var
     army_org_factor = tnk_decohesion_org_var
 }

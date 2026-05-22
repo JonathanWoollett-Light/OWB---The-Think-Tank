@@ -48,15 +48,11 @@ script_enum_equipment_category = {
 	naval_bomber
 	missile
 	emplacement_gun_ammo
-	ballistic_missile
-	nuclear_missile
-	sam_missile
 	suicide
 	scout_plane
 	maritime_patrol_plane
 	air_transport
 	carrier
-	missile_launcher
 	support
 	amphibious
 	anti_air
@@ -65,11 +61,11 @@ script_enum_equipment_category = {
 	rocket
 	flame
 	land_cruiser
-	emplacement_gun_ammo
 	ballistic_missile
 	nuclear_missile
 	sam_missile
 	missile_launcher
+	support_ship
 }
 
 script_enum_equipment_bonus_type = {
@@ -108,6 +104,7 @@ script_enum_equipment_bonus_type = {
 	screen_ship
 	carrier
 	capital_ship
+	support_ship
 
 	## OWB equipment
 	security_robot_equipment
@@ -129,7 +126,6 @@ script_enum_equipment_bonus_type = {
 	chariot_equipment
 	infantry
 	mechanized
-	radroach_equipment
 	super_heavy_robot_equipment
 	car_fighter_equipment
 	hev_fighter_equipment
@@ -144,12 +140,20 @@ script_enum_equipment_bonus_type = {
 	ship_hull_medium
 	cnc_robot_equipment
 	behemoth_equipment
-	mirelurk_equipment
+	burrowing_beast_equipment
+	amphibious_beast_equipment
+	insect_equipment
+	deathclaw_equipment
+	deathclaw_special_equipment
+	feral_ghoul_equipment
+	beast_creature_equipment
+	gecko_creature_equipment
 	skate_equipment
 	ground_blimp_equipment
 	cheap_blimp_equipment
 	long_strategic_bomber_equipment
 	nav_strategic_bomber_equipment
+	railway_gun_equipment
 
 	train
 	floating_harbor
@@ -337,19 +341,15 @@ script_enum_equipment_bonus_type = {
 	gauss_equipment_2
 	plasma_equipment_1
 	plasma_equipment_2
-	mirelurk_equipment_1
-	molerat_equipment
-	molerat_equipment_1
 	monster_equipment
 	gehenna_molech_equipment
-	radroach_equipment_1
 	power_armor_equipment_0
 	power_armor_equipment_1
 	power_armor_equipment_2
 	power_armor_equipment_3
 	power_armor_equipment_3_light
 	power_armor_equipment_4
-	power_armor_equipment_4_light
+	#power_armor_equipment_4_light
 	power_armor_equipment_5
 	power_armor_equipment_tbh
 	power_armor_equipment_midwest
@@ -410,6 +410,49 @@ script_enum_equipment_bonus_type = {
 	drug_equipment_coffee_2
 	supply_equipment
 	supply_equipment_1
+	amphibious_beast_equipment_1
+	amphibious_beast_equipment_2
+	amphibious_beast_equipment_armor
+	amphibious_beast_equipment_king
+	beast_creature_equipment_1
+	beast_creature_equipment_2
+	beast_creature_equipment_heavy
+	beast_creature_equipment_dusky
+	beast_creature_equipment_stalker
+	beast_creature_equipment_cloaked
+	gecko_creature_equipment_1
+	gecko_creature_equipment_2
+	gecko_creature_equipment_fire
+	gecko_creature_equipment_green
+	burrowing_beast_equipment_1
+	burrowing_beast_equipment_2
+	burrowing_beast_equipment_glowing
+	burrowing_beast_equipment_brood
+	deathclaw_equipment_1
+	deathclaw_equipment_2
+	deathclaw_equipment_3
+	deathclaw_special_equipment_1
+	deathclaw_special_equipment_2
+	feral_ghoul_equipment_1
+	feral_ghoul_equipment_2
+	feral_ghoul_equipment_armored
+	feral_ghoul_equipment_glowing
+	insect_equipment_1
+	insect_equipment_2
+	insect_equipment_3
+	railway_gun_equipment_1
+	railway_gun_equipment_2
+	railway_gun_equipment_3
+	railway_gun_equipment_4
+	ballistic_missile_equipment
+	ballistic_missile_equipment_1
+	ballistic_missile_equipment_2
+	ballistic_missile_equipment_3
+	nuclear_missile_equipment
+	nuclear_missile_equipment_1
+	nuclear_missile_equipment_2
+	explosive_ammo_equipment
+	explosive_ammo_equipment_1
 
 }
 
@@ -486,6 +529,9 @@ script_enum_equipment_stat = {
 	fuel_consumption_factor
 	strategic_attack
 	carrier_size
+	submarine_carrier_size
+	carrier_surface_detection
+	carrier_sub_detection
 	acclimatization_hot_climate_gain_factor			#Cannot be used with MIOS
 	acclimatization_cold_climate_gain_factor		#Cannot be used with MIOS
 	night_penalty				#Cannot be used with MIOS

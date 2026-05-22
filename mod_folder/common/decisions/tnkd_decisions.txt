@@ -1,52 +1,3 @@
-tnkd_ingenuity = {
-    tnkd_ingenuity_decision = {
-        icon = GFX_decision_generic_scorched_earth
-        priority = 1000
-        allowed = { tag = TNK }
-        activation = { always = no }
-        available = { hidden_trigger = { always = no } }
-        fixed_random_seed = no
-        is_good = yes
-        days_mission_timeout = 20
-        timeout_effect = {
-            if = {
-                limit = {
-                    check_variable = { tnk_ingenuity_attack_buff_var < 0.48 }
-                }
-                hidden_effect = {
-                    activate_mission = tnkd_ingenuity_decision
-                }
-            }
-            
-            add_to_variable = { tnk_ingenuity_attack_buff_var = 0.02 }
-            add_to_variable = { tnk_ingenuity_defence_buff_var = 0.01 }
-            add_to_variable = { tnk_ingenuity_cost_var = 0.12 }
-            custom_effect_tooltip = tnkd_ingenuity_decision_tt
-        }
-    }
-}
-
-tnkd_decohesion = {
-    tnkd_decohesion_decision = {
-        icon = GFX_decision_generic_scorched_earth
-        priority = 1000
-        allowed = { tag = TNK }
-        activation = { always = no }
-        available = { hidden_trigger = { always = no } }
-        fixed_random_seed = no
-        is_good = no
-        days_mission_timeout = 20
-        timeout_effect = {
-            hidden_effect = {
-                activate_mission = tnkd_decohesion_decision
-            }
-            subtract_from_variable = { tnk_decohesion_stability_var = 0.02 }
-            subtract_from_variable = { tnk_decohesion_org_var = 0.01 }
-            custom_effect_tooltip = tnkd_decohesion_decision_tt
-        }
-    }
-}
-
 tnkd_clean_slate = {
     tnkd_clean_slate_decision_0 = {
         icon = GFX_decision_generic_scorched_earth
@@ -166,30 +117,6 @@ tnkd_clean_slate = {
     }
 }
 
-tnkd_dna_shattering = {
-    tnkd_dna_shattering_decision = {
-        icon = GFX_decision_generic_scorched_earth
-        priority = 1000
-        allowed = { tag = TNK }
-        activation = { always = no }
-        available = { hidden_trigger = { always = no } }
-        fixed_random_seed = no
-        is_good = yes
-        days_mission_timeout = 7
-        timeout_effect = {
-            hidden_effect = {
-                activate_mission = tnkd_dna_shattering_decision
-            }
-            every_country = {
-                limit = {
-                    has_war_with = TNK
-                }
-                add_manpower = -200
-            }
-        }
-    }
-}
-
 tnkd_gev_category = {
     tnkd_gev_decision = {
         icon = GFX_decision_generic_scorched_earth
@@ -237,6 +164,11 @@ tnkd_ncr_category = {
     tnkd_ncr_border_war_decision = {
         icon = generic_prepare_civil_war
         allowed = { tag = TNK }
+        highlight_states = {
+            highlight_states_trigger = {
+                state = 77 # contested NCR border state
+            }
+        }
         visible = {
             NCR = {
                 owns_state = 77
@@ -272,6 +204,19 @@ tnkd_ncr_category = {
         }
     }
     tnkd_ncr_deal_decision = {
+        highlight_states = {
+            highlight_states_trigger = {
+                OR = {
+                    state = 47
+                    state = 67
+                    state = 46
+                    state = 137
+                    state = 417
+                    state = 552
+                    state = 573
+                }
+            }
+        }
         allowed = { tag = TNK }
         visible = {
             has_active_mission = tnkd_ncr_war_mission
@@ -477,6 +422,19 @@ tnkd_ncr_category = {
         }
     }
     tnkd_ncr_treaty_decision = {
+        highlight_states = {
+            highlight_states_trigger = {
+                OR = {
+                    state = 13
+                    state = 77
+                    state = 236
+                    state = 271
+                    state = 329
+                    state = 592
+                    state = 603
+                }
+            }
+        }
         icon = GFX_decision_papers
         allowed = { tag = TNK }
         visible = {
@@ -558,6 +516,11 @@ tnkd_ncr_category = {
     }
     tnkd_ncr_lobot_decision = {
         allowed = { tag = TNK }
+        highlight_states = {
+            highlight_states_trigger = {
+                state = 253 # Shady Sands
+            }
+        }
         available = {
             has_completed_focus = tnkd_lobotomize_shady_sands
             253 = {
@@ -567,6 +530,10 @@ tnkd_ncr_category = {
         cost = 60
         days_remove = 30
         fire_only_once = yes
+        # One-off manpower windfall (+10k) - the AI should always cash it in.
+        ai_will_do = {
+            base = 100
+        }
         complete_effect = {
             253 = {
                 set_temp_variable = { pop_add = -20000 }
@@ -585,6 +552,11 @@ tnkd_ces_category = {
     tnkd_ces_border_war_decision = {
         icon = generic_prepare_civil_war
         allowed = { tag = TNK }
+        highlight_states = {
+            highlight_states_trigger = {
+                state = 438 # contested CES border state
+            }
+        }
         visible = {
             CES = {
                 owns_state = 438
@@ -620,6 +592,19 @@ tnkd_ces_category = {
         }
     }
     tnkd_ces_deal_decision = {
+        highlight_states = {
+            highlight_states_trigger = {
+                OR = {
+                    state = 47
+                    state = 67
+                    state = 46
+                    state = 137
+                    state = 417
+                    state = 552
+                    state = 573
+                }
+            }
+        }
         allowed = { tag = TNK }
         visible = {
             has_active_mission = tnkd_ces_war_mission
@@ -825,6 +810,17 @@ tnkd_ces_category = {
         }
     }
     tnkd_ces_treaty_mission = {
+        highlight_states = {
+            highlight_states_trigger = {
+                OR = {
+                    state = 1524
+                    state = 130
+                    state = 438
+                    state = 553
+                    state = 359
+                }
+            }
+        }
         icon = GFX_decision_papers
         allowed = { tag = TNK }
         available = {
@@ -865,14 +861,6 @@ tnkd_ces_category = {
             if = {
                 limit = {
                     CES = {
-                        owns_state = 359
-                    }
-                }
-                transfer_state = 359
-            }
-            if = {
-                limit = {
-                    CES = {
                         owns_state = 130
                     }
                 }
@@ -881,23 +869,28 @@ tnkd_ces_category = {
             if = {
                 limit = {
                     CES = {
-                        owns_state = 49
+                        owns_state = 1524
                     }
                 }
-                transfer_state = 49
+                transfer_state = 1524
             }
             if = {
                 limit = {
                     CES = {
-                        owns_state = 242
+                        owns_state = 359
                     }
                 }
-                transfer_state = 242
+                transfer_state = 359
             }
         }
     }
     tnkd_ces_lobot_mission = {
         allowed = { tag = TNK }
+        highlight_states = {
+            highlight_states_trigger = {
+                state = 520 # Flagstaff
+            }
+        }
         available = {
             has_completed_focus = tnkd_lobotomize_flagstaff
             520 = {
@@ -907,6 +900,10 @@ tnkd_ces_category = {
         cost = 60
         days_remove = 30
         fire_only_once = yes
+        # One-off manpower windfall (+10k) - the AI should always cash it in.
+        ai_will_do = {
+            base = 100
+        }
         complete_effect = {
             520 = {
                 set_temp_variable = { pop_add = -20000 }
@@ -922,9 +919,79 @@ tnkd_ces_category = {
 }
 
 tnkd_minor_category = {
+    tnkd_decohesion_decision = {
+        icon = GFX_decision_generic_scorched_earth
+        priority = 2000
+        allowed = { tag = TNK }
+        activation = { always = no }
+        available = { hidden_trigger = { always = no } }
+        fixed_random_seed = no
+        is_good = no
+        days_mission_timeout = 10
+        timeout_effect = {
+            hidden_effect = {
+                activate_mission = tnkd_decohesion_decision
+            }
+            set_temp_variable = { tnk_decohesion_stability_var_change = -0.02 }
+            update_tnk_decohesion_stability_var = yes
+            set_temp_variable = { tnk_decohesion_org_var_change = -0.01 }
+            update_tnk_decohesion_org_var = yes
+        }
+    }
+    tnkd_ingenuity_decision = {
+        icon = GFX_decision_generic_scorched_earth
+        priority = 1000
+        allowed = { tag = TNK }
+        activation = { always = no }
+        available = { hidden_trigger = { always = no } }
+        fixed_random_seed = no
+        is_good = yes
+        days_mission_timeout = 20
+        timeout_effect = {
+            if = {
+                limit = {
+                    check_variable = { tnk_ingenuity_attack_buff_var < 0.48 }
+                }
+                hidden_effect = {
+                    activate_mission = tnkd_ingenuity_decision
+                }
+            }
+            
+            add_to_variable = { tnk_ingenuity_attack_buff_var = 0.02 }
+            add_to_variable = { tnk_ingenuity_defence_buff_var = 0.01 }
+            add_to_variable = { tnk_ingenuity_cost_var = 0.12 }
+            custom_effect_tooltip = tnkd_ingenuity_decision_tt
+        }
+    }
+    tnkd_dna_shattering_decision = {
+        icon = GFX_decision_generic_scorched_earth
+        priority = 1000
+        allowed = { tag = TNK }
+        activation = { always = no }
+        available = { hidden_trigger = { always = no } }
+        fixed_random_seed = no
+        is_good = yes
+        days_mission_timeout = 7
+        timeout_effect = {
+            hidden_effect = {
+                activate_mission = tnkd_dna_shattering_decision
+            }
+            every_country = {
+                limit = {
+                    has_war_with = TNK
+                }
+                add_manpower = -200
+            }
+        }
+    }
     tnkd_sky_border_war_mission = {
         icon = generic_prepare_civil_war
         allowed = { tag = TNK }
+        highlight_states = {
+            highlight_states_trigger = {
+                state = 12 # contested Sky Reavers border state
+            }
+        }
         visible = {
             SKY = {
                 owns_state = 12
@@ -961,6 +1028,11 @@ tnkd_minor_category = {
     tnkd_wht_border_war_mission = {
         icon = generic_prepare_civil_war
         allowed = { tag = TNK }
+        highlight_states = {
+            highlight_states_trigger = {
+                state = 72 # contested White Legs border state
+            }
+        }
         visible = {
             WHT = {
                 owns_state = 72
@@ -1028,6 +1100,30 @@ tnkd_minor_category = {
                 any_controlled_state = {
                     state_population > 1000
                 }
+            }
+        }
+        # The AI harvests lobotomites for manpower whenever its reserve runs thin,
+        # so the army never stalls for lack of bodies. The lower it gets, the more
+        # eager it is; once it is swimming in manpower it leaves the population
+        # (and compliance / angels of death) alone.
+        ai_will_do = {
+            base = 0
+            modifier = {
+                add = 150
+                has_manpower < 10000
+            }
+            modifier = {
+                add = 250
+                has_manpower < 4000
+            }
+            modifier = {
+                add = 100
+                has_war = yes
+                has_manpower < 15000
+            }
+            modifier = {
+                factor = 0
+                has_manpower > 20000
             }
         }
         cost = 15
@@ -1269,9 +1365,19 @@ tnkd_minor_category = {
 }
 
 tnkd_mojave_category = {
+    # --------------------------------------------------------------------------
+    # Mojave stabilisation missions - secure famous Mojave landmarks to win over
+    # the locals (each is one-off and raises broken-Mojave compliance gain by +0.05).
+    # --------------------------------------------------------------------------
     tnkd_quarry_junction_mission = {
+        icon = generic_prepare_civil_war
         priority = 1000
         allowed = { tag = TNK }
+        highlight_states = {
+            highlight_states_trigger = {
+                state = 552 # Quarry Junction
+            }
+        }
         visible = { has_completed_focus = tnkd_new_mojave }
         available = {
             has_manpower > 500
@@ -1282,6 +1388,7 @@ tnkd_mojave_category = {
         }
         cost = 30
         days_remove = 30
+        fire_only_once = yes
         complete_effect = {
             add_manpower = -500
             add_equipment_to_stockpile = {
@@ -1313,6 +1420,213 @@ tnkd_mojave_category = {
                     province = 9067
                 }
             }
+            # Securing the deathclaw-infested quarry reassures the Mojave.
+            set_temp_variable = { tnk_broken_mojave_compliance_gain_var_change = 0.05 }
+            update_tnk_broken_mojave_compliance_gain_var = yes
+        }
+    }
+    
+    tnkd_nipton_mission = {
+        icon = generic_prepare_civil_war
+        priority = 1000
+        allowed = { tag = TNK }
+        highlight_states = {
+            highlight_states_trigger = {
+                state = 47 # Nipton
+            }
+        }
+        visible = { has_completed_focus = tnkd_new_mojave }
+        available = {
+            has_manpower > 250
+            controls_state = 47
+        }
+        cost = 30
+        days_remove = 30
+        fire_only_once = yes
+        complete_effect = {
+            add_manpower = -250
+        }
+        remove_effect = {
+            47 = {
+                add_building_construction = {
+                    type = infrastructure
+                    level = 2
+                    instant_build = yes
+                }
+            }
+            add_stability = 0.02
+            # Burying the Legion's lottery victims earns the Mojave's trust.
+            set_temp_variable = { tnk_broken_mojave_compliance_gain_var_change = 0.05 }
+            update_tnk_broken_mojave_compliance_gain_var = yes
+        }
+    }
+    tnkd_cottonwood_cove_mission = {
+        icon = generic_prepare_civil_war
+        priority = 1000
+        allowed = { tag = TNK }
+        highlight_states = {
+            highlight_states_trigger = {
+                state = 67 # Cottonwood Cove
+            }
+        }
+        visible = { has_completed_focus = tnkd_new_mojave }
+        available = {
+            has_manpower > 250
+            controls_state = 67
+        }
+        cost = 30
+        days_remove = 30
+        fire_only_once = yes
+        complete_effect = {
+            add_manpower = -250
+        }
+        remove_effect = {
+            # Free the Legion's slaves at the river camp - bodies for the cause.
+            add_manpower = 2000
+            67 = {
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build = yes
+                }
+            }
+            set_temp_variable = { tnk_broken_mojave_compliance_gain_var_change = 0.05 }
+            update_tnk_broken_mojave_compliance_gain_var = yes
+        }
+    }
+    tnkd_route_95_mission = {
+        icon = generic_prepare_civil_war
+        priority = 1000
+        allowed = { tag = TNK }
+        highlight_states = {
+            highlight_states_trigger = {
+                state = 137 # Route 95
+            }
+        }
+        visible = { has_completed_focus = tnkd_new_mojave }
+        available = {
+            has_manpower > 250
+            controls_state = 137
+        }
+        cost = 30
+        days_remove = 30
+        fire_only_once = yes
+        complete_effect = {
+            add_manpower = -250
+        }
+        remove_effect = {
+            137 = {
+                add_building_construction = {
+                    type = infrastructure
+                    level = 3
+                    instant_build = yes
+                }
+            }
+            # Reopening the highway to Nellis steadies the region.
+            set_temp_variable = { tnk_broken_mojave_compliance_gain_var_change = 0.05 }
+            update_tnk_broken_mojave_compliance_gain_var = yes
+        }
+    }
+    tnkd_helios_one_mission = {
+        icon = generic_prepare_civil_war
+        priority = 1000
+        allowed = { tag = TNK }
+        highlight_states = {
+            highlight_states_trigger = {
+                state = 417 # HELIOS One
+            }
+        }
+        visible = { has_completed_focus = tnkd_new_mojave }
+        available = {
+            has_manpower > 250
+            controls_state = 417
+        }
+        cost = 30
+        days_remove = 45
+        fire_only_once = yes
+        complete_effect = {
+            add_manpower = -250
+        }
+        remove_effect = {
+            417 = {
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 2
+                    instant_build = yes
+                }
+            }
+            # Free power from the solar plant keeps the lights on for the locals.
+            set_temp_variable = { tnk_broken_mojave_compliance_gain_var_change = 0.05 }
+            update_tnk_broken_mojave_compliance_gain_var = yes
+        }
+    }
+    tnkd_hidden_valley_mission = {
+        icon = generic_prepare_civil_war
+        priority = 1000
+        allowed = { tag = TNK }
+        highlight_states = {
+            highlight_states_trigger = {
+                state = 46 # Hidden Valley
+            }
+        }
+        visible = { has_completed_focus = tnkd_new_mojave }
+        available = {
+            has_manpower > 250
+            controls_state = 46
+        }
+        cost = 30
+        days_remove = 45
+        fire_only_once = yes
+        complete_effect = {
+            add_manpower = -250
+        }
+        remove_effect = {
+            # Strip the abandoned Brotherhood bunker of its tech.
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = 1000
+            }
+            add_tech_bonus = {
+                bonus = 0.5
+                uses = 1
+                category = robotics_tech_category
+            }
+            set_temp_variable = { tnk_broken_mojave_compliance_gain_var_change = 0.05 }
+            update_tnk_broken_mojave_compliance_gain_var = yes
+        }
+    }
+    tnkd_black_mountain_mission = {
+        icon = generic_prepare_civil_war
+        priority = 1000
+        allowed = { tag = TNK }
+        highlight_states = {
+            highlight_states_trigger = {
+                state = 573 # Black Mountain
+            }
+        }
+        visible = { has_completed_focus = tnkd_new_mojave }
+        available = {
+            has_manpower > 250
+            controls_state = 573
+        }
+        cost = 30
+        days_remove = 30
+        fire_only_once = yes
+        complete_effect = {
+            add_manpower = -250
+        }
+        remove_effect = {
+            # Take Black Mountain radio and silence the nightkin's ravings.
+            add_war_support = 0.03
+            573 = {
+                add_building_construction = {
+                    type = radar_station
+                    level = 2
+                    instant_build = yes
+                }
+            }
+            set_temp_variable = { tnk_broken_mojave_compliance_gain_var_change = 0.05 }
+            update_tnk_broken_mojave_compliance_gain_var = yes
         }
     }
     tnkd_offmap_industry_mission = {
@@ -1322,6 +1636,24 @@ tnkd_mojave_category = {
             has_manpower > 300
             any_controlled_state = {
                 industrial_complex > 0
+            }
+        }
+        # When the AI has no on-map building slots left for factories, it converts
+        # industry offsite to free a slot and keep the civilian build-up going.
+        # The manpower guard keeps this from starving division production.
+        ai_will_do = {
+            base = 0
+            modifier = {
+                add = 200
+                has_manpower > 1000
+                NOT = {
+                    any_controlled_state = {
+                        free_building_slots = {
+                            building = industrial_complex
+                            size > 0
+                        }
+                    }
+                }
             }
         }
         cost = 20
@@ -1372,73 +1704,6 @@ tnkd_mojave_category = {
             add_offsite_building = {
                 type = arms_factory
                 level = 1
-            }
-        }
-    }
-    tnkd_northern_mojave_industry_mission = {
-        allowed = { tag = TNK }
-        visible = { has_completed_focus = tnkd_new_mojave }
-        available = {
-            has_manpower > 200
-            any_controlled_state = {
-                AND = {
-                    industrial_complex < 2
-                    region = 3
-                }
-            }
-        }
-        cost = 10
-        days_remove = 20
-        complete_effect = {
-            add_manpower = -200
-            
-        }
-        remove_effect = {
-            random_controlled_state = {
-                limit = {
-                    AND = {
-                        industrial_complex < 3
-                        region = 3
-                    }
-                }
-                add_building_construction = {
-                    type = industrial_complex
-                    level = 1
-                    instant_build = yes 
-                }
-            }
-        }
-    }
-    tnkd_northern_mojave_military_mission = {
-        allowed = { tag = TNK }
-        visible = { has_completed_focus = tnkd_new_mojave }
-        available = {
-            has_manpower > 200
-            any_controlled_state = {
-                AND = {
-                    arms_factory < 3
-                    region = 3
-                }
-            }
-        }
-        cost = 10
-        days_remove = 20
-        complete_effect = {
-            add_manpower = -200
-        }
-        remove_effect = {
-            random_controlled_state = {
-                limit = {
-                    AND = {
-                        arms_factory < 3
-                        region = 3
-                    }
-                }
-                add_building_construction = {
-                    type = arms_factory
-                    level = 1
-                    instant_build = yes 
-                }
             }
         }
     }

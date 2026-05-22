@@ -85,9 +85,6 @@ focus_tree = {
 		}
 
 		relative_position_id = tnk_personality_restoration
-		ai_will_do = {
-			base = 20
-		}
 		completion_reward = {
 			activate_advisor = TNK_0_air_chief
             if = {
@@ -128,9 +125,6 @@ focus_tree = {
 		y = 1
 		prerequisite = {
 			focus = tnk_0
-		}
-		ai_will_do = {
-			base = 10
 		}
 		relative_position_id = tnk_0
 		will_lead_to_war_with = VEG
@@ -401,9 +395,6 @@ focus_tree = {
 		y = 1
 		prerequisite = {
 			focus = tnk_personality_restoration
-		}
-		ai_will_do = {
-			base = 20
 		}
 		relative_position_id = tnk_personality_restoration
 		completion_reward = {
@@ -710,9 +701,6 @@ focus_tree = {
 		prerequisite = {
 			focus = tnk_personality_restoration
 		}
-		ai_will_do = {
-			base = 20
-		}
 		relative_position_id = tnk_personality_restoration
 		completion_reward = {
 			activate_advisor = TNK_mobius_theorist
@@ -1005,9 +993,6 @@ focus_tree = {
 		y = 1
 		prerequisite = {
 			focus = tnk_personality_restoration
-		}
-		ai_will_do = {
-			base = 20
 		}
 		relative_position_id = tnk_personality_restoration
 		completion_reward = {
@@ -1310,9 +1295,6 @@ focus_tree = {
 		prerequisite = {
 			focus = tnk_personality_restoration
 		}
-		ai_will_do = {
-			base = 20
-		}
 		relative_position_id = tnk_personality_restoration
 		completion_reward = {
 			activate_advisor = TNK_dala_high_command
@@ -1538,9 +1520,6 @@ focus_tree = {
 		y = 1
 		prerequisite = {
 			focus = tnk_personality_restoration
-		}
-		ai_will_do = {
-			base = 20
 		}
 		relative_position_id = tnk_personality_restoration
 		completion_reward = {
@@ -1836,13 +1815,9 @@ focus_tree = {
 		prerequisite = {
 			focus = tnk_personality_restoration
 		}
-		ai_will_do = {
-			base = 10
-		}
 		relative_position_id = tnk_personality_restoration
 		completion_reward = {
 			custom_effect_tooltip = tnkd_new_mojave_tt_2
-			country_event = nf_tnk.62
 		}
 	}
 	focus = {
@@ -1904,9 +1879,6 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = tnkd_new_mojave
-		}
-		ai_will_do = {
-			base = 10
 		}
 		mutually_exclusive = {
 			focus = tnkd_new_mojave_1
@@ -2013,9 +1985,6 @@ focus_tree = {
 			focus = tnkd_new_mojave_1
 			focus = tnkd_new_mojave_2
 		}
-		ai_will_do = {
-			base = 10
-		}
 		relative_position_id = tnkd_new_mojave
 		completion_reward = {
 			if = {
@@ -2076,9 +2045,6 @@ focus_tree = {
 		cost = 30
 		y = 3
 		x = -1
-		ai_will_do = {
-			base = 0
-		}
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = tnkd_new_mojave_tt
@@ -2146,9 +2112,6 @@ focus_tree = {
 		cost = 30
 		y = 3
 		x = 1
-		ai_will_do = {
-			base = 10
-		}
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = tnkd_new_mojave_tt
@@ -2196,9 +2159,6 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = tnkd_new_mojave_4
-		}
-		ai_will_do = {
-			base = 10
 		}
 		mutually_exclusive = {
 			focus = tnkd_new_mojave_6
@@ -2255,9 +2215,6 @@ focus_tree = {
 			focus = tnkd_new_mojave_6
 			focus = tnkd_new_mojave_7
 		}
-		ai_will_do = {
-			base = 10
-		}
 		relative_position_id = tnkd_new_mojave
 		completion_reward = {
 			add_state_core = 67
@@ -2292,9 +2249,6 @@ focus_tree = {
 		relative_position_id = tnk_personality_restoration
 		available = {
 			has_completed_focus = tnk_personality_restoration
-		}
-		ai_will_do = {
-			base = 20
 		}
 		completion_reward = {
 			add_war_support = 0.05
@@ -2350,9 +2304,6 @@ focus_tree = {
 		relative_position_id = tnkd_defensive_infrastructure
 		prerequisite = {
 			focus = tnkd_defensive_infrastructure
-		}
-		ai_will_do = {
-			base = 20
 		}
 		completion_reward = {
 			add_stability = 0.05
@@ -2424,9 +2375,6 @@ focus_tree = {
 		cost = 30
 		y = 1
 		relative_position_id = tnkd_picking_sides
-		ai_will_do = {
-			base = 10
-		}
 		prerequisite = {
 			focus = tnkd_picking_sides
 		}
@@ -2449,9 +2397,6 @@ focus_tree = {
 		y = 1
 		x = -2
 		relative_position_id = tnkd_picking_sides
-		ai_will_do = {
-			base = 0
-		}
 		prerequisite = {
 			focus = tnkd_picking_sides
 		}
@@ -2475,21 +2420,8 @@ focus_tree = {
 			focus = tnkd_siding_with_ncr
 		}
 		completion_reward = {
-			custom_effect_tooltip = tnkd_brain_drain_worsen
-			hidden_effect = {
-				add_dynamic_modifier = {
-					modifier = tnk_brain_drain_dynamic_modifier
-				}
-				if = {
-					limit = {
-						NOT = { has_variable = tnk_brain_drain_var }
-					}
-					set_variable = { tnk_brain_drain_var = -0.02 }
-				}
-				else = {
-					subtract_from_variable = { tnk_brain_drain_var = 0.02 }
-				}
-			}
+			set_temp_variable = { tnk_brain_drain_var_change = -0.02 }
+			update_tnk_brain_drain_var = yes
 			add_ideas = tnkd_humility
 			CES = {
 				add_to_faction = TNK
@@ -2512,9 +2444,6 @@ focus_tree = {
 		y = 1
 		x = 2
 		relative_position_id = tnkd_picking_sides
-		ai_will_do = {
-			base = 0
-		}
 		prerequisite = {
 			focus = tnkd_picking_sides
 		}
@@ -2537,21 +2466,8 @@ focus_tree = {
 			focus = tnkd_siding_with_ces
 		}
 		completion_reward = {
-			custom_effect_tooltip = tnkd_brain_drain_worsen
-			hidden_effect = {
-				add_dynamic_modifier = {
-					modifier = tnk_brain_drain_dynamic_modifier
-				}
-				if = {
-					limit = {
-						NOT = { has_variable = tnk_brain_drain_var }
-					}
-					set_variable = { tnk_brain_drain_var = -0.02 }
-				}
-				else = {
-					subtract_from_variable = { tnk_brain_drain_var = 0.02 }
-				}
-			}
+			set_temp_variable = { tnk_brain_drain_var_change = -0.02 }
+			update_tnk_brain_drain_var = yes
 			add_ideas = tnkd_humility
 			NCR = {
 				add_to_faction = TNK
@@ -2727,9 +2643,6 @@ focus_tree = {
 		available = {
 			has_completed_focus = tnk_personality_restoration
 		}
-		ai_will_do = {
-			base = 20
-		}
 		completion_reward = {
 			add_war_support = 0.05
 			custom_effect_tooltip = tnkd_taking_sky_reavers_tt
@@ -2763,6 +2676,9 @@ focus_tree = {
 				}
 				add_ideas = tnkd_humility
 			}
+			# Two nations of mad scientists - they like each other more.
+			add_opinion_modifier = { target = SLE modifier = tnkd_mad_scientists }
+			reverse_add_opinion_modifier = { target = SLE modifier = tnkd_mad_scientists }
 			SLE = { country_event = nf_tnk.61 }
 		}
 	}
@@ -2784,21 +2700,8 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			custom_effect_tooltip = tnkd_brain_drain_worsen
-			hidden_effect = {
-				add_dynamic_modifier = {
-					modifier = tnk_brain_drain_dynamic_modifier
-				}
-				if = {
-					limit = {
-						NOT = { has_variable = tnk_brain_drain_var }
-					}
-					set_variable = { tnk_brain_drain_var = -0.02 }
-				}
-				else = {
-					subtract_from_variable = { tnk_brain_drain_var = 0.02 }
-				}
-			}
+			set_temp_variable = { tnk_brain_drain_var_change = -0.02 }
+			update_tnk_brain_drain_var = yes
 			if = {
 				limit = {
 					country_exists = SLE
@@ -3116,9 +3019,6 @@ focus_tree = {
 		prerequisite = {
 			focus = tnkd_going_alone
 		}
-		ai_will_do = {
-			base = 20
-		}
 		completion_reward = {
 			add_ideas = tnkd_new_era_idea
 		}
@@ -3238,9 +3138,6 @@ focus_tree = {
 		prerequisite = {
 			focus = tnkd_defensive_infrastructure
 		}
-		ai_will_do = {
-			base = 20
-		}
 		completion_reward = {
 			custom_effect_tooltip = tnkd_larping_luddites_tt
 			add_political_power = 60
@@ -3256,9 +3153,7 @@ focus_tree = {
 			focus = tnkd_larping_luddites
 		}
 		bypass = {
-			438 = {
-				tnkd_sphere_controls_state = yes
-			}
+			owns_state = 438
 		}
 		completion_reward = {
 			custom_effect_tooltip = tnkd_ces_demand_tt
@@ -3341,9 +3236,6 @@ focus_tree = {
 		prerequisite = {
 			focus = tnkd_defensive_infrastructure
 		}
-		ai_will_do = {
-			base = 20
-		}
 		completion_reward = {
 			custom_effect_tooltip = tnkd_ncr_defence_tt
 			add_political_power = 60
@@ -3359,9 +3251,7 @@ focus_tree = {
 			focus = tnkd_ncr_defence
 		}
 		bypass = {
-			77 = {
-				tnkd_sphere_controls_state = yes
-			}
+			owns_state = 77
 		}
 		completion_reward = {
 			custom_effect_tooltip = tnkd_ncr_demand_tt
@@ -3444,9 +3334,6 @@ focus_tree = {
 		prerequisite = {
 			focus = tnkd_next_steps
 		}
-		ai_will_do = {
-			base = 10
-		}
 		completion_reward = {
 			add_stability = 0.15
 			add_war_support = 0.15
@@ -3460,9 +3347,6 @@ focus_tree = {
 		relative_position_id = tnkd_unity
 		prerequisite = {
 			focus = tnkd_unity
-		}
-		ai_will_do = {
-			base = 10
 		}
 		available = {
 			if = {
@@ -3520,9 +3404,6 @@ focus_tree = {
 		available = {
 			has_completed_focus = tnkd_balanced_science
 		}
-		ai_will_do = {
-			base = 20
-		}
 		completion_reward = {
 			swap_ideas = {
 				remove_idea = tnk_rule_of_six
@@ -3531,10 +3412,50 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = tnkd_cohesion
+		id = tnkd_cohesion_1
 		icon = GFX_goal_tnkd_cohesion
 		cost = 60
 		y = 1
+		x = -1
+		relative_position_id = tnkd_perfection_sync
+		prerequisite = {
+			focus = tnkd_perfection_sync
+		}
+		bypass = {
+			has_completed_focus = tnkd_serenity
+		}
+		completion_reward = {
+			set_temp_variable = { tnk_decohesion_stability_var_change = 0.25 }
+            update_tnk_decohesion_stability_var = yes
+            set_temp_variable = { tnk_decohesion_org_var_change = 0.125 }
+            update_tnk_decohesion_org_var = yes
+		}
+	}
+	focus = {
+		id = tnkd_cohesion_2
+		icon = GFX_goal_tnkd_cohesion
+		cost = 30
+		y = 1
+		x = 1
+		relative_position_id = tnkd_perfection_sync
+		prerequisite = {
+			focus = tnkd_perfection_sync
+		}
+		bypass = {
+			has_completed_focus = tnkd_serenity
+		}
+		completion_reward = {
+			set_temp_variable = { tnk_decohesion_stability_var_change = 0.1 }
+            update_tnk_decohesion_stability_var = yes
+            set_temp_variable = { tnk_decohesion_org_var_change = 0.05 }
+            update_tnk_decohesion_org_var = yes
+		}
+	}
+	focus = {
+		id = tnkd_serenity
+		icon = GFX_goal_tnkd_serenity
+		cost = 120
+		y = 2
 		relative_position_id = tnkd_perfection_sync
 		prerequisite = {
 			focus = tnkd_perfection_sync
@@ -3547,27 +3468,6 @@ focus_tree = {
 				# Removes decohesion
 				remove_mission = tnkd_decohesion_decision
 			}
-			add_ideas = tnkd_fractured_mind
-		}
-	}
-	focus = {
-		id = tnkd_serenity
-		icon = GFX_goal_tnkd_serenity
-		cost = 90
-		y = 1
-		relative_position_id = tnkd_cohesion
-		prerequisite = {
-			focus = tnkd_cohesion
-		}
-		ai_will_do = {
-			base = 20
-		}
-		completion_reward = {
-			custom_effect_tooltip = tnkd_brain_drain_improve
-			hidden_effect = {
-				add_to_variable = { tnk_brain_drain_var = 0.02 }
-			}
-			remove_ideas = tnkd_fractured_mind
 		}
 	}
 	focus = {
@@ -3605,9 +3505,6 @@ focus_tree = {
 					}
 				}
 			}
-		}
-		ai_will_do = {
-			base = 20
 		}
 		completion_reward = {
 			every_state = {
@@ -3706,9 +3603,6 @@ focus_tree = {
 				}
 			}
 		}
-		ai_will_do = {
-			base = 10
-		}
 		completion_reward = {
 			add_stability = 0.1
 			every_state = {
@@ -3747,9 +3641,6 @@ focus_tree = {
 					}
 				}
 			}
-		}
-		ai_will_do = {
-			base = 10
 		}
 		completion_reward = {
 			add_stability = 0.1
@@ -3889,11 +3780,8 @@ focus_tree = {
 		icon = GFX_goal_tnkd_true_convergance
 		cost = 120
 		y = 1
-		x = 3
+		x = 4
 		relative_position_id = tnkd_convergance
-		ai_will_do = {
-			base = 10
-		}
 		prerequisite = {
 			focus = tnkd_convergance
 		}
@@ -3919,9 +3807,10 @@ focus_tree = {
 			remove_ideas = {
 				tnkd_convergance_idea
 			}
-			country_event = nf_tnk.24
 			set_temp_variable = { tnk_angels_of_death_var_change = -0.1 }
             update_tnk_angels_of_death_var = yes
+			newline = yes
+			country_event = nf_tnk.24
 		}
 	}
 	focus = {
@@ -3968,10 +3857,7 @@ focus_tree = {
 			focus = tnkd_test_subjects
 		}
 		completion_reward = {
-			hidden_effect = {
-				add_ideas = tnkd_attack_weak
-			}
-			custom_effect_tooltip = tnkd_attack_weak_tt
+			add_ideas = tnkd_attack_weak
 		}
 	}
 	focus = {
@@ -3995,7 +3881,7 @@ focus_tree = {
 		id = tnkd_the_future_vision
 		icon = GFX_goal_tnkd_the_future_vision
 		cost = 30
-		y=3
+		y = 3
 		relative_position_id = tnkd_true_convergance
 		prerequisite = {
 			focus = tnkd_burn_land
@@ -4192,11 +4078,8 @@ focus_tree = {
 		icon = GFX_goal_tnkd_mobius_convergance
 		cost = 160
 		y = 1
-		x = -3
+		x = -4
 		relative_position_id = tnkd_convergance
-		ai_will_do = {
-			base = 0
-		}
 		prerequisite = {
 			focus = tnkd_convergance
 		}
@@ -4218,16 +4101,18 @@ focus_tree = {
 				ideology = ruler
 				popularity = 0.1
 			}
-			set_politics = {
-				ruling_party = ruler
-			}
 			add_stability = 0.1
 			remove_ideas = {
 				tnkd_convergance_idea
 			}
-			country_event = nf_tnk.23
 			set_temp_variable = { tnk_angels_of_death_var_change = 0.1 }
             update_tnk_angels_of_death_var = yes
+			newline = yes
+			set_politics = {
+				ruling_party = ruler
+			}
+			newline = yes
+			country_event = nf_tnk.23
 		}
 	}
 	focus = {
@@ -4509,9 +4394,6 @@ focus_tree = {
 			has_completed_focus = tnk_dala
 			has_completed_focus = tnk_borous
 		}
-		ai_will_do = {
-			base = 20
-		}
 		relative_position_id = tnk_personality_restoration
 		completion_reward = {
 			add_research_slot = -1
@@ -4561,9 +4443,6 @@ focus_tree = {
 		prerequisite = {
 			focus = tnkd_balanced_science
 		}
-		ai_will_do = {
-			base = 20
-		}
 		relative_position_id = tnkd_balanced_science
 		completion_reward = {
 			add_research_slot = -1
@@ -4610,21 +4489,8 @@ focus_tree = {
 		}
 		relative_position_id = tnkd_seeding_chaos
 		completion_reward = {
-			custom_effect_tooltip = tnkd_brain_drain_worsen
-			hidden_effect = {
-				add_dynamic_modifier = {
-					modifier = tnk_brain_drain_dynamic_modifier
-				}
-				if = {
-					limit = {
-						NOT = { has_variable = tnk_brain_drain_var }
-					}
-					set_variable = { tnk_brain_drain_var = -0.02 }
-				}
-				else = {
-					subtract_from_variable = { tnk_brain_drain_var = 0.02 }
-				}
-			}
+			set_temp_variable = { tnk_brain_drain_var_change = -0.02 }
+			update_tnk_brain_drain_var = yes
 			MLT = {
 				country_event = nf_tnk.54
 			}
@@ -4641,21 +4507,8 @@ focus_tree = {
 		}
 		relative_position_id = tnkd_seeding_chaos
 		completion_reward = {
-			custom_effect_tooltip = tnkd_brain_drain_worsen
-			hidden_effect = {
-				add_dynamic_modifier = {
-					modifier = tnk_brain_drain_dynamic_modifier
-				}
-				if = {
-					limit = {
-						NOT = { has_variable = tnk_brain_drain_var }
-					}
-					set_variable = { tnk_brain_drain_var = -0.02 }
-				}
-				else = {
-					subtract_from_variable = { tnk_brain_drain_var = 0.02 }
-				}
-			}
+			set_temp_variable = { tnk_brain_drain_var_change = -0.02 }
+			update_tnk_brain_drain_var = yes
 			TRL = {
 				country_event = nf_tnk.54
 			}
@@ -4671,21 +4524,8 @@ focus_tree = {
 		}
 		relative_position_id = tnkd_seeding_chaos
 		completion_reward = {
-			custom_effect_tooltip = tnkd_brain_drain_worsen
-			hidden_effect = {
-				add_dynamic_modifier = {
-					modifier = tnk_brain_drain_dynamic_modifier
-				}
-				if = {
-					limit = {
-						NOT = { has_variable = tnk_brain_drain_var }
-					}
-					set_variable = { tnk_brain_drain_var = -0.02 }
-				}
-				else = {
-					subtract_from_variable = { tnk_brain_drain_var = 0.02 }
-				}
-			}
+			set_temp_variable = { tnk_brain_drain_var_change = -0.02 }
+			update_tnk_brain_drain_var = yes
 			CHC = {
 				country_event = nf_tnk.54
 			}
@@ -4702,21 +4542,8 @@ focus_tree = {
 		}
 		relative_position_id = tnkd_seeding_chaos
 		completion_reward = {
-			custom_effect_tooltip = tnkd_brain_drain_worsen
-			hidden_effect = {
-				add_dynamic_modifier = {
-					modifier = tnk_brain_drain_dynamic_modifier
-				}
-				if = {
-					limit = {
-						NOT = { has_variable = tnk_brain_drain_var }
-					}
-					set_variable = { tnk_brain_drain_var = -0.02 }
-				}
-				else = {
-					subtract_from_variable = { tnk_brain_drain_var = 0.02 }
-				}
-			}
+			set_temp_variable = { tnk_brain_drain_var_change = -0.02 }
+			update_tnk_brain_drain_var = yes
 			RCK = {
 				country_event = nf_tnk.54
 			}
@@ -4733,21 +4560,8 @@ focus_tree = {
 		}
 		relative_position_id = tnkd_seeding_chaos
 		completion_reward = {
-			custom_effect_tooltip = tnkd_brain_drain_worsen
-			hidden_effect = {
-				add_dynamic_modifier = {
-					modifier = tnk_brain_drain_dynamic_modifier
-				}
-				if = {
-					limit = {
-						NOT = { has_variable = tnk_brain_drain_var }
-					}
-					set_variable = { tnk_brain_drain_var = -0.02 }
-				}
-				else = {
-					subtract_from_variable = { tnk_brain_drain_var = 0.02 }
-				}
-			}
+			set_temp_variable = { tnk_brain_drain_var_change = -0.02 }
+			update_tnk_brain_drain_var = yes
 			TTM = {
 				country_event = nf_tnk.54
 			}
@@ -5092,7 +4906,7 @@ focus_tree = {
 		id = tnkd_final
 		icon = GFX_goal_animated_mojave_drive_inn
 		cost = 10
-		y = 5
+		y = 6
 		relative_position_id = tnkd_serenity
 		prerequisite = {
 			focus = tnkd_peace
@@ -5139,21 +4953,8 @@ focus_tree = {
 			has_subject = lul
 		}
 		completion_reward = {
-			custom_effect_tooltip = tnkd_brain_drain_worsen
-			hidden_effect = {
-				add_dynamic_modifier = {
-					modifier = tnk_brain_drain_dynamic_modifier
-				}
-				if = {
-					limit = {
-						NOT = { has_variable = tnk_brain_drain_var }
-					}
-					set_variable = { tnk_brain_drain_var = -0.02 }
-				}
-				else = {
-					subtract_from_variable = { tnk_brain_drain_var = 0.02 }
-				}
-			}
+			set_temp_variable = { tnk_brain_drain_var_change = -0.02 }
+			update_tnk_brain_drain_var = yes
 			every_country = {
 				limit = {
 					has_war_with = LUL
@@ -5184,21 +4985,8 @@ focus_tree = {
 			country_exists = lul
 		}
 		completion_reward = {
-			custom_effect_tooltip = tnkd_brain_drain_worsen
-			hidden_effect = {
-				add_dynamic_modifier = {
-					modifier = tnk_brain_drain_dynamic_modifier
-				}
-				if = {
-					limit = {
-						NOT = { has_variable = tnk_brain_drain_var }
-					}
-					set_variable = { tnk_brain_drain_var = -0.02 }
-				}
-				else = {
-					subtract_from_variable = { tnk_brain_drain_var = 0.02 }
-				}
-			}
+			set_temp_variable = { tnk_brain_drain_var_change = -0.02 }
+			update_tnk_brain_drain_var = yes
 
 			LUL = {
 				add_ideas = tnkd_lul_shared_tech
@@ -5219,21 +5007,8 @@ focus_tree = {
 			country_exists = lul
 		}
 		completion_reward = {
-			custom_effect_tooltip = tnkd_brain_drain_worsen
-			hidden_effect = {
-				add_dynamic_modifier = {
-					modifier = tnk_brain_drain_dynamic_modifier
-				}
-				if = {
-					limit = {
-						NOT = { has_variable = tnk_brain_drain_var }
-					}
-					set_variable = { tnk_brain_drain_var = -0.02 }
-				}
-				else = {
-					subtract_from_variable = { tnk_brain_drain_var = 0.02 }
-				}
-			}
+			set_temp_variable = { tnk_brain_drain_var_change = -0.02 }
+			update_tnk_brain_drain_var = yes
 
 			LUL = {
 				add_ideas = tnkd_lul_investment

@@ -98,6 +98,22 @@
   nf_tnk.48.a:0 "This land is irrelevant"
   nf_tnk.48.b:0 "This land is ours"
 
+  nf_tnk.63.t:0 "The Legion Concedes"
+  nf_tnk.63.d:0 "§Y[CES.getName]§! has bowed to our demand and ceded §Y[438.getName]§! to us without a shot fired. A rare flicker of pragmatism from the Legion."
+  nf_tnk.63.a:0 "Wise of them."
+
+  nf_tnk.64.t:0 "The Legion Refuses"
+  nf_tnk.64.d:0 "§Y[CES.getName]§! has rejected our claim to §Y[438.getName]§!. If we want this land, we will have to take it ourselves — the §Y$tnkd_ces_border_war_decision$§! decision is now available."
+  nf_tnk.64.a:0 "Then we take it by force."
+
+  nf_tnk.65.t:0 "The Bear Relents"
+  nf_tnk.65.d:0 "§Y[NCR.getName]§! has returned §Y[77.getName]§! to us without bloodshed. Reunification, achieved by reason rather than war."
+  nf_tnk.65.a:0 "As it should be."
+
+  nf_tnk.66.t:0 "The Bear Refuses"
+  nf_tnk.66.d:0 "§Y[NCR.getName]§! has refused to surrender §Y[77.getName]§!. We may press the matter by force — the §Y$tnkd_ncr_border_war_decision$§! decision is now available."
+  nf_tnk.66.a:0 "Then we reclaim it ourselves."
+
   nf_tnk.49.t:0 "Making an offer"
   nf_tnk.49.d:0 "§Y[TNK.getName]§! is seeking protection, we can make them an offer for their allegiance. When we conquer [253.getName] we will be obligated to cede [380.getName], [613.getName], [106.getName], [438.getName], [359.getName], [553.getName], [130.getName] and [49.getName]."
   nf_tnk.49.a:0 "We can protect them"

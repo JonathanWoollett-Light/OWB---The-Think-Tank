@@ -2,6 +2,8 @@
  tnkd_humility:0 "Humility"
  tnkd_humility_desc:0 "We ask others for help, what have we become..."
 
+ tnkd_mad_scientists:0 "Mad Scientists"
+
  tnkd_unexpected_arrival:0 "Unexpected Arrival"
  tnkd_unexpected_arrival_desc:0 "For now we are an anomaly, but soon we shall be seen as a threat."
 
@@ -15,9 +17,7 @@
  tnkd_insane_science_desc:0 "Industry? Ethics? People? Reality? All NOTHING COMPARED TO SCIENCE, SCIENCE ABOVE ALL"
 
  tnkd_convergance_idea:0 "Convergence"
- 
- tnkd_decohesion:0 "Decohesion"
- tnkd_decohesion_desc:0 "WHAT?!? Something went wrong, our consciousnesses are not properly bound, our minds loose cohesion by at each moment."
+
  tnk_decohesion_dynamic_modifier:0 "Decohesion"
  
  tnkd_going_alone_idea:0 "Going Alone"
@@ -26,8 +26,6 @@
  tnkd_think_tank_litigation:0 "[TNK.getName] diplomacy"
  tnkd_think_tank_litigation_desc:0 "Their speakers output a whirlwind of nonsense confusing and wasting the time or our bureaucrats."
 
- tnkd_ingenuity:0 "Ingenuity"
- tnkd_ingenuity_desc:0 "With out newfound focus we can continuously optimize our designs."
  tnk_ingenuity_dynamic_modifier:0 "Ingenuity"
  tnk_ingenuity_dynamic_modifier_desc:0 "With out newfound focus we can continuously optimize our designs."
 
@@ -121,9 +119,6 @@
 
  tnkd_charging_laser:0 "Charging Mega-laser"
  tnkd_charging_laser_desc:0 "We will need power beyond comprehension to shoot this monstrosity down."
-
- tnkd_fractured_mind:0 "Fractured Mind"
- tnkd_fractured_mind_desc:0 "Our conscious tears as it pulls outwards, memories of selves in defiance of our unity."
  
  tnkd_better_entrenchment:0 "Defensive Coordination"
  tnkd_better_entrenchment_desc:0 "Applying lessons learned since our venturing fourth we have become experts of defending our territory against our powerful, numerous and volatile neighbours."
@@ -186,6 +181,10 @@
  tnk_broken_mojave_consumer_goods_factor_var_tt:0 "Modifies §H£consumer_goods_texticon Consumer Goods Factor§! for §H$tnk_broken_mojave_dynamic_modifier$§! by [?tnk_broken_mojave_consumer_goods_factor_var_change|-%] (Current: [?tnk_broken_mojave_consumer_goods_factor_var|-%])"
  tnk_broken_mojave_resistance_activity_var_tt:0 "Modifies §H£GFX_legitimacy Resistance Activity§! for §H$tnk_broken_mojave_dynamic_modifier$§! by [?tnk_broken_mojave_resistance_activity_var_change|-%] (Current: [?tnk_broken_mojave_resistance_activity_var|-%])"
  tnk_broken_mojave_compliance_gain_var_tt:0 "Modifies §H£GFX_decision_icon_small Daily Compliance Gain§! for §H$tnk_broken_mojave_dynamic_modifier$§! by [?tnk_broken_mojave_compliance_gain_var_change|+] (Current: [?tnk_broken_mojave_compliance_gain_var|+])"
+ tnk_decohesion_stability_var_tt:0 "Modifies §HStability§! for §Y$tnk_decohesion_dynamic_modifier$§! by [?tnk_decohesion_stability_var_change|+%] (Current: [?tnk_decohesion_stability_var|+%])"
+ tnk_decohesion_org_var_tt:0 "Modifies §HDivision Organization§! for §Y$tnk_decohesion_dynamic_modifier$§! by [?tnk_decohesion_org_var_change|+%] (Current: [?tnk_decohesion_org_var|+%])"
+ tnk_brain_drain_var_tt:0 "Modifies §Y$tnk_brain_drain_dynamic_modifier$§! by [?tnk_brain_drain_var_change|+%] (Current: [?tnk_brain_drain_var|+%])"
+ newline_tt:0 " \n"
 
  tnkd_veg_concessions:0 "The cost of doing business"
  tnkd_veg_concessions_desc:0 "[VEG.getName] is boxed in on all sides, to convince them to join us and give up their territorial ambitions in the Mojave comes at a steep price."

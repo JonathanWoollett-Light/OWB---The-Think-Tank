@@ -108,7 +108,7 @@ set_technology = {
 	robot_build_efficiency_tech_2 = 2
 	robot_build_efficiency_tech_3 = 1
 	robot_handy_equipment_tech_1 = 1
-	robot_miniature_thruster_tech = 1
+	robot_precision_motor_tech = 1
 	robot_protectron_equipment_tech_1 = 1
 	robot_armour_hardening_tech = 1
 
@@ -170,6 +170,12 @@ add_timed_idea = {
 	idea = tnkd_unexpected_arrival
 	days = 900
 }
+
+# Marks the Think Tank's first 365 days of existence so the AI spends them
+# industrialising (peacetime only). Set here - like tnkd_unexpected_arrival -
+# so it also fires when TNK is created mid-game via game rules, not just at game
+# start. Consumed by TNK_first_year_only_civ in common/ai_strategy/TNK.txt.
+set_country_flag = { flag = tnk_industrialisation_phase value = 1 days = 365 }
 
 set_country_flag = no_generic_chief
 set_country_flag = no_generic_high_command

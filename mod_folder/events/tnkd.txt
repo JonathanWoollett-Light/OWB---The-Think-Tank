@@ -239,12 +239,12 @@ country_event = {
 
 	option = {
 		name = nf_tnk.33.a
+		set_variable = { tnk_decohesion_stability_var = -0.02 }
+		set_variable = { tnk_decohesion_org_var = -0.01 }
 		add_dynamic_modifier = {
 			modifier = tnk_decohesion_dynamic_modifier
 		}
 		activate_mission = tnkd_decohesion_decision
-		set_variable = { tnk_decohesion_stability_var = -0.02 }
-		set_variable = { tnk_decohesion_org_var = -0.01 }
 	}
 }
 country_event = {
@@ -442,6 +442,7 @@ country_event = {
 		}
 		TNK = {
 			transfer_state = 438
+			country_event = nf_tnk.63
 		}
 	}
 	option = {
@@ -450,6 +451,9 @@ country_event = {
 			base = 80
 		}
 		remove_ideas = tnkd_expertise
+		TNK = {
+			country_event = nf_tnk.64
+		}
 	}
 }
 country_event = {
@@ -468,6 +472,7 @@ country_event = {
 		}
 		TNK = {
 			transfer_state = 77
+			country_event = nf_tnk.65
 		}
 	}
 	option = {
@@ -476,6 +481,65 @@ country_event = {
 			base = 80
 		}
 		remove_ideas = tnkd_expertise
+		TNK = {
+			country_event = nf_tnk.66
+		}
+	}
+}
+# Fired to TNK after CES accepts (nf_tnk.47.a) the demand for state 438.
+country_event = {
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nf_tnk.63" }
+	id = nf_tnk.63
+	title = nf_tnk.63.t
+	desc = nf_tnk.63.d
+	picture = GFX_tnkd_event_peace
+
+	is_triggered_only = yes
+
+	option = {
+		name = nf_tnk.63.a
+	}
+}
+# Fired to TNK after CES refuses (nf_tnk.47.b) the demand for state 438 (border war now available).
+country_event = {
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nf_tnk.64" }
+	id = nf_tnk.64
+	title = nf_tnk.64.t
+	desc = nf_tnk.64.d
+	picture = GFX_event_big_mt_event_weird_science
+
+	is_triggered_only = yes
+
+	option = {
+		name = nf_tnk.64.a
+	}
+}
+# Fired to TNK after NCR accepts (nf_tnk.48.a) the demand for state 77.
+country_event = {
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nf_tnk.65" }
+	id = nf_tnk.65
+	title = nf_tnk.65.t
+	desc = nf_tnk.65.d
+	picture = GFX_tnkd_event_peace
+
+	is_triggered_only = yes
+
+	option = {
+		name = nf_tnk.65.a
+	}
+}
+# Fired to TNK after NCR refuses (nf_tnk.48.b) the demand for state 77 (border war now available).
+country_event = {
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nf_tnk.66" }
+	id = nf_tnk.66
+	title = nf_tnk.66.t
+	desc = nf_tnk.66.d
+	picture = GFX_event_big_mt_event_weird_science
+
+	is_triggered_only = yes
+
+	option = {
+		name = nf_tnk.66.a
 	}
 }
 country_event = {
@@ -896,10 +960,8 @@ country_event = {
 		set_variable = { tnk_broken_mojave_no_compliance_gain_var = 1 }
 		set_variable = { tnk_broken_mojave_resistance_activity_var = 2 }
 		set_variable = { tnk_broken_mojave_compliance_gain_var = -0.5 }
-		hidden_effect = {
-			add_dynamic_modifier = {
-				modifier = tnk_broken_mojave_dynamic_modifier
-			}
+		add_dynamic_modifier = {
+			modifier = tnk_broken_mojave_dynamic_modifier
 		}
 	}
 }

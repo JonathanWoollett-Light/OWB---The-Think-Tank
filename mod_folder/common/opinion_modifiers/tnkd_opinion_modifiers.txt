@@ -1,0 +1,7 @@
+opinion_modifiers = {
+	# Mutual respect between the Think Tank and the Sleepers - two nations of mad
+	# scientists. Applied both ways by the tnkd_ally_sleepers focus.
+	tnkd_mad_scientists = {
+		value = 50
+	}
+}

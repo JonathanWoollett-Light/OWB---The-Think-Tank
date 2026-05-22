@@ -1,0 +1,220 @@
+# The Think Tank AI behaviour.
+#
+# Goal: a turtley robotic power that mass-produces cheap robot divisions, walls up
+# the Mojave and grinds through its focus tree (see common/ai_strategy_plans/TNK.txt).
+# The divisions it actually builds are defined in common/ai_templates/templates_TNK.txt.
+
+# ---------------------------------------------------------------------------
+# Production: spam robot divisions.
+# ---------------------------------------------------------------------------
+TNK_build_robot_army = {
+	allowed = {
+		original_tag = TNK
+	}
+	enable = { always = yes }
+	abort = { always = no }
+
+	# Build our unique robot mainline (templates_TNK.txt) and essentially nothing else.
+	ai_strategy = {
+		type = role_ratio
+		id = unique_mainline
+		value = 1000
+	}
+
+	# Cancel out the generic human infantry the base game pushes onto every nation.
+	# The Think Tank has almost no manpower for humans; robots are what it fields.
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = -500
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = marines
+		value = -500
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = mountaineers
+		value = -500
+	}
+	# Don't fall back to the generic scrap-robot templates, use ours.
+	ai_strategy = {
+		type = role_ratio
+		id = robot
+		value = -500
+	}
+
+	# Keep recruiting even on a tiny manpower pool - robots are 5 manpower each, so
+	# the Think Tank can afford to swarm. force_build_armies pushes division count
+	# past the base game's manpower-reserve brakes (which only throttle build_army
+	# archetypes, not role_ratio recruitment).
+	ai_strategy = {
+		type = force_build_armies
+		value = 25
+	}
+}
+
+# Push even harder once a war actually starts.
+TNK_build_more_when_at_war = {
+	allowed = {
+		original_tag = TNK
+	}
+	enable = {
+		has_war = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = force_build_armies
+		value = 25
+	}
+	ai_strategy = {
+		type = added_military_to_civilian_factory_ratio
+		value = 40
+	}
+}
+
+# ---------------------------------------------------------------------------
+# Economy: stand up an industrial base, then tilt toward war production.
+# ---------------------------------------------------------------------------
+# First peacetime year of existence: pour ALL construction into civilian factories
+# - no military factories, no forts, no infrastructure - then bank an economy
+# before the wars start; once it runs out of building slots it converts industry
+# offsite (see the tnkd_offmap_industry_mission ai_will_do in
+# common/decisions/tnkd_decisions.txt).
+#
+# The window is keyed off the tnk_industrialisation_phase flag (set for 365 days
+# in TNK's history file, so it fires both at game start and when TNK is created
+# mid-game via game rules) rather than a fixed date, because the Think Tank often
+# spawns well after game start. The has_war guard means a crisis-spawned Think
+# Tank - which arrives already industrialised and at war - skips this and goes
+# straight to building its military.
+TNK_first_year_only_civ = {
+	allowed = {
+		original_tag = TNK
+	}
+	enable = {
+		has_country_flag = tnk_industrialisation_phase
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = building_target
+		id = industrial_complex
+		value = 500
+	}
+	ai_strategy = {
+		type = added_military_to_civilian_factory_ratio
+		value = -1000
+	}
+	ai_strategy = {
+		type = building_target
+		id = bunker
+		value = -1000
+	}
+	ai_strategy = {
+		type = building_target
+		id = anti_air_building
+		value = -1000
+	}
+	ai_strategy = {
+		type = building_target
+		id = infrastructure
+		value = -1000
+	}
+}
+
+TNK_build_industry_early = {
+	allowed = {
+		original_tag = TNK
+	}
+	enable = {
+		num_of_civilian_factories < 30
+		date < 2277.1.1
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = building_target
+		id = industrial_complex
+		value = 30
+	}
+}
+
+TNK_keep_some_mils_coming = {
+	allowed = {
+		original_tag = TNK
+	}
+	enable = {
+		num_of_civilian_factories_available_for_projects > 12
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = added_military_to_civilian_factory_ratio
+		value = 30
+	}
+}
+
+# ---------------------------------------------------------------------------
+# Turtle: hold the Mojave, fortify the borders, never over-extend.
+# ---------------------------------------------------------------------------
+TNK_fortify_the_mojave = {
+	allowed = {
+		original_tag = TNK
+	}
+	enable = { always = yes }
+	abort = { always = no }
+
+	# Dig in. Land forts on the borders make the Think Tank a hard nut to crack.
+	ai_strategy = {
+		type = building_target
+		id = bunker
+		value = 6
+	}
+	ai_strategy = {
+		type = building_target
+		id = anti_air_building
+		value = 3
+	}
+}
+
+TNK_defensive_posture = {
+	allowed = {
+		original_tag = TNK
+	}
+	enable = { always = yes }
+	abort = { always = no }
+
+	# Defend fronts patiently instead of throwing robots away in reckless pokes.
+	ai_strategy = {
+		type = front_control
+		country_trigger = { always = yes }
+		ordertype = front
+		execution_type = careful
+		execute_order = yes
+		manual_attack = no
+		priority = 50
+	}
+}
+
+TNK_concentrate_on_home = {
+	allowed = {
+		original_tag = TNK
+	}
+	enable = { always = yes }
+	abort = { always = no }
+
+	# Keep the army at home in the Mojave and the immediately neighbouring deserts
+	# rather than wandering off across the wasteland.
+	ai_strategy = { type = area_priority id = new_vegas              value = 100 }
+	ai_strategy = { type = area_priority id = nevada                 value = 90 }
+	ai_strategy = { type = area_priority id = arizona_sonora         value = 50 }
+	ai_strategy = { type = area_priority id = utah                   value = 50 }
+	ai_strategy = { type = area_priority id = colorado_newmexico     value = 30 }
+	ai_strategy = { type = area_priority id = north_california       value = 30 }
+	ai_strategy = { type = area_priority id = south_california       value = 30 }
+	ai_strategy = { type = area_priority id = out_of_bounds          value = 1  }
+}

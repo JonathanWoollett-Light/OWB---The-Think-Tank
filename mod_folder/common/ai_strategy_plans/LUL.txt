@@ -1,0 +1,29 @@
+LUL_default_behavior = {
+	name = "The Lunar Legion - Default"
+	desc = "The Lunar Legion fortifies its holds, raises ghoul legions and works its focus tree."
+
+	enable = {
+		original_tag = LUL
+	}
+
+	abort = {
+	}
+
+	# The AI works down this list in order. Manpower, equipment and industry come
+	# first so the Legion can actually field and fuel its ghoul legions, then it
+	# expands its claims and finishes its tree.
+	ai_national_focuses = {
+		lul_1                   # arms factory, equipment and manpower to start
+		lul_conversion          # +16k manpower for the swarm
+		lul_equipment           # equipment stockpile
+		lul_trade               # industry
+		lul_pontifex_maximus    # more industry
+		lul_lunar_wealth
+		lul_stadium_of_the_dead
+		lul_cult_of_luna
+		lul_hero_legends
+		lul_carthage            # claims to expand into
+		lul_hellenics
+		lul_spqr                # capstone
+	}
+}

@@ -1,0 +1,60 @@
+# The Lunar Legion AI division templates.
+#
+# The Lunar Legion is a ghoul nation that copies the Think Tank's tech. Like the
+# Think Tank it never recruited anything when AI controlled because it was being
+# pushed toward generic human infantry it can't man. It is pointed at a ghoul
+# mainline (matching its starting "Triarii" divisions) plus a cheap militia swarm
+# so it can wall up its holds. See common/ai_strategy/LUL.txt for the ratios.
+lul_templates_mainline = {
+
+	available_for = {
+		LUL
+	}
+
+	role = unique_mainline
+
+	upgrade_prio = {
+		factor = 100
+	}
+
+	# Cheap militia swarm for the early game / quickly plugging gaps in the line.
+	lul_militia_swarm = {
+		reinforce_prio = 1
+		custom_icon = 3
+		upgrade_prio = {
+			factor = 3
+			modifier = { # Move on to proper ghoul legions once the economy can pay for them
+				factor = 0
+				num_of_military_factories > 12
+			}
+		}
+
+		target_template = {
+			regiments = {
+				militia = 6
+			}
+		}
+	}
+
+	# The Triarii: a solid ghoul infantry wall, the Legion's mainline.
+	lul_triarii = {
+		reinforce_prio = 1
+		custom_icon = 3
+		upgrade_prio = {
+			factor = 2
+			modifier = {
+				factor = 4
+				num_of_military_factories > 10
+			}
+		}
+
+		target_template = {
+			support = {
+				logistics_company = 1
+			}
+			regiments = {
+				ghoul_infantry = 9
+			}
+		}
+	}
+}

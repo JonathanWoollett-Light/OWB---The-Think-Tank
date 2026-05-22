@@ -63,35 +63,40 @@ update_tnk_angels_of_death_var = {
 	add_to_variable = { tnk_angels_of_death_var = tnk_angels_of_death_var_change }
 }
 update_tnk_broken_mojave_consumer_goods_factor_var = {
-	if = {
-		limit = {
-			has_dynamic_modifier = {
-				modifier = tnk_broken_mojave_dynamic_modifier
-			}
-		}
-		custom_effect_tooltip = tnk_broken_mojave_consumer_goods_factor_var_tt
-		add_to_variable = { tnk_broken_mojave_consumer_goods_factor_var = tnk_broken_mojave_consumer_goods_factor_var_change }
-	}
+	custom_effect_tooltip = tnk_broken_mojave_consumer_goods_factor_var_tt
+	add_to_variable = { tnk_broken_mojave_consumer_goods_factor_var = tnk_broken_mojave_consumer_goods_factor_var_change }
 }
 update_tnk_broken_mojave_resistance_activity_var = {
-	if = {
-		limit = {
-			has_dynamic_modifier = {
-				modifier = tnk_broken_mojave_dynamic_modifier
-			}
-		}
-		custom_effect_tooltip = tnk_broken_mojave_resistance_activity_var_tt
-		add_to_variable = { tnk_broken_mojave_resistance_activity_var = tnk_broken_mojave_resistance_activity_var_change }
-	}
+	custom_effect_tooltip = tnk_broken_mojave_resistance_activity_var_tt
+	add_to_variable = { tnk_broken_mojave_resistance_activity_var = tnk_broken_mojave_resistance_activity_var_change }
 }
 update_tnk_broken_mojave_compliance_gain_var = {
-	if = {
-		limit = {
-			has_dynamic_modifier = {
-				modifier = tnk_broken_mojave_dynamic_modifier
+	custom_effect_tooltip = tnk_broken_mojave_compliance_gain_var_tt
+	add_to_variable = { tnk_broken_mojave_compliance_gain_var = tnk_broken_mojave_compliance_gain_var_change }
+}
+update_tnk_brain_drain_var = {
+	hidden_effect = {
+		if = {
+			limit = {
+				NOT = { has_dynamic_modifier = { modifier = tnk_brain_drain_dynamic_modifier } }
+			}
+			add_dynamic_modifier = {
+				modifier = tnk_brain_drain_dynamic_modifier
 			}
 		}
-		custom_effect_tooltip = tnk_broken_mojave_compliance_gain_var_tt
-		add_to_variable = { tnk_broken_mojave_compliance_gain_var = tnk_broken_mojave_compliance_gain_var_change }
 	}
+	custom_effect_tooltip = tnk_brain_drain_var_tt
+	add_to_variable = { tnk_brain_drain_var = tnk_brain_drain_var_change }
+}
+update_tnk_decohesion_stability_var = {
+	custom_effect_tooltip = tnk_decohesion_stability_var_tt
+	add_to_variable = { tnk_decohesion_stability_var = tnk_decohesion_stability_var_change }
+}
+update_tnk_decohesion_org_var = {
+	custom_effect_tooltip = tnk_decohesion_org_var_tt
+	add_to_variable = { tnk_decohesion_org_var = tnk_decohesion_org_var_change }
+}
+# Inserts a blank line in a tooltip, e.g. between effects in a focus completion_reward. Use as: newline = yes
+newline = {
+	custom_effect_tooltip = newline_tt
 }

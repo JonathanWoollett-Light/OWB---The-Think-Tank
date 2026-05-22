@@ -148,55 +148,6 @@ units = {
 		start_experience_factor = 0.45
 		start_equipment_factor = 1.0
 	}
-	division = {
-		name = "1st Hold Triarii"
-		location = 9074
-		division_template = "Triarii"
-		start_experience_factor = 0.45
-		start_equipment_factor = 1.0
-	}
-	division = {
-		name = "2nd Hold Triarii"
-		location = 9074
-		division_template = "Triarii"
-		start_experience_factor = 0.45
-		start_equipment_factor = 1.0
-	}
-	division = {
-		name = "3rd Hold Triarii"
-		location = 9074
-		division_template = "Triarii"
-		start_experience_factor = 0.45
-		start_equipment_factor = 1.0
-	}
-	division = {
-		name = "Cotton Triarii"
-		location = 965
-		division_template = "Triarii"
-		start_experience_factor = 0.45
-		start_equipment_factor = 1.0
-	}
-	division = {
-		name = "Wells Triarii"
-		location = 968
-		division_template = "Triarii"
-		start_experience_factor = 0.45
-		start_equipment_factor = 1.0
-	}
-	division = {
-		name = "Bonelli Triarii"
-		location =  4523
-		division_template = "Triarii"
-		start_experience_factor = 0.45
-		start_equipment_factor = 1.0
-	}
-	division = {
-		name = "Frontsman Triarii"
-		location =  978
-		division_template = "Triarii"
-		start_experience_factor = 0.45
-		start_equipment_factor = 1.0
-	}
 }
 
 ##### Starting Production #####

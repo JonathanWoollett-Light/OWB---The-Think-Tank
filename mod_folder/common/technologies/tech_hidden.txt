@@ -33,8 +33,9 @@ technologies = {
 	@Row_tex = 27
 	@Row_mex = 29
 	@Row_khans = 31
-	@Row_other = 33
-	@Row_other_2 = 35
+	@Row_tohono = 33
+	@Row_other = 35
+	@Row_other_2 = 37
 
 
 	dog_infantry_tech = {

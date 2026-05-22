@@ -1,0 +1,229 @@
+TNK_crisis_behavior = {
+	name = "The Think Tank - Crisis"
+	desc = "The Think Tank turtles the Mojave, mass-produces robots and grinds through its focus tree."
+
+	enable = {
+		original_tag = TNK
+	}
+
+	abort = {
+	}
+
+	# This priority list replaces the per-focus ai_will_do weights that used to live
+	# in the focus tree. The AI works down it in order (respecting prerequisites and
+	# availability). Branches the AI must avoid are forced to 0 in focus_factors below
+	# instead of being weighted in the focus tree itself.
+	ai_national_focuses = {
+		# Open up.
+		tnk_leaving_the_big_empty
+		tnk_eyes_forward_with_hope
+		tnk_personality_restoration
+
+		# Get all six inner-circle leaders online first: they are the available =
+		# gate on tnkd_balanced_science, which the Think Tank should rush ASAP.
+		tnk_mobius
+		tnk_klein
+		tnk_0
+		tnk_8
+		tnk_dala
+		tnk_borous
+
+		# Science transition as early as possible - the ahead-of-time industry,
+		# robotics and electronics bonuses snowball the whole run.
+		tnkd_balanced_science
+		tnkd_tech_ascendance
+
+		# Deepen Mobius - the roboscorpion research line is the army's backbone.
+		tnk_mobius_repairing_the_sink
+		tnk_mobius_repairing_the_sink_biological_research_station
+		tnk_mobius_repairing_the_sink_autodoc
+		tnk_mobius_repairing_the_sink_light_switch_1
+		tnk_mobius_mentats_break
+		tnk_mobius_roboscorpion_research
+		tnk_mobius_roboscorpion_research_chasis
+		tnk_mobius_roboscorpion_research_mark_2_roboscorpions
+		tnk_mobius_roboscorpion_research_improve_the_x42_giant_roboscorpion
+
+		# Deepen Klein - lobotomite numbers for manpower and the Mojave experiments.
+		tnk_klein_mojave_experiments
+		tnk_klein_mojave_experiments_improve_black_mountain_frequency
+		tnk_klein_mojave_experiments_develop_hexcrete_alloy
+		tnk_klein_mojave_experiments_recall_the_z35_satellite
+		tnk_klein_lobotomite_research
+		tnk_klein_lobotomite_research_numbers
+		tnk_klein_lobotomite_gear_improvements
+		tnk_klein_lobotomite_research_focus
+		tnk_klein_mojave_experiments_set_up_the_new_x13_experiment
+
+		# Deepen the rest of the inner circle for their bonuses.
+		tnk_0_bitterness_against_robco
+		tnk_0_bitterness_against_robco_smelt_down_houses_caps
+		tnk_0_bitterness_against_robco_rework_scrap_the_securitrons
+		tnk_0_bitterness_against_robco_the_unlucky_38
+		tnk_0_bitterness_against_national_electric
+		tnk_0_bitterness_against_national_electric_completely_rewrite_hologram_os
+		tnk_0_bitterness_against_national_electric_rework_targeting_protocols
+		tnk_0_bitterness_against_national_electric_system_wide_overhaul
+		tnk_8_looking_for_a_new_song
+		tnk_8_looking_for_a_new_song_remove_hologram_memory_limits
+		tnk_8_looking_for_a_new_song_sierra_madre_emitter_upgrades
+		tnk_8_looking_for_a_new_song_redirect_helios_power_grid
+		tnk_8_hanging_out_in_the_sink
+		tnk_8_hanging_out_in_the_sink_hide_dirty_magazines
+		tnk_8_hanging_out_in_the_sink_cook_some_toast
+		tnk_8_hanging_out_in_the_sink_jamming_with_blind_diode_jefferson
+		tnk_8_hanging_out_in_the_sink_keeping_your_chasis_clean
+		tnk_8_hanging_out_in_the_sink_a_happy_little_friend
+		tnk_a_lovely_melody
+		tnk_the_gangs_all_here
+		tnk_dala_dalas_breathalyzer_hotline
+		tnk_dala_watch_them_move_watch_them_live
+		tnk_dala_my_little_teddies
+		tnk_dala_teddy_bear_research
+		tnk_dala_watching_the_bull_dance
+		tnk_dala_watching_the_bull_dance_helping_the_still_teddies_dance
+		tnk_dala_watching_the_bull_dance_learning_the_rythem_of_the_dance
+		tnk_dala_watching_the_bull_dance_show_them_something_beautiful
+		tnk_my_best_friend_gabe
+		tnk_my_arch_nemesis_richie_marcus
+		tnk_my_gal_pal_betsy_bright
+		tnk_restart_the_x8_program
+		tnk_expanding_the_radar_fence
+		tnk_chasing_lost_students
+		tnk_study_stanislaus_brauns_research
+		tnk_establish_the_tranquility_lane_schooling_board
+
+		# Reclaiming the New Mojave - critical path to the convergence chain.
+		# Go down new_mojave_1, NOT the mutually exclusive new_mojave_2 (which is
+		# forced to 0 in focus_factors below).
+		tnkd_working_with_robco
+		tnkd_platinum_chip
+		tnkd_new_mojave
+		tnkd_new_mojave_1
+		tnkd_new_mojave_4
+		tnkd_new_mojave_7
+		tnkd_next_steps
+
+		# Beeline the convergence chain straight to advanced robots - that payoff is
+		# the point of the run, so it outranks the expansion/side content below. It
+		# only unlocks once the Mojave is reclaimed (states controlled) and the early
+		# science focuses are done, so the AI naturally does the rest while it waits.
+		tnkd_unity
+		tnkd_convergance
+		tnkd_true_convergance
+		tnkd_perfection_sync
+		tnkd_advanced_robots
+		tnkd_robotic_supremacy
+
+		# Remaining New Mojave reclamation (off the critical path, via new_mojave_1).
+		tnkd_new_mojave_3
+		tnkd_defensive_infrastructure
+		tnkd_better_capital
+		tnkd_resource_move
+		tnkd_new_reactor
+		tnkd_better_entrenchment
+
+		# Stand alone, then expand outward into the wasteland.
+		tnkd_picking_sides
+		tnkd_going_alone
+		tnkd_offensive_infrastructure
+		tnkd_ally_sleepers
+		tnkd_waking_sleepers
+		tnkd_taking_sorrows
+		tnkd_taking_dead_horses
+		tnkd_taking_ouroboros
+		tnkd_taking_sky_reavers
+		tnkd_taking_white_legs
+		tnkd_taking_tarwalkers
+		tnkd_larping_luddites
+		tnkd_ces_demand
+		tnkd_ces_wall
+		tnkd_caesar_deal
+		tnkd_ncr_defence
+		tnkd_ncr_demand
+		tnkd_ncr_wall
+		tnkd_ncr_deal
+		tnkd_demanding_west
+		tnkd_demanding_east
+		tnkd_controlling_ncr
+		tnkd_ces_reward
+		tnkd_controlling_ces
+		tnkd_lobotomize_flagstaff
+		tnkd_lobotomize_shady_sands
+		tnkd_new_era
+		tnkd_ncr_reward
+
+		# Convergence / endgame (remaining branches; the critical path to advanced
+		# robots is prioritised above).
+		tnkd_northern_mojave
+		tnkd_southern_mojave
+		tnkd_preemption
+		tnkd_threat_classification
+		tnkd_threat_obliteration
+		tnkd_test_subjects
+		tnkd_domination_protocol
+		tnkd_attack_weak
+		tnkd_burn_land
+		tnkd_the_future_vision
+		tnkd_purification
+		tnkd_extermination
+		tnkd_do_no_harm
+		tnkd_bulwark
+		tnkd_guardian
+		tnkd_giant_slayer
+		tnkd_a_future_vision
+		tnkd_carrot
+		tnkd_stick
+		tnkd_serenity
+		tnkd_reindustrialization
+		tnkd_theoretical_production_focus
+		tnkd_dam
+		tnkd_clean_slate
+		tnkd_war_simulations
+		tnkd_dna_shattering
+		tnkd_missiles
+		tnkd_peace
+
+		# Science, expeditions and the long tail.
+		tnkd_seeding_chaos
+		tnkd_helping_mirelurks
+		tnkd_helping_warren
+		tnkd_helping_choir
+		tnkd_helping_roach
+		tnkd_helping_diana
+		tnkd_exotic_research
+		tnkd_north_men
+		tnkd_north_ships
+		tnkd_valhalla
+		tnkd_south_men
+		tnkd_south_ships
+		tnkd_el_dorado
+		tnkd_little_green_dot
+		tnkd_a_new_frontier
+		tnkd_shoot_it_down
+		tnkd_force_from_beyond
+		tnkd_gecks
+		tnkd_gecks_1
+		tnkd_gecks_2
+		tnkd_gecks_3
+		tnkd_gev
+		tnkd_final
+
+		# Bring in the Lunar Legion as an ally late.
+		tnkd_invite_lunar_legion
+		tnkd_lunar_legion_radar
+		tnkd_lunar_legion_firepower
+		tnkd_lunar_legion_investment
+	}
+
+	# Hard-block the branches the AI must never take (these replace the
+	# ai_will_do = { base = 0 } blocks removed from the focus tree).
+	focus_factors = {
+		tnkd_new_mojave_2 = 0      # go down new_mojave_1 instead (mutually exclusive)
+		tnkd_new_mojave_6 = 0      # take the carrot branch (new_mojave_7) instead
+		tnkd_elijah_back = 0       # AI never brings Elijah back (also needs the blocked new_mojave_6)
+		tnkd_siding_with_ces = 0   # the Think Tank goes it alone
+		tnkd_siding_with_ncr = 0   # (also keeps it out of the Brotherhood/Lanius sub-branches)
+		tnkd_mobius_convergance = 0 # pursue true convergence instead
+	}
+}

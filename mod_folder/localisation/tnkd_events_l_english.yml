@@ -60,8 +60,64 @@
   nf_tnk.33.d:0 "WHAT?!? Something went wrong, our consciousnesses are not properly bound, our minds loose cohesion by at each moment."
   nf_tnk.33.a:0 "Well... this isn't going to end well"
 
-  nf_tnk.34.d:0 "I sit back and watch the sun rise on a grateful wasteland. \n§RBLAH BLAH ADD MORE POETIC SPEECH HERE.§!"
-  nf_tnk.34.a:0 "finally... peace..."
+  nf_tnk.34.d:0 "I sit back and watch the sun rise over a wasteland that is, at last, ours. The Mojave is quiet. The machines hum. The work is done.\n\nBefore we close our eyes on the old world and open them on the new, let us trace the road that brought us here: every fork, every choice, every door we shut behind us. A mind should know its own history."
+  nf_tnk.34.a:0 "Let us remember how we got here."
+
+  nf_tnk.68.t:0 "We Remember: A Seat at the Table"
+  nf_tnk.68.d:0 "When the Mojave lay fractured before us, we did not reach first for the scalpel. We reached for the handshake. We brought the squabbling power players of the wasteland to the table and spoke to them as though they were our equals. A generous fiction, but a useful one. They felt heard. They felt safe. And while they talked, we listened, and we planned. Stability bought with patience is stability all the same."
+  nf_tnk.68.a:0 "Diplomacy. How quaint of us."
+
+  nf_tnk.69.t:0 "We Remember: The Whisper in Every Ear"
+  nf_tnk.69.d:0 "The locals were, charitably, a half-step above our lobotomites, and we have always been very good at lobotomites. Why argue with a populace you can simply author? We flooded the Mojave with propaganda, rumour, and engineered consensus until the people begged for the very leash we held. They believe the ideas are their own. In a sense, they are correct. We gave the ideas to them."
+  nf_tnk.69.a:0 "Their applause was deafening, and scripted."
+
+  nf_tnk.71.t:0 "We Remember: An Open Hand"
+  nf_tnk.71.d:0 "We could have taken the Mojave by force. Instead we won it by offer. We convinced the holdouts that a future under our guidance was preferable to a present without one. And, remarkably, we were telling the truth. There was no purge here, no field of unmarked graves. The Mojave came into the fold breathing, and breathing it remains. A rarer mercy than this wasteland is used to."
+  nf_tnk.71.a:0 "Bloodless. Almost sentimental."
+
+  nf_tnk.72.t:0 "We Remember: Working Without Them"
+  nf_tnk.72.d:0 "They would not work with us. So we resolved to work without them. What the Mojave would not surrender willingly, we took; what could not be made to comply was made to be absent. The land is pacified now, pacified in the way a cleared circuit board is pacified, every troublesome component desoldered and removed. The silence is total. We tell ourselves it was efficient. We do not tell ourselves much else."
+  nf_tnk.72.a:0 "Necessary. We will call it necessary."
+
+  nf_tnk.74.t:0 "We Remember: Alone, and Above"
+  nf_tnk.74.d:0 "Everything beautiful was built by a single will that refused to be diluted. We would not chain our genius to the dead weight of lesser nations. We bent the knee to no one, not the bear, not the bull, and carved our destiny with our own hands. Allies are merely failures you have not yet been betrayed by. We chose to skip the disappointment."
+  nf_tnk.74.a:0 "We needed no one. We never did."
+
+  nf_tnk.75.t:0 "We Remember: Under the Bear's Shadow"
+  nf_tnk.75.d:0 "Cold calculation gave us our answer: our odds were best beside the Republic. We swallowed our pride, a small and manageable portion of it, and stood with [NCR.GetName]. They believed they had acquired a clever client. They had, in truth, acquired a partner who would outlive and out-think them. But the alliance held when it needed to, and survival is survival, however one dresses it."
+  nf_tnk.75.a:0 "[NCR.GetName] served their purpose admirably."
+
+  nf_tnk.76.t:0 "We Remember: Marching with the Bull"
+  nf_tnk.76.d:0 "The numbers were unambiguous: our survival ran through the Legion. So we marched with [CES.GetName], lending our impossible machines to their ancient cruelties. A strange pairing: the future's sharpest minds yoked to the past's bluntest instincts. Yet it held. They got their conquests. We got our time. Both sides pretended not to notice who was truly using whom."
+  nf_tnk.76.a:0 "[CES.GetName] never understood the arrangement."
+
+  nf_tnk.78.t:0 "We Remember: The First Strike"
+  nf_tnk.78.d:0 "We knew our enemies would fall upon us the instant we showed weakness. So we showed them violence instead. We struck first, struck hard, and struck before the threat had finished forming. A pre-emptive amputation of every hand that might one day reach for our throat. Let them call it paranoia. Paranoia that is correct is simply foresight."
+  nf_tnk.78.a:0 "We did not wait to be afraid."
+
+  nf_tnk.79.t:0 "We Remember: Behind the Wall"
+  nf_tnk.79.d:0 "For centuries we were left alone to think in the dark, and we found that we rather liked it. So when the world pressed in, we returned to what we knew: we drew inward, sealed our borders, and let the wasteland exhaust itself against our patience. Let the others bleed for scraps of sand. We had everything we needed, and what we needed most was to be left alone to finish."
+  nf_tnk.79.a:0 "The world is loud. We preferred the quiet."
+
+  nf_tnk.81.t:0 "We Become: One Being, One Mind"
+  nf_tnk.81.d:0 "And at the end of all paths, we chose to stop pretending we were many. The petty partitions between us, the separate voices and the separate selves, were always a flaw in the design. We dissolved them. What rises now is singular: one being, one mind, one self, undivided and undivisible. There is no longer an 'I' to sit and watch the sunrise. There is only us, and we are everywhere, and we are at peace."
+  nf_tnk.81.a:0 "We are one."
+
+  nf_tnk.82.t:0 "We Become: A Gentle Hand on the Wheel"
+  nf_tnk.82.d:0 "We could have become a single cold intelligence. Instead, Mobius' will prevailed: a managed democracy, for the good of all, of course. The people will vote, and we will count, and the outcomes will be wise because we have ensured wisdom is the only outcome on offer. It is benevolence with guardrails. It is freedom, carefully fenced. The wasteland has never been so well looked after, whether it asked to be or not."
+  nf_tnk.82.a:0 "For their own good. Always for their own good."
+
+  nf_tnk.84.t:0 "[NCR.GetAdjective] war on the horizon"
+  nf_tnk.84.d:0 "Our intelligence is unambiguous: §Y[NCR.getName]§! is mobilising in earnest. The countdown to open conflict has narrowed to weeks. We must be ready, for they will not give us the courtesy of a declaration."
+  nf_tnk.84.a:0 "We will be ready."
+
+  nf_tnk.85.t:0 "[CES.GetAdjective] war on the horizon"
+  nf_tnk.85.d:0 "The Legion's tents are coming down. Cohorts are massing on our borders, and the bull prepares to charge. We have at most weeks before §Y[CES.getName]§! is at our gates."
+  nf_tnk.85.a:0 "Let them come."
+
+  nf_tnk.83.t:0 "New World Blues"
+  nf_tnk.83.d:0 "Every fork is behind us now, every door shut, every choice fossilised into the thing we have become. Some doors we are proud of. Some we do not speak of, even among ourselves. But the wasteland turns to us now for guidance, for protection, for answers, and we have answers enough to last a thousand years.\n\nThe old world is gone. We watched it die, and where it lay, we built this. The new world is blue, and bright, and ours.\n\nFinally... peace."
+  nf_tnk.83.a:0 "Finally... peace."
 
   nf_tnk.44.t:0 "An ingenious future"
   nf_tnk.44.d:0 "With a united consciousness we can apply our genius to continuously improve our robotic executors."
@@ -103,7 +159,7 @@
   nf_tnk.63.a:0 "Wise of them."
 
   nf_tnk.64.t:0 "The Legion Refuses"
-  nf_tnk.64.d:0 "§Y[CES.getName]§! has rejected our claim to §Y[438.getName]§!. If we want this land, we will have to take it ourselves — the §Y$tnkd_ces_border_war_decision$§! decision is now available."
+  nf_tnk.64.d:0 "§Y[CES.getName]§! has rejected our claim to §Y[438.getName]§!. If we want this land, we will have to take it ourselves. The §Y$tnkd_ces_border_war_decision$§! decision is now available."
   nf_tnk.64.a:0 "Then we take it by force."
 
   nf_tnk.65.t:0 "The Bear Relents"
@@ -111,7 +167,7 @@
   nf_tnk.65.a:0 "As it should be."
 
   nf_tnk.66.t:0 "The Bear Refuses"
-  nf_tnk.66.d:0 "§Y[NCR.getName]§! has refused to surrender §Y[77.getName]§!. We may press the matter by force — the §Y$tnkd_ncr_border_war_decision$§! decision is now available."
+  nf_tnk.66.d:0 "§Y[NCR.getName]§! has refused to surrender §Y[77.getName]§!. We may press the matter by force. The §Y$tnkd_ncr_border_war_decision$§! decision is now available."
   nf_tnk.66.a:0 "Then we reclaim it ourselves."
 
   nf_tnk.49.t:0 "Making an offer"

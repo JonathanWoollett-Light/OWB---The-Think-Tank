@@ -169,6 +169,7 @@ characters = {
 			}
 			modifier = {
 				land_reinforce_rate = 0.06
+				army_experience_gain_factor = 0.10
 			}
 			cost = 100
 			ai_will_do = {

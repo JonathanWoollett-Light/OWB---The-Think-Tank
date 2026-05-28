@@ -206,14 +206,17 @@ tnkd_ncr_category = {
     tnkd_ncr_deal_decision = {
         highlight_states = {
             highlight_states_trigger = {
-                OR = {
-                    state = 47
-                    state = 67
-                    state = 46
-                    state = 137
-                    state = 417
-                    state = 552
-                    state = 573
+                owner = { tag = TNK }
+                NOT = {
+                    OR = {
+                        state = 47
+                        state = 67
+                        state = 46
+                        state = 137
+                        state = 417
+                        state = 552
+                        state = 573
+                    }
                 }
             }
         }
@@ -368,7 +371,8 @@ tnkd_ncr_category = {
                 NCR = {
                     activate_mission = tnkd_ncr_war_mission
                 }
-            } 
+                reset_tnk_ncr_war_warning = yes
+            }
         }
     }
     tnkd_ncr_war_mission = {
@@ -419,6 +423,30 @@ tnkd_ncr_category = {
 					}
 				}
 			}
+        }
+    }
+    # Parallel "30-days-to-war" warning mission for NCR. Its days_mission_timeout
+    # reads from global.tnk_ncr_war_warning_countdown, kept in sync with the main
+    # war mission countdown via reset_tnk_ncr_war_warning. Cancels if the war is
+    # already settled (peace, alliance, war started, NCR gone). Fires nf_tnk.84.
+    tnkd_ncr_war_warning_mission = {
+        icon = generic_civil_support
+        priority = 990
+        allowed = { tag = TNK }
+        activation = { always = no }
+        available = { hidden_trigger = { always = no } }
+        cancel_trigger = {
+            OR = {
+                NCR = { exists = no }
+                has_war_with = NCR
+                has_completed_focus = tnkd_siding_with_ncr
+                NOT = { has_active_mission = tnkd_ncr_war_mission }
+            }
+        }
+        days_mission_timeout = global.tnk_ncr_war_warning_countdown
+        is_good = no
+        timeout_effect = {
+            country_event = nf_tnk.84
         }
     }
     tnkd_ncr_treaty_decision = {
@@ -594,14 +622,17 @@ tnkd_ces_category = {
     tnkd_ces_deal_decision = {
         highlight_states = {
             highlight_states_trigger = {
-                OR = {
-                    state = 47
-                    state = 67
-                    state = 46
-                    state = 137
-                    state = 417
-                    state = 552
-                    state = 573
+                owner = { tag = TNK }
+                NOT = {
+                    OR = {
+                        state = 47
+                        state = 67
+                        state = 46
+                        state = 137
+                        state = 417
+                        state = 552
+                        state = 573
+                    }
                 }
             }
         }
@@ -756,7 +787,8 @@ tnkd_ces_category = {
                 CES = {
                     activate_mission = tnkd_ces_war_mission
                 }
-            } 
+                reset_tnk_ces_war_warning = yes
+            }
         }
     }
     tnkd_ces_war_mission = {
@@ -807,6 +839,27 @@ tnkd_ces_category = {
 					}
 				}
 			}
+        }
+    }
+    # Parallel "30-days-to-war" warning mission for CES (mirror of the NCR warning).
+    tnkd_ces_war_warning_mission = {
+        icon = generic_civil_support
+        priority = 990
+        allowed = { tag = TNK }
+        activation = { always = no }
+        available = { hidden_trigger = { always = no } }
+        cancel_trigger = {
+            OR = {
+                CES = { exists = no }
+                has_war_with = CES
+                has_completed_focus = tnkd_siding_with_ces
+                NOT = { has_active_mission = tnkd_ces_war_mission }
+            }
+        }
+        days_mission_timeout = global.tnk_ces_war_warning_countdown
+        is_good = no
+        timeout_effect = {
+            country_event = nf_tnk.85
         }
     }
     tnkd_ces_treaty_mission = {

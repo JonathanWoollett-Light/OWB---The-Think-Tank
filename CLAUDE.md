@@ -3,10 +3,8 @@
 ## Project
 
 **OWB - The Think Tank** (`tnkd`) — a Hearts of Iron IV mod, sub-mod of *Old World Blues*
-(declared as a dependency in `mod_folder/descriptor.mod`). Targets HOI4 `1.17.*`.
+(declared as a dependency in `mod_folder/descriptor.mod`).
 All content lives under `mod_folder/`.
-
-Primary country tag: **TNK** (the Think Tank). Other tags referenced: NCR, CES, VEG, SLE, etc.
 
 ## Layout
 
@@ -116,18 +114,6 @@ tnk_decohesion_stability_var_tt:0 "Modifies §HStability§! for §Y$tnk_decohesi
   than wrapping it in `§R…§!`.
 
 `*_var_tt` tooltips live with the other variable tooltips in `tnkd_idea_l_english.yml`.
-
-## Tooltip spacing helper
-
-`newline = yes` inserts a blank line into a tooltip (e.g. between effects in a focus
-`completion_reward`):
-```
-# tnkd_scripted_effect.txt
-newline = { custom_effect_tooltip = newline_tt }
-# tnkd_idea_l_english.yml
-newline_tt:0 "\n"
-```
-If a lone `\n` collapses in-game, bump the loc value to `"\n\n"`.
 
 ## Naming conventions
 

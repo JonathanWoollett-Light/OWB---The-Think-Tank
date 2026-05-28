@@ -38,6 +38,8 @@ focus_tree = {
 				CES = {
 					activate_mission = tnkd_ces_war_mission
 				}
+				reset_tnk_ncr_war_warning = yes
+				reset_tnk_ces_war_warning = yes
 			}
 		}
 	}
@@ -2125,6 +2127,10 @@ focus_tree = {
 			update_tnk_broken_mojave_resistance_activity_var = yes
 			set_temp_variable = { tnk_angels_of_death_var_change = 0.1 }
             update_tnk_angels_of_death_var = yes
+			if = {
+				limit = { has_dynamic_modifier = { modifier = tnk_broken_mojave_dynamic_modifier } }
+				remove_dynamic_modifier = { modifier = tnk_broken_mojave_dynamic_modifier }
+			}
 		}
 	}
 	focus = {
@@ -2200,6 +2206,10 @@ focus_tree = {
 			}
 			set_temp_variable = { tnk_angels_of_death_var_change = -0.1 }
             update_tnk_angels_of_death_var = yes
+			if = {
+				limit = { has_dynamic_modifier = { modifier = tnk_broken_mojave_dynamic_modifier } }
+				remove_dynamic_modifier = { modifier = tnk_broken_mojave_dynamic_modifier }
+			}
 		}
 	}
 	focus = {

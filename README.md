@@ -29,6 +29,7 @@
 - balance `tnkd_next_steps` stability and war support requirements so they are difficult to meet and take some time and focus to get
 - focus icons for attacking tar walkers and ouroboros are duplicated and wrong. Fix this.
 - tnk and lul when ai controlled seem to never train new units likely bug in base mod, this should be fixed in recent update, test this.
+- when you beat ces, or somehow otherwise annex/puppet/own arizona, it should still transfer all this territory (the cores of) to lunar legion when they spawn
 
 ### High Priority
 

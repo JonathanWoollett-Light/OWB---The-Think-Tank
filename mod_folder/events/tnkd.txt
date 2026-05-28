@@ -258,6 +258,313 @@ country_event = {
 
 	option = {
 		name = nf_tnk.34.a
+		country_event = nf_tnk.67
+	}
+}
+# ----------------------------------------------------------------------------
+# End-game retrospective chain (fired from tnkd_final via nf_tnk.34).
+# Hidden "router" events (67/70/73/77/80) pick the variant matching the
+# mutually-exclusive focus the player took, or skip to the next router if that
+# decision was never made. Visible variant events chain to the next router.
+# ----------------------------------------------------------------------------
+# Decision 1 - Mojave Governance: Negotiation (68) vs Manipulation (69)
+country_event = {
+	id = nf_tnk.67
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event nf_tnk.67"
+		if = {
+			limit = { has_completed_focus = tnkd_new_mojave_1 }
+			country_event = nf_tnk.68
+		}
+		else_if = {
+			limit = { has_completed_focus = tnkd_new_mojave_2 }
+			country_event = nf_tnk.69
+		}
+		else = {
+			country_event = nf_tnk.70
+		}
+	}
+}
+country_event = {
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nf_tnk.68" }
+	id = nf_tnk.68
+	title = nf_tnk.68.t
+	desc = nf_tnk.68.d
+	picture = GFX_tnkd_event_peace
+
+	is_triggered_only = yes
+
+	option = {
+		name = nf_tnk.68.a
+		country_event = nf_tnk.70
+	}
+}
+country_event = {
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nf_tnk.69" }
+	id = nf_tnk.69
+	title = nf_tnk.69.t
+	desc = nf_tnk.69.d
+	picture = GFX_event_big_mt_event_weird_science
+
+	is_triggered_only = yes
+
+	option = {
+		name = nf_tnk.69.a
+		country_event = nf_tnk.70
+	}
+}
+# Decision 2 - Mojave Control: Reconciliation (71) vs Liquidation (72)
+country_event = {
+	id = nf_tnk.70
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event nf_tnk.70"
+		if = {
+			limit = { has_completed_focus = tnkd_new_mojave_6 }
+			country_event = nf_tnk.71
+		}
+		else_if = {
+			limit = { has_completed_focus = tnkd_new_mojave_7 }
+			country_event = nf_tnk.72
+		}
+		else = {
+			country_event = nf_tnk.73
+		}
+	}
+}
+country_event = {
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nf_tnk.71" }
+	id = nf_tnk.71
+	title = nf_tnk.71.t
+	desc = nf_tnk.71.d
+	picture = GFX_tnkd_event_peace
+
+	is_triggered_only = yes
+
+	option = {
+		name = nf_tnk.71.a
+		country_event = nf_tnk.73
+	}
+}
+country_event = {
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nf_tnk.72" }
+	id = nf_tnk.72
+	title = nf_tnk.72.t
+	desc = nf_tnk.72.d
+	picture = GFX_event_big_mt_the_dome
+
+	is_triggered_only = yes
+
+	option = {
+		name = nf_tnk.72.a
+		country_event = nf_tnk.73
+	}
+}
+# Decision 3 - Faction Alignment: Going Alone (74) vs Side NCR (75) vs Side CES (76)
+country_event = {
+	id = nf_tnk.73
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event nf_tnk.73"
+		if = {
+			limit = { has_completed_focus = tnkd_going_alone }
+			country_event = nf_tnk.74
+		}
+		else_if = {
+			limit = { has_completed_focus = tnkd_siding_with_ncr }
+			country_event = nf_tnk.75
+		}
+		else_if = {
+			limit = { has_completed_focus = tnkd_siding_with_ces }
+			country_event = nf_tnk.76
+		}
+		else = {
+			country_event = nf_tnk.77
+		}
+	}
+}
+country_event = {
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nf_tnk.74" }
+	id = nf_tnk.74
+	title = nf_tnk.74.t
+	desc = nf_tnk.74.d
+	picture = GFX_event_big_mt_event_weird_science
+
+	is_triggered_only = yes
+
+	option = {
+		name = nf_tnk.74.a
+		country_event = nf_tnk.77
+	}
+}
+country_event = {
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nf_tnk.75" }
+	id = nf_tnk.75
+	title = nf_tnk.75.t
+	desc = nf_tnk.75.d
+	picture = GFX_tnkd_event_peace
+
+	is_triggered_only = yes
+
+	option = {
+		name = nf_tnk.75.a
+		country_event = nf_tnk.77
+	}
+}
+country_event = {
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nf_tnk.76" }
+	id = nf_tnk.76
+	title = nf_tnk.76.t
+	desc = nf_tnk.76.d
+	picture = GFX_tnkd_event_peace
+
+	is_triggered_only = yes
+
+	option = {
+		name = nf_tnk.76.a
+		country_event = nf_tnk.77
+	}
+}
+# Decision 4 - Pre-Convergence Stance: Preemption (78) vs Isolation (79)
+country_event = {
+	id = nf_tnk.77
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event nf_tnk.77"
+		if = {
+			limit = { has_completed_focus = tnkd_preemption }
+			country_event = nf_tnk.78
+		}
+		else_if = {
+			limit = { has_completed_focus = tnkd_isolation }
+			country_event = nf_tnk.79
+		}
+		else = {
+			country_event = nf_tnk.80
+		}
+	}
+}
+country_event = {
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nf_tnk.78" }
+	id = nf_tnk.78
+	title = nf_tnk.78.t
+	desc = nf_tnk.78.d
+	picture = GFX_event_big_mt_event_weird_science
+
+	is_triggered_only = yes
+
+	option = {
+		name = nf_tnk.78.a
+		country_event = nf_tnk.80
+	}
+}
+country_event = {
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nf_tnk.79" }
+	id = nf_tnk.79
+	title = nf_tnk.79.t
+	desc = nf_tnk.79.d
+	picture = GFX_tnkd_event_peace
+
+	is_triggered_only = yes
+
+	option = {
+		name = nf_tnk.79.a
+		country_event = nf_tnk.80
+	}
+}
+# Decision 5 - Convergence Path: True Convergence (81) vs Mobius' Will (82)
+country_event = {
+	id = nf_tnk.80
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event nf_tnk.80"
+		if = {
+			limit = { has_completed_focus = tnkd_true_convergance }
+			country_event = nf_tnk.81
+		}
+		else_if = {
+			limit = { has_completed_focus = tnkd_mobius_convergance }
+			country_event = nf_tnk.82
+		}
+		else = {
+			country_event = nf_tnk.83
+		}
+	}
+}
+country_event = {
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nf_tnk.81" }
+	id = nf_tnk.81
+	title = nf_tnk.81.t
+	desc = nf_tnk.81.d
+	picture = GFX_event_big_mt_event_weird_science
+
+	is_triggered_only = yes
+
+	option = {
+		name = nf_tnk.81.a
+		country_event = nf_tnk.83
+	}
+}
+country_event = {
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nf_tnk.82" }
+	id = nf_tnk.82
+	title = nf_tnk.82.t
+	desc = nf_tnk.82.d
+	picture = GFX_tnkd_event_peace
+
+	is_triggered_only = yes
+
+	option = {
+		name = nf_tnk.82.a
+		country_event = nf_tnk.83
+	}
+}
+# Epilogue - closing reflection
+country_event = {
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nf_tnk.83" }
+	id = nf_tnk.83
+	title = nf_tnk.83.t
+	desc = nf_tnk.83.d
+	picture = GFX_tnkd_event_peace
+
+	is_triggered_only = yes
+
+	option = {
+		name = nf_tnk.83.a
+	}
+}
+# Fired ~30 days before tnkd_ncr_war_mission times out, via tnkd_ncr_war_warning_mission.
+country_event = {
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nf_tnk.84" }
+	id = nf_tnk.84
+	title = nf_tnk.84.t
+	desc = nf_tnk.84.d
+	picture = GFX_event_big_mt_event_weird_science
+
+	is_triggered_only = yes
+
+	option = {
+		name = nf_tnk.84.a
+	}
+}
+# Fired ~30 days before tnkd_ces_war_mission times out, via tnkd_ces_war_warning_mission.
+country_event = {
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nf_tnk.85" }
+	id = nf_tnk.85
+	title = nf_tnk.85.t
+	desc = nf_tnk.85.d
+	picture = GFX_event_big_mt_event_weird_science
+
+	is_triggered_only = yes
+
+	option = {
+		name = nf_tnk.85.a
 	}
 }
 country_event = {

@@ -1,7 +1,5 @@
 capital = 47
 
-set_country_flag = caps_exempt
-
 set_technology = {
 	basic_supply_transport_tech = 1
 	infantry_tech_level_tribal = 1 #They don't know how humans work

@@ -1820,6 +1820,16 @@ focus_tree = {
 		relative_position_id = tnk_personality_restoration
 		completion_reward = {
 			custom_effect_tooltip = tnkd_new_mojave_tt_2
+			# Display what the Broken Mojave dynamic modifier brings, following the CLAUDE.md
+			# "adds_dynamic_modifier_tt" pattern. The modifier itself is added via the
+			# tnkd_on_actions daily check (nf_tnk.62) the moment MOJ ceases to exist, so by the
+			# time this focus completes it is already active; this block is purely informational.
+			custom_effect_tooltip = { localization_key = adds_dynamic_modifier_tt MODIFIER = tnk_broken_mojave_dynamic_modifier }
+			set_temp_variable = { tnkd_broken_mojave_stat_tt = -0.48 tooltip = tnk_broken_mojave_production_speed_buildings_factor_stat_tt }
+			set_temp_variable = { tnkd_broken_mojave_stat_tt = 0.12  tooltip = tnk_broken_mojave_consumer_goods_factor_stat_tt }
+			set_temp_variable = { tnkd_broken_mojave_stat_tt = 2     tooltip = tnk_broken_mojave_resistance_activity_stat_tt }
+			set_temp_variable = { tnkd_broken_mojave_stat_tt = -0.5  tooltip = tnk_broken_mojave_compliance_gain_stat_tt }
+			set_temp_variable = { tnkd_broken_mojave_stat_tt = 1     tooltip = tnk_broken_mojave_no_compliance_gain_stat_tt }
 		}
 	}
 	focus = {

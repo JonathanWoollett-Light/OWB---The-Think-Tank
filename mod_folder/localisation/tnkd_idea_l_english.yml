@@ -184,6 +184,24 @@
  tnk_decohesion_stability_var_tt:0 "Modifies §HStability§! for §Y$tnk_decohesion_dynamic_modifier$§! by [?tnk_decohesion_stability_var_change|+%] (Current: [?tnk_decohesion_stability_var|+%])"
  tnk_decohesion_org_var_tt:0 "Modifies §HDivision Organization§! for §Y$tnk_decohesion_dynamic_modifier$§! by [?tnk_decohesion_org_var_change|+%] (Current: [?tnk_decohesion_org_var|+%])"
  tnk_brain_drain_var_tt:0 "Modifies §Y$tnk_brain_drain_dynamic_modifier$§! by [?tnk_brain_drain_var_change|+%] (Current: [?tnk_brain_drain_var|+%])"
+
+ # Generic "adds dynamic modifier with these starting values" tooltip header (CLAUDE.md pattern).
+ # Used together with per-stat *_stat_tt lines emitted via `set_temp_variable = { ... tooltip = X }`.
+ adds_dynamic_modifier_tt:0 "Adds $MODIFIER|Y$ which grants:\n"
+
+ # Broken Mojave per-stat tooltips. $RIGHT$ is the value passed via set_temp_variable's
+ # tooltip parameter; |+= = sign + good-is-up coloring; |-= = sign + good-is-down coloring.
+ tnk_broken_mojave_production_speed_buildings_factor_stat_tt:0 "$MODIFIER_PRODUCTION_SPEED_BUILDINGS_FACTOR$: $RIGHT|+=%1$"
+ MODIFIER_PRODUCTION_SPEED_BUILDINGS_FACTOR:0 "£GFX_construction_icon_small Construction Speed"
+ tnk_broken_mojave_consumer_goods_factor_stat_tt:0 "$MODIFIER_CONSUMER_GOODS_FACTOR$: $RIGHT|-=%1$"
+ MODIFIER_CONSUMER_GOODS_FACTOR:0 "£consumer_goods_texticon Consumer Goods Factor"
+ tnk_broken_mojave_resistance_activity_stat_tt:0 "$MODIFIER_RESISTANCE_ACTIVITY$: $RIGHT|-=%1$"
+ MODIFIER_RESISTANCE_ACTIVITY:0 "£GFX_legitimacy Resistance Activity"
+ tnk_broken_mojave_compliance_gain_stat_tt:0 "$MODIFIER_COMPLIANCE_GAIN$: $RIGHT|+=%1$"
+ MODIFIER_COMPLIANCE_GAIN:0 "£GFX_decision_icon_small Daily Compliance Gain"
+ # No-compliance-gain is a boolean penalty; the value passed is unused for display, the line just flags it as on.
+ tnk_broken_mojave_no_compliance_gain_stat_tt:0 "$MODIFIER_NO_COMPLIANCE_GAIN$: §RYes§!"
+ MODIFIER_NO_COMPLIANCE_GAIN:0 "Compliance Gain Disabled"
  newline_tt:0 " \n"
 
  tnkd_veg_concessions:0 "The cost of doing business"

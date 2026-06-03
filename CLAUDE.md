@@ -1,5 +1,30 @@
 # CLAUDE.md
 
+## Dynamic Modifier Tooltips
+
+For dynamic modifiers use `custom_effect_tooltip` and `hidden_effect` to show affects on modification.
+
+E.g. when adding a dynamic modifier with starting values, do:
+
+```
+completion_reward = {
+   custom_effect_tooltip = { localization_key = adds_dynamic_modifier_tt MODIFIER = ENG_state_of_the_empire }
+   set_temp_variable = { ENG_soe_tt = 0.15 tooltip = war_support_factor_tt }
+   set_temp_variable = { ENG_soe_tt = -0.30 tooltip = justify_war_goal_time_tt }
+   hidden_effect = { add_dynamic_modifier = { modifier = ENG_state_of_the_empire } }
+}
+```
+
+with:
+
+```
+adds_dynamic_modifier_tt: "Adds $MODIFIER|Y$ which grants:\n"
+war_support_factor_tt: "$MODIFIER_WAR_SUPPORT_FACTOR$: $RIGHT|+=%1$"
+MODIFIER_WAR_SUPPORT_FACTOR: "£war_support_modifiericons_texticon  War Support"
+justify_war_goal_time_tt: "$MODIFIER_JUSTIFY_WAR_GOAL_TIME$: $RIGHT|-=%1$"
+# etc.
+```
+
 ## Project
 
 **OWB - The Think Tank** (`tnkd`) — a Hearts of Iron IV mod, sub-mod of *Old World Blues*

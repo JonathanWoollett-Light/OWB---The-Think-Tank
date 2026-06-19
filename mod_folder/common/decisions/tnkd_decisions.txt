@@ -348,6 +348,30 @@ tnkd_ncr_category = {
             increase_tnk_ncr_war_countdown = yes
         }
     }
+    # War-plan decision: applies tnkd_anti_ncr_warplan to TNK for 365 days, giving a
+    # targeted combat edge vs NCR. Sized to "help win but not be op".
+    tnkd_ncr_warplan_decision = {
+        icon = GFX_decision_generic_scorched_earth
+        allowed = { tag = TNK }
+        visible = {
+            country_exists = NCR
+            OR = {
+                has_active_mission = tnkd_ncr_war_mission
+                has_war_with = NCR
+            }
+        }
+        available = {
+            has_completed_focus = tnkd_ncr_defence
+        }
+        cost = 75
+        fire_only_once = yes
+        complete_effect = {
+            add_timed_idea = {
+                idea = tnkd_anti_ncr_warplan
+                days = 365
+            }
+        }
+    }
     tnkd_ncr_temporary_peace_decision = {
         allowed = { tag = TNK }
         visible = {
@@ -371,7 +395,6 @@ tnkd_ncr_category = {
                 NCR = {
                     activate_mission = tnkd_ncr_war_mission
                 }
-                reset_tnk_ncr_war_warning = yes
             }
         }
     }
@@ -401,52 +424,17 @@ tnkd_ncr_category = {
 		}
         days_mission_timeout = global.tnk_ncr_war_countdown
         is_good = no
-		war_with_on_timeout = NCR
-		war_with_on_timeout = TNK
+        # The previous war_with_on_timeout = NCR/TNK auto-declaration was removed: on
+        # TNK's mission timeout we now hand the player nf_tnk.88, a chooser between
+        # buying more time (at the cost of PP) or pressing the war ourselves. A quick
+        # white-peace option was deliberately omitted — players use the standalone
+        # tnkd_ncr_temporary_peace_decision for that, which has its own gating.
+        # NCR's mirror mission times out silently and waits for TNK's chosen outcome.
         timeout_effect = {
             if = {
-				limit = {
-					tag = NCR
-				}
-				declare_war_on = {
-					target = TNK
-					type = annex_everything
-				}
-			}
-			else = {
-				effect_tooltip = {
-					NCR = {
-						declare_war_on = {
-							target = TNK
-							type = annex_everything
-						}
-					}
-				}
-			}
-        }
-    }
-    # Parallel "30-days-to-war" warning mission for NCR. Its days_mission_timeout
-    # reads from global.tnk_ncr_war_warning_countdown, kept in sync with the main
-    # war mission countdown via reset_tnk_ncr_war_warning. Cancels if the war is
-    # already settled (peace, alliance, war started, NCR gone). Fires nf_tnk.84.
-    tnkd_ncr_war_warning_mission = {
-        icon = generic_civil_support
-        priority = 990
-        allowed = { tag = TNK }
-        activation = { always = no }
-        available = { hidden_trigger = { always = no } }
-        cancel_trigger = {
-            OR = {
-                NCR = { exists = no }
-                has_war_with = NCR
-                has_completed_focus = tnkd_siding_with_ncr
-                NOT = { has_active_mission = tnkd_ncr_war_mission }
+                limit = { tag = TNK }
+                country_event = nf_tnk.88
             }
-        }
-        days_mission_timeout = global.tnk_ncr_war_warning_countdown
-        is_good = no
-        timeout_effect = {
-            country_event = nf_tnk.84
         }
     }
     tnkd_ncr_treaty_decision = {
@@ -540,6 +528,87 @@ tnkd_ncr_category = {
                 }
                 transfer_state = 236
             }
+        }
+    }
+    # Peace-deal mission for NCR. Auto-activates the moment TNK is at war with NCR and
+    # has captured the three NCR heartland states (former trigger condition of the deal
+    # decision). After a 30-day grace period the choice event nf_tnk.86 fires, where the
+    # player can either take the white-peace deal (transferring non-Mojave states back to
+    # NCR) or refuse and press the war. The old tnkd_ncr_deal_decision is left in place
+    # as a fallback for already-completed-focus paths.
+    tnkd_ncr_peace_deal_mission = {
+        icon = generic_civil_support
+        priority = 850
+        allowed = { tag = TNK }
+        activation = {
+            has_war_with = NCR
+            controls_state = 252
+            controls_state = 613
+            controls_state = 380
+            NOT = { has_country_flag = tnkd_ncr_peace_deal_offered }
+        }
+        available = { hidden_trigger = { always = no } }
+        cancel_trigger = {
+            OR = {
+                NOT = { country_exists = NCR }
+                NOT = { has_war_with = NCR }
+                NOT = { controls_state = 252 }
+            }
+        }
+        days_mission_timeout = 30
+        is_good = yes
+        timeout_effect = {
+            set_country_flag = tnkd_ncr_peace_deal_offered
+            country_event = nf_tnk.86
+        }
+    }
+    # War reparations from NCR. tnkd_collect_ncr_reparations is taken once after victory
+    # (NCR puppeted or annexed) to start the reparation flow; the mission ticks for 365
+    # days and then naturally removes the idea — unless the player keeps pressing with
+    # tnkd_extend_ncr_reparations to refresh the timer.
+    tnkd_ncr_reparations_mission = {
+        icon = generic_civil_support
+        priority = 800
+        allowed = { tag = TNK }
+        activation = { always = no }
+        available = { hidden_trigger = { always = no } }
+        days_mission_timeout = 365
+        is_good = yes
+        timeout_effect = {
+            remove_ideas = tnkd_ncr_reparations
+        }
+    }
+    tnkd_collect_ncr_reparations = {
+        icon = GFX_decision_generic_scorched_earth
+        allowed = { tag = TNK }
+        visible = {
+            OR = {
+                NOT = { country_exists = NCR }
+                NCR = { is_puppet_of = TNK }
+            }
+            NOT = { has_idea = tnkd_ncr_reparations }
+        }
+        cost = 50
+        fire_only_once = yes
+        complete_effect = {
+            add_ideas = tnkd_ncr_reparations
+            activate_mission = tnkd_ncr_reparations_mission
+        }
+    }
+    tnkd_extend_ncr_reparations = {
+        icon = GFX_decision_generic_scorched_earth
+        allowed = { tag = TNK }
+        visible = {
+            has_idea = tnkd_ncr_reparations
+        }
+        cost = 100
+        days_re_enable = 90
+        complete_effect = {
+            if = {
+                limit = { has_active_mission = tnkd_ncr_reparations_mission }
+                remove_mission = tnkd_ncr_reparations_mission
+            }
+            activate_mission = tnkd_ncr_reparations_mission
         }
     }
     tnkd_ncr_lobot_decision = {
@@ -764,6 +833,29 @@ tnkd_ces_category = {
             increase_tnk_ces_war_countdown = yes
         }
     }
+    # Mirror of tnkd_ncr_warplan_decision against CES.
+    tnkd_ces_warplan_decision = {
+        icon = GFX_decision_generic_scorched_earth
+        allowed = { tag = TNK }
+        visible = {
+            country_exists = CES
+            OR = {
+                has_active_mission = tnkd_ces_war_mission
+                has_war_with = CES
+            }
+        }
+        available = {
+            has_completed_focus = tnkd_larping_luddites
+        }
+        cost = 75
+        fire_only_once = yes
+        complete_effect = {
+            add_timed_idea = {
+                idea = tnkd_anti_ces_warplan
+                days = 365
+            }
+        }
+    }
     tnkd_ces_temporary_peace_decision = {
         allowed = { tag = TNK }
         visible = {
@@ -787,7 +879,6 @@ tnkd_ces_category = {
                 CES = {
                     activate_mission = tnkd_ces_war_mission
                 }
-                reset_tnk_ces_war_warning = yes
             }
         }
     }
@@ -817,49 +908,13 @@ tnkd_ces_category = {
 		}
         is_good = no
         days_mission_timeout = global.tnk_ces_war_countdown
-        war_with_on_timeout = CES
-		war_with_on_timeout = TNK
+        # Mirror of the NCR mission rewrite: TNK's timeout fires the chooser event
+        # nf_tnk.89 instead of auto-declaring war.
         timeout_effect = {
             if = {
-				limit = {
-					tag = CES
-				}
-				declare_war_on = {
-					target = TNK
-					type = annex_everything
-				}
-			}
-			else = {
-				effect_tooltip = {
-					CES = {
-						declare_war_on = {
-							target = TNK
-							type = annex_everything
-						}
-					}
-				}
-			}
-        }
-    }
-    # Parallel "30-days-to-war" warning mission for CES (mirror of the NCR warning).
-    tnkd_ces_war_warning_mission = {
-        icon = generic_civil_support
-        priority = 990
-        allowed = { tag = TNK }
-        activation = { always = no }
-        available = { hidden_trigger = { always = no } }
-        cancel_trigger = {
-            OR = {
-                CES = { exists = no }
-                has_war_with = CES
-                has_completed_focus = tnkd_siding_with_ces
-                NOT = { has_active_mission = tnkd_ces_war_mission }
+                limit = { tag = TNK }
+                country_event = nf_tnk.89
             }
-        }
-        days_mission_timeout = global.tnk_ces_war_warning_countdown
-        is_good = no
-        timeout_effect = {
-            country_event = nf_tnk.85
         }
     }
     tnkd_ces_treaty_mission = {
@@ -935,6 +990,78 @@ tnkd_ces_category = {
                 }
                 transfer_state = 359
             }
+        }
+    }
+    # Peace-deal mission for CES (mirror of NCR). Activates when TNK is at war with CES
+    # and has captured Flagstaff (438). On timeout, fires nf_tnk.87 for the choice.
+    tnkd_ces_peace_deal_mission = {
+        icon = generic_civil_support
+        priority = 850
+        allowed = { tag = TNK }
+        activation = {
+            has_war_with = CES
+            controls_state = 438
+            NOT = { has_country_flag = tnkd_ces_peace_deal_offered }
+        }
+        available = { hidden_trigger = { always = no } }
+        cancel_trigger = {
+            OR = {
+                NOT = { country_exists = CES }
+                NOT = { has_war_with = CES }
+                NOT = { controls_state = 438 }
+            }
+        }
+        days_mission_timeout = 30
+        is_good = yes
+        timeout_effect = {
+            set_country_flag = tnkd_ces_peace_deal_offered
+            country_event = nf_tnk.87
+        }
+    }
+    # War reparations from CES (mirror of the NCR system).
+    tnkd_ces_reparations_mission = {
+        icon = generic_civil_support
+        priority = 800
+        allowed = { tag = TNK }
+        activation = { always = no }
+        available = { hidden_trigger = { always = no } }
+        days_mission_timeout = 365
+        is_good = yes
+        timeout_effect = {
+            remove_ideas = tnkd_ces_reparations
+        }
+    }
+    tnkd_collect_ces_reparations = {
+        icon = GFX_decision_generic_scorched_earth
+        allowed = { tag = TNK }
+        visible = {
+            OR = {
+                NOT = { country_exists = CES }
+                CES = { is_puppet_of = TNK }
+            }
+            NOT = { has_idea = tnkd_ces_reparations }
+        }
+        cost = 50
+        fire_only_once = yes
+        complete_effect = {
+            add_ideas = tnkd_ces_reparations
+            activate_mission = tnkd_ces_reparations_mission
+        }
+    }
+    tnkd_extend_ces_reparations = {
+        icon = GFX_decision_generic_scorched_earth
+        allowed = { tag = TNK }
+        visible = {
+            has_idea = tnkd_ces_reparations
+        }
+        cost = 100
+        days_re_enable = 90
+        complete_effect = {
+            if = {
+                limit = { has_active_mission = tnkd_ces_reparations_mission }
+                remove_mission = tnkd_ces_reparations_mission
+            }
+            activate_mission = tnkd_ces_reparations_mission
         }
     }
     tnkd_ces_lobot_mission = {
@@ -1413,6 +1540,112 @@ tnkd_minor_category = {
                 }
             }
             
+        }
+    }
+    # Exotic-research expedition decisions. Gated behind the tnkd_exotic_research focus
+    # and unavailable while at war with the target — these are "we slip a survey team
+    # across the border" expeditions, not invasions. Each grants a science windfall on
+    # a 180-day cooldown.
+    tnkd_expedition_ncr = {
+        icon = GFX_decision_generic_scorched_earth
+        allowed = { tag = TNK }
+        visible = {
+            country_exists = NCR
+            NOT = { has_war_with = NCR }
+        }
+        available = {
+            has_completed_focus = tnkd_exotic_research
+        }
+        cost = 75
+        days_re_enable = 180
+        complete_effect = {
+            set_temp_variable = { science_change = 3000 }
+            tnk_change_science = yes
+        }
+    }
+    tnkd_expedition_ces = {
+        icon = GFX_decision_generic_scorched_earth
+        allowed = { tag = TNK }
+        visible = {
+            country_exists = CES
+            NOT = { has_war_with = CES }
+        }
+        available = {
+            has_completed_focus = tnkd_exotic_research
+        }
+        cost = 75
+        days_re_enable = 180
+        complete_effect = {
+            set_temp_variable = { science_change = 3000 }
+            tnk_change_science = yes
+        }
+    }
+    tnkd_expedition_veg = {
+        icon = GFX_decision_generic_scorched_earth
+        allowed = { tag = TNK }
+        visible = {
+            country_exists = VEG
+            NOT = { has_war_with = VEG }
+        }
+        available = {
+            has_completed_focus = tnkd_exotic_research
+        }
+        cost = 75
+        days_re_enable = 180
+        complete_effect = {
+            set_temp_variable = { science_change = 3000 }
+            tnk_change_science = yes
+        }
+    }
+    # Party-popularity buff decisions. Each gives +5% popularity to one of the four
+    # ideologies, gated behind a thematic focus and on a 90-day cooldown so a player
+    # can ramp toward an ideology over time but not flip the country in a week.
+    tnkd_buff_people_popularity = {
+        icon = GFX_decision_generic_scorched_earth
+        allowed = { tag = TNK }
+        available = {
+            has_completed_focus = tnkd_new_mojave_6
+        }
+        cost = 50
+        days_re_enable = 90
+        complete_effect = {
+            add_popularity = { ideology = people popularity = 0.05 }
+        }
+    }
+    tnkd_buff_elites_popularity = {
+        icon = GFX_decision_generic_scorched_earth
+        allowed = { tag = TNK }
+        available = {
+            has_completed_focus = tnkd_new_mojave_1
+        }
+        cost = 50
+        days_re_enable = 90
+        complete_effect = {
+            add_popularity = { ideology = elites popularity = 0.05 }
+        }
+    }
+    tnkd_buff_intellectuals_popularity = {
+        icon = GFX_decision_generic_scorched_earth
+        allowed = { tag = TNK }
+        available = {
+            has_completed_focus = tnkd_true_convergance
+        }
+        cost = 50
+        days_re_enable = 90
+        complete_effect = {
+            add_popularity = { ideology = intellectuals popularity = 0.05 }
+        }
+    }
+    tnkd_buff_ruler_popularity = {
+        icon = GFX_decision_generic_scorched_earth
+        allowed = { tag = TNK }
+        available = {
+            has_completed_focus = tnkd_mobius_convergance
+        }
+        cost = 50
+        days_re_enable = 90
+        complete_effect = {
+            add_popularity = { ideology = ruler popularity = 0.05 }
         }
     }
 }

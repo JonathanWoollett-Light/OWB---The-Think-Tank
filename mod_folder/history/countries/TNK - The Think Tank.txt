@@ -200,6 +200,43 @@ recruit_character = TNK_sink_light_switch_01
 recruit_character = TNK_sink_light_switch_02
 recruit_character = TNK_sink_muggy
 
+# Field commanders. The base setup gave TNK no generals, so any war that broke out
+# before they researched/recruited one ran with no commander on the front. Spawn one
+# field marshal and two corps commanders up front using the generic TNK portraits
+# already shipped with the mod. Flag is set so the mid-game spawn event (nf_mojave_
+# brotherhood.27) won't double-create them if both paths run.
+set_country_flag = tnkd_generals_created
+create_field_marshal = {
+	name = "Klein-Beta"
+	portrait_path = "gfx/leaders/TNK/portrait_tnk_generic_1.dds"
+	traits = {}
+	skill = 3
+	attack_skill = 3
+	defense_skill = 2
+	planning_skill = 3
+	logistics_skill = 2
+}
+create_corps_commander = {
+	name = "Sigma-7"
+	portrait_path = "gfx/leaders/TNK/portrait_tnk_generic_2.dds"
+	traits = {}
+	skill = 2
+	attack_skill = 2
+	defense_skill = 3
+	planning_skill = 2
+	logistics_skill = 1
+}
+create_corps_commander = {
+	name = "Mu-12"
+	portrait_path = "gfx/leaders/TNK/portrait_tnk_generic_1.dds"
+	traits = {}
+	skill = 2
+	attack_skill = 3
+	defense_skill = 2
+	planning_skill = 1
+	logistics_skill = 2
+}
+
 set_variable = { science = 10000 }
 
 set_variable = { tnk_angels_of_death_var = -0.1 }

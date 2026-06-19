@@ -2,6 +2,10 @@ on_actions = {
 	# Sets up the Broken Mojave (nf_tnk.62) as soon as MOJ no longer exists — whether TNK wins
 	# the war in the Mojave or spawns at game start (by gamerule) with MOJ already gone.
 	# Fires once, guarded by the tnkd_broken_mojave_setup country flag.
+	#
+	# Also syncs tnkd_war_timer_protection on TNK: present while either NCR or CES war
+	# mission is ticking down (so neither faction — nor any third party — can justify war
+	# on TNK during the countdown), removed once both missions are over.
 	on_daily_TNK = {
 		effect = {
 			if = {
@@ -11,6 +15,24 @@ on_actions = {
 				}
 				set_country_flag = tnkd_broken_mojave_setup
 				country_event = nf_tnk.62
+			}
+			if = {
+				limit = {
+					OR = {
+						has_active_mission = tnkd_ncr_war_mission
+						has_active_mission = tnkd_ces_war_mission
+					}
+					NOT = { has_idea = tnkd_war_timer_protection }
+				}
+				add_ideas = tnkd_war_timer_protection
+			}
+			if = {
+				limit = {
+					NOT = { has_active_mission = tnkd_ncr_war_mission }
+					NOT = { has_active_mission = tnkd_ces_war_mission }
+					has_idea = tnkd_war_timer_protection
+				}
+				remove_ideas = tnkd_war_timer_protection
 			}
 		}
 	}

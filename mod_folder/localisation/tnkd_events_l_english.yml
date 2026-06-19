@@ -107,13 +107,34 @@
   nf_tnk.82.d:0 "We could have become a single cold intelligence. Instead, Mobius' will prevailed: a managed democracy, for the good of all, of course. The people will vote, and we will count, and the outcomes will be wise because we have ensured wisdom is the only outcome on offer. It is benevolence with guardrails. It is freedom, carefully fenced. The wasteland has never been so well looked after, whether it asked to be or not."
   nf_tnk.82.a:0 "For their own good. Always for their own good."
 
-  nf_tnk.84.t:0 "[NCR.GetAdjective] war on the horizon"
-  nf_tnk.84.d:0 "Our intelligence is unambiguous: §Y[NCR.getName]§! is mobilising in earnest. The countdown to open conflict has narrowed to weeks. We must be ready, for they will not give us the courtesy of a declaration."
-  nf_tnk.84.a:0 "We will be ready."
+  nf_tnk.90.t:0 "Offer a GECK to [FROM.GetName]?"
+  nf_tnk.90.d:0 "Our generosity is finite. §Y[FROM.getName]§! is a neighbour, but not every neighbour deserves the means to rebuild. Do we extend the offer, or quietly keep this one off the list?"
+  nf_tnk.90.a:0 "Offer it. They may yet see reason."
+  nf_tnk.90.b:0 "Withhold. Some bonfires deserve to burn out."
 
-  nf_tnk.85.t:0 "[CES.GetAdjective] war on the horizon"
-  nf_tnk.85.d:0 "The Legion's tents are coming down. Cohorts are massing on our borders, and the bull prepares to charge. We have at most weeks before §Y[CES.getName]§! is at our gates."
-  nf_tnk.85.a:0 "Let them come."
+  nf_tnk.88.t:0 "The [NCR.GetAdjective] clock has run down"
+  nf_tnk.88.d:0 "The timer that held us back from §Y[NCR.getName]§! is up. We stand at the line: press the war now, or broker more time."
+  nf_tnk.88.a:0 "Cover up atrocities. (§Y-30 PP§!, §R-1%§! War Support, §Y+0.2%§! NCR stability, §G+30 days§!)"
+  nf_tnk.88.c:0 "Press the war. They will not see us coming."
+
+  nf_tnk.89.t:0 "The [CES.GetAdjective] clock has run down"
+  nf_tnk.89.d:0 "The countdown with §Y[CES.getName]§! has ticked to zero. We can buy more time, or simply hit them while their cohorts are still mustering."
+  nf_tnk.89.a:0 "Gift slaves. (§Y-30 PP§!, §R-300 manpower§!, §Y+300 manpower§! to CES, §G+30 days§!)"
+  nf_tnk.89.c:0 "Press the war. They will not see us coming."
+
+  nf_tnk.86.t:0 "Peace with [NCR.GetName]?"
+  nf_tnk.86.d:0 "Their heartland is ours, their capital silent, their bureaucracy in our pocket. We can offer §Y[NCR.getName]§! a peace that lets them keep what little remains and walk away. Or we can keep pushing until there is nothing of them left to walk."
+  nf_tnk.86.a:0 "Accept their surrender. Return the captured states."
+  nf_tnk.86.b:0 "Press on. We are not finished."
+
+  nf_tnk.87.t:0 "Peace with [CES.GetName]?"
+  nf_tnk.87.d:0 "Flagstaff has fallen. The Legion bleeds out by the road. We can take what we want, return the rest, and let what is left of §Y[CES.getName]§! lick its wounds. Or we can finish the work."
+  nf_tnk.87.a:0 "Accept their surrender. Return the captured states."
+  nf_tnk.87.b:0 "Press on. We are not finished."
+
+  nf_tnk.91.t:0 "The Visitor Stirs"
+  nf_tnk.91.d:0 "Beneath the sealed vault doors at §Y[389.GetName]§!, the excavation crews find a chamber that was never meant to be opened. Inside, a figure long preserved: thin-limbed, large-eyed, decidedly not of this world. It opens its eyes. It studies us with a calm that suggests it has been studying our species for a very long time. It does not seem surprised to be woken. It does not seem displeased to be put to use."
+  nf_tnk.91.a:0 "Welcome aboard, §YK'tarr§!."
 
   nf_tnk.83.t:0 "New World Blues"
   nf_tnk.83.d:0 "Every fork is behind us now, every door shut, every choice fossilised into the thing we have become. Some doors we are proud of. Some we do not speak of, even among ourselves. But the wasteland turns to us now for guidance, for protection, for answers, and we have answers enough to last a thousand years.\n\nThe old world is gone. We watched it die, and where it lay, we built this. The new world is blue, and bright, and ours.\n\nFinally... peace."

@@ -7,6 +7,21 @@
  tnkd_unexpected_arrival:0 "Unexpected Arrival"
  tnkd_unexpected_arrival_desc:0 "For now we are an anomaly, but soon we shall be seen as a threat."
 
+ tnkd_war_timer_protection:0 "Diplomatic Grace"
+ tnkd_war_timer_protection_desc:0 "Active while the §Y$tnkd_ncr_war_mission$§! or §Y$tnkd_ces_war_mission$§! countdown is running. Our enemies cannot justify war goals against us until the timer expires."
+
+ tnkd_anti_ncr_warplan:0 "War Plan: [NCR.GetAdjective]"
+ tnkd_anti_ncr_warplan_desc:0 "Detailed combat doctrine and intelligence prepared specifically for an engagement with §Y[NCR.getName]§!. Improves our forces' performance against them and lifts general morale while it lasts."
+ tnkd_anti_ces_warplan:0 "War Plan: [CES.GetAdjective]"
+ tnkd_anti_ces_warplan_desc:0 "Detailed combat doctrine and intelligence prepared specifically for an engagement with §Y[CES.getName]§!. Improves our forces' performance against them and lifts general morale while it lasts."
+
+ tnkd_ncr_reparations:0 "[NCR.GetAdjective] Reparations"
+ tnkd_ncr_reparations_desc:0 "Industrial spoils extracted from a defeated §Y[NCR.getName]§!. Decays after a year unless pressed for more."
+ tnkd_ces_reparations:0 "[CES.GetAdjective] Reparations"
+ tnkd_ces_reparations_desc:0 "Industrial spoils extracted from a defeated §Y[CES.getName]§!. Decays after a year unless pressed for more."
+
+ TNK_ZETAN_VISITOR_NAME:0 "K'tarr the Awoken"
+
  tnkd_quirky_science:0 "Quirky science"
  tnkd_quirky_science_desc:0 "Industry? Hammers are boring, space is cool."
  tnkd_wild_science:0 "Wild science"

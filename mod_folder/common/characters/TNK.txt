@@ -169,7 +169,6 @@ characters = {
 			}
 			modifier = {
 				land_reinforce_rate = 0.06
-				army_experience_gain_factor = 0.10
 			}
 			cost = 100
 			ai_will_do = {
@@ -420,6 +419,33 @@ characters = {
 			ai_will_do = {
 				factor = 10
 			}
+		}
+	}
+	# Granted when tnkd_sky_4 completes (nf_tnk.91). Themed as a Zetan recovered from
+	# the Area-51 facility excavation. Elite stats, infantry-leaning traits (TNK's
+	# armies are lobotomite infantry plus robots, so infantry_leader applies).
+	TNK_zetan_visitor = {
+		name = TNK_ZETAN_VISITOR_NAME
+		portraits = {
+			army = {
+				large = GFX_Portrait_UFO_zetan
+				small = GFX_Portrait_UFO_zetan
+			}
+		}
+		field_marshal = {
+			traits = {
+				old_guard
+				organizer
+				career_officer
+				infantry_leader
+				trickster
+			}
+			skill = 5
+			attack_skill = 6
+			defense_skill = 6
+			planning_skill = 6
+			logistics_skill = 5
+			legacy_id = -1
 		}
 	}
 }

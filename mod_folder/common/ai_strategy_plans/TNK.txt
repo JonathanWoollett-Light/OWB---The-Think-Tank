@@ -96,8 +96,7 @@ TNK_crisis_behavior = {
 		# Reclaiming the New Mojave - critical path to the convergence chain.
 		# Go down new_mojave_1, NOT the mutually exclusive new_mojave_2 (which is
 		# forced to 0 in focus_factors below).
-		tnkd_working_with_robco
-		tnkd_platinum_chip
+		tnk_0_bitterness_against_robco
 		tnkd_new_mojave
 		tnkd_new_mojave_1
 		tnkd_new_mojave_4
@@ -132,7 +131,7 @@ TNK_crisis_behavior = {
 		tnkd_taking_sorrows
 		tnkd_taking_dead_horses
 		tnkd_taking_ouroboros
-		tnkd_taking_sky_reavers
+		tnkd_sky_1
 		tnkd_taking_white_legs
 		tnkd_taking_tarwalkers
 		tnkd_larping_luddites

@@ -19,6 +19,15 @@ country_event = {
 			TNK = { create_faction = "The Mojave Technical Alliance" }
 		}
 		TNK = { add_to_faction = VEG }
+		# Robotics uplift: alliance with the Think Tank rubs off on Vegas, accelerating their
+		# robotics research line with a permanent ahead-of-time bonus and a few free uses.
+		add_tech_bonus = {
+			name = tnkd_veg_robotics_uplift
+			bonus = 0.35
+			ahead_reduction = 1
+			uses = 3
+			category = robotics_tech_category
+		}
 	}
 
 	option = {
@@ -539,32 +548,201 @@ country_event = {
 		name = nf_tnk.83.a
 	}
 }
-# Fired ~30 days before tnkd_ncr_war_mission times out, via tnkd_ncr_war_warning_mission.
+# GECK-offer chooser fired per non-allied neighbour from tnkd_carrot's completion.
+# FROM = the neighbour. The player picks whether to extend nf_tnk.30 to them or not
+# (it doesn't make sense to gift the wasteland's bullies the same uplift we'd give a
+# friendly settlement). Defaults to "yes" for AI to avoid breaking existing flow.
 country_event = {
-	immediate = { log = "[GetDateText]: [Root.GetName]: event nf_tnk.84" }
-	id = nf_tnk.84
-	title = nf_tnk.84.t
-	desc = nf_tnk.84.d
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nf_tnk.90" }
+	id = nf_tnk.90
+	title = nf_tnk.90.t
+	desc = nf_tnk.90.d
 	picture = GFX_event_big_mt_event_weird_science
 
 	is_triggered_only = yes
 
 	option = {
-		name = nf_tnk.84.a
+		name = nf_tnk.90.a
+		ai_chance = { base = 100 }
+		FROM = {
+			country_event = nf_tnk.30
+		}
+	}
+	option = {
+		name = nf_tnk.90.b
+		ai_chance = { base = 0 }
 	}
 }
-# Fired ~30 days before tnkd_ces_war_mission times out, via tnkd_ces_war_warning_mission.
+# War-countdown chooser fired from tnkd_ncr_war_mission timeout (TNK scope). Two
+# options: buy 90 more days at a PP cost, or press the war right now. A white-peace
+# option was deliberately omitted — that path lives in tnkd_ncr_temporary_peace_decision
+# (and its CES sibling), which gates on its own conditions.
 country_event = {
-	immediate = { log = "[GetDateText]: [Root.GetName]: event nf_tnk.85" }
-	id = nf_tnk.85
-	title = nf_tnk.85.t
-	desc = nf_tnk.85.d
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nf_tnk.88" }
+	id = nf_tnk.88
+	title = nf_tnk.88.t
+	desc = nf_tnk.88.d
+	picture = GFX_event_big_mt_event_weird_science
+
+	is_triggered_only = yes
+
+	# Mirrors tnkd_ncr_pp_decision ("Cover up atrocities"): TNK eats a small war-support
+	# hit and slips NCR a propaganda win in exchange for another 30 days on the clock.
+	option = {
+		name = nf_tnk.88.a
+		ai_chance = { base = 60 }
+		add_political_power = -30
+		add_war_support = -0.01
+		NCR = { add_stability = 0.002 }
+		set_temp_variable = { global.tnk_ncr_war_countdown_temp = 30 }
+		increase_tnk_ncr_war_countdown = yes
+	}
+	option = {
+		name = nf_tnk.88.c
+		ai_chance = { base = 40 }
+		NCR = {
+			declare_war_on = {
+				target = TNK
+				type = annex_everything
+			}
+		}
+	}
+}
+# Mirror of nf_tnk.88 for CES.
+country_event = {
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nf_tnk.89" }
+	id = nf_tnk.89
+	title = nf_tnk.89.t
+	desc = nf_tnk.89.d
+	picture = GFX_event_big_mt_event_weird_science
+
+	is_triggered_only = yes
+
+	# Mirrors tnkd_ces_pp_decision ("Gift slaves"): TNK hands over 300 manpower to the
+	# Legion's slave train in exchange for another 30 days on the clock.
+	option = {
+		name = nf_tnk.89.a
+		ai_chance = { base = 60 }
+		add_political_power = -30
+		add_manpower = -300
+		CES = { add_manpower = 300 }
+		set_temp_variable = { global.tnk_ces_war_countdown_temp = 30 }
+		increase_tnk_ces_war_countdown = yes
+	}
+	option = {
+		name = nf_tnk.89.c
+		ai_chance = { base = 40 }
+		CES = {
+			declare_war_on = {
+				target = TNK
+				type = annex_everything
+			}
+		}
+	}
+}
+# Peace-deal choice fired from tnkd_ncr_peace_deal_mission timeout: TNK has occupied the
+# NCR heartland, the 30-day grace period is up, and the player picks between accepting
+# the white-peace deal (transfer non-Mojave states back to NCR) or pressing the war.
+country_event = {
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nf_tnk.86" }
+	id = nf_tnk.86
+	title = nf_tnk.86.t
+	desc = nf_tnk.86.d
+	picture = GFX_tnkd_event_peace
+
+	is_triggered_only = yes
+
+	option = {
+		name = nf_tnk.86.a
+		ai_chance = { base = 80 }
+		every_owned_state = {
+			limit = {
+				NOT = {
+					OR = {
+						state = 47
+						state = 67
+						state = 46
+						state = 573
+						state = 417
+						state = 137
+						state = 552
+					}
+				}
+			}
+			NCR = { transfer_state = PREV }
+		}
+		white_peace = NCR
+		set_temp_variable = { global.tnk_ncr_war_countdown_temp = 400 }
+		increase_tnk_ncr_war_countdown = yes
+	}
+	option = {
+		name = nf_tnk.86.b
+		ai_chance = { base = 20 }
+	}
+}
+# Peace-deal choice for CES (mirror of nf_tnk.86).
+country_event = {
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nf_tnk.87" }
+	id = nf_tnk.87
+	title = nf_tnk.87.t
+	desc = nf_tnk.87.d
+	picture = GFX_tnkd_event_peace
+
+	is_triggered_only = yes
+
+	option = {
+		name = nf_tnk.87.a
+		ai_chance = { base = 80 }
+		every_owned_state = {
+			limit = {
+				NOT = {
+					OR = {
+						state = 47
+						state = 67
+						state = 46
+						state = 573
+						state = 417
+						state = 137
+						state = 552
+					}
+				}
+			}
+			CES = { transfer_state = PREV }
+		}
+		white_peace = CES
+		set_temp_variable = { global.tnk_ces_war_countdown_temp = 400 }
+		increase_tnk_ces_war_countdown = yes
+	}
+	option = {
+		name = nf_tnk.87.b
+		ai_chance = { base = 20 }
+	}
+}
+# Fired by tnkd_sky_4 (Excavate the Facility). Recruits TNK_zetan_visitor, an elite
+# field marshal themed as a Zetan recovered from the Area-51 vault.
+country_event = {
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nf_tnk.91" }
+	id = nf_tnk.91
+	title = nf_tnk.91.t
+	desc = nf_tnk.91.d
 	picture = GFX_event_big_mt_event_weird_science
 
 	is_triggered_only = yes
 
 	option = {
-		name = nf_tnk.85.a
+		name = nf_tnk.91.a
+		# Inline create_field_marshal because recruit_character is only valid in
+		# history files (HOI4 warns and silently no-ops in event scopes).
+		create_field_marshal = {
+			name = "K'tarr the Awoken"
+			portrait_path = "gfx/leaders/UFO/portrait_zetan.dds"
+			traits = { old_guard organizer career_officer infantry_leader trickster }
+			skill = 5
+			attack_skill = 6
+			defense_skill = 6
+			planning_skill = 6
+			logistics_skill = 5
+		}
 	}
 }
 country_event = {
@@ -1220,6 +1398,16 @@ country_event = {
 			VEG = { transfer_state = 106 }
 		}
 		add_ideas = tnkd_veg_concessions
+		# Robotics uplift: the alliance rubs off on Vegas (mirror of nf_tnk.60.a).
+		VEG = {
+			add_tech_bonus = {
+				name = tnkd_veg_robotics_uplift
+				bonus = 0.35
+				ahead_reduction = 1
+				uses = 3
+				category = robotics_tech_category
+			}
+		}
 	}
 	option = {
 		name = nf_tnk.57.b

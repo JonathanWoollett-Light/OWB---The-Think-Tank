@@ -19,6 +19,78 @@ ideas = {
 				cant_be_justified_on = 1
 			}
 		}
+		# Active while either ncr/ces war mission is counting down. Mirrors the unexpected-
+		# arrival protection: opponents (NCR/CES included) cannot justify war goals on TNK
+		# until the mission times out, so the mission timer is the authoritative trigger.
+		# Synced on/off in common/on_actions/tnkd_on_actions.txt.
+		tnkd_war_timer_protection = {
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				cant_be_justified_on = 1
+			}
+		}
+		# Anti-NCR / anti-CES war plan ideas — applied as 365-day timed ideas via the
+		# tnkd_<faction>_warplan_decision decisions. Combat bonuses are targeted at the
+		# specific faction; the small army_morale_factor is general (the focus on a
+		# specific enemy still tightens our drill). Sized to help-not-stomp.
+		tnkd_anti_ncr_warplan = {
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			targeted_modifier = {
+				tag = NCR
+				attack_bonus_against = 0.07
+				defense_bonus_against = 0.07
+				breakthrough_factor = 0.10
+			}
+			modifier = {
+				army_morale_factor = 0.05
+			}
+		}
+		tnkd_anti_ces_warplan = {
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			targeted_modifier = {
+				tag = CES
+				attack_bonus_against = 0.07
+				defense_bonus_against = 0.07
+				breakthrough_factor = 0.10
+			}
+			modifier = {
+				army_morale_factor = 0.05
+			}
+		}
+		# War-reparation ideas. Added on TNK when reparations are collected (decision)
+		# and removed when the matching tnkd_<faction>_reparations_mission times out
+		# (natural decay) — or extended indefinitely via the extension decision.
+		tnkd_ncr_reparations = {
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				production_speed_arms_factory_factor = 0.05
+				production_speed_industrial_complex_factor = 0.05
+				research_speed_factor = 0.02
+			}
+		}
+		tnkd_ces_reparations = {
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				production_speed_arms_factory_factor = 0.05
+				production_speed_industrial_complex_factor = 0.05
+				research_speed_factor = 0.02
+			}
+		}
 		tnkd_quirky_science = {
 			allowed = {
 				always = no
@@ -78,10 +150,12 @@ ideas = {
 				always = no
 			}
 			removal_cost = -1
+			# Toned down from -0.30/-0.30 attack/defense (felt overwhelming) to -0.15/-0.15.
+			# Still a noticeable infiltration debuff but no longer effectively decisive on its own.
 			targeted_modifier = {
 				tag = TNK
-				attack_bonus_against = -0.3
-				defense_bonus_against = -0.3
+				attack_bonus_against = -0.15
+				defense_bonus_against = -0.15
 			}
 			modifier = {
 				political_power_factor = -0.05

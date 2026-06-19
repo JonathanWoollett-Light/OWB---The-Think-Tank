@@ -1,5 +1,7 @@
 # CLAUDE.md
 
+This is a submod for "Old World Blues" which is downloaded locally and can be found at `C:\Program Files (x86)\Steam\steamapps\workshop\content\394360\2265420196\common\national_focus`, this should be used and considered.
+
 ## Dynamic Modifier Tooltips
 
 For dynamic modifiers use `custom_effect_tooltip` and `hidden_effect` to show affects on modification.

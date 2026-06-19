@@ -38,8 +38,6 @@ focus_tree = {
 				CES = {
 					activate_mission = tnkd_ces_war_mission
 				}
-				reset_tnk_ncr_war_warning = yes
-				reset_tnk_ces_war_warning = yes
 			}
 		}
 	}
@@ -80,7 +78,7 @@ focus_tree = {
 		id = tnk_0
 		icon = GFX_goal_tnk_lobotomite_tank_0
 		cost = 15
-		x = -20
+		x = -18
 		y = 1
 		prerequisite = {
 			focus = tnk_personality_restoration
@@ -118,7 +116,55 @@ focus_tree = {
 			}
 		}
 	}
-
+	focus = {
+		id = tnkd_next_steps
+		icon = GFX_goal_tnkd_next_steps
+		cost = 30
+		y = 4
+		available = {
+			has_stability > 0.5
+			has_war_support > 0.5
+			custom_trigger_tooltip = {
+				tooltip = tnkd_new_mojave_tt
+				AND = {
+					controls_state = 47
+					controls_state = 67
+					controls_state = 137
+					controls_state = 417
+					controls_state = 46
+					controls_state = 573
+					controls_state = 552
+				}
+			}
+		}
+		prerequisite = {
+			focus = tnkd_new_mojave_6
+			focus = tnkd_new_mojave_7
+		}
+		completion_reward = {
+			add_state_core = 67
+			add_state_core = 137
+			add_state_core = 417
+			add_state_core = 46
+			add_state_core = 573
+			add_state_core = 552
+			add_victory_points = {
+				province = 3238
+				value = 10
+			}
+			if = {
+				limit = {
+					has_dynamic_modifier = {
+						modifier = tnk_broken_mojave_dynamic_modifier
+					}
+				}
+				remove_dynamic_modifier = {
+					modifier = tnk_broken_mojave_dynamic_modifier
+				}
+			}
+			
+		}
+	}
 	focus = {
 		id = tnk_0_bitterness_against_robco
 		icon = GFX_goal_VEG_Architect_of_Destiny
@@ -126,22 +172,23 @@ focus_tree = {
 		x = -2
 		y = 1
 		prerequisite = {
-			focus = tnk_0
+			focus = tnkd_next_steps
 		}
-		relative_position_id = tnk_0
+		relative_position_id = tnkd_next_steps
 		will_lead_to_war_with = VEG
 		available = {
-			VEG = {
-				controls_state = 211
-				is_house_leader = yes
-			}
 			ai_has_no_other_wars_or_wargoals = yes
 			set_temp_variable = { science_cost = 10000 }
 			science_cost_scripted_trigger = yes
 		}
 		bypass = {
-			VEG = {
-				all_core_land_owned_by_prev_sphere = yes
+			OR = {
+				VEG = {
+					all_core_land_owned_by_prev_sphere = yes
+				}
+				VEG = {
+					is_puppet_of = ROOT
+				}
 			}
 		}
 		completion_reward = {
@@ -175,7 +222,7 @@ focus_tree = {
 
 		relative_position_id = tnk_0_bitterness_against_robco
 		available = {
-			controls_state = 211
+			OR = { controls_state = 211  211 = { owner = { is_puppet_of = ROOT } } }
 			set_temp_variable = { science_cost = 20000 }
 			science_cost_scripted_trigger = yes
 		}
@@ -202,7 +249,7 @@ focus_tree = {
 
 		relative_position_id = tnk_0_bitterness_against_robco
 		available = {
-			controls_state = 211
+			OR = { controls_state = 211  211 = { owner = { is_puppet_of = ROOT } } }
 			set_temp_variable = { science_cost = 20000 }
 			science_cost_scripted_trigger = yes
 		}
@@ -237,7 +284,7 @@ focus_tree = {
 
 		relative_position_id = tnk_0_bitterness_against_robco
 		available = {
-			controls_state = 211
+			OR = { controls_state = 211  211 = { owner = { is_puppet_of = ROOT } } }
 			set_temp_variable = { science_cost = 50000 }
 			science_cost_scripted_trigger = yes
 		}
@@ -254,10 +301,132 @@ focus_tree = {
 	}
 
 	focus = {
+		id = tnkd_sky_1
+		icon = GFX_goal_tnkd_sky_reavers
+		cost = 15
+		x = 2
+		y = 1
+		prerequisite = {
+			focus = tnkd_next_steps
+		}
+		relative_position_id = tnkd_next_steps
+		will_lead_to_war_with = SKY
+		available = {
+			ai_has_no_other_wars_or_wargoals = yes
+			set_temp_variable = { science_cost = 10000 }
+			science_cost_scripted_trigger = yes
+		}
+		bypass = {
+			OR = {
+				SKY = {
+					all_core_land_owned_by_prev_sphere = yes
+				}
+				SKY = {
+					is_puppet_of = ROOT
+				}
+			}
+		}
+		completion_reward = {
+			set_temp_variable = { science_change = -10000 }
+			tnk_change_science = yes
+			SKY = {
+				ROOT = {
+					grant_wargoals_on_core_states_of_prev = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = tnkd_sky_2
+		icon = GFX_goal_generic_outpost
+		cost = 15
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = tnkd_sky_1
+		}
+
+		relative_position_id = tnkd_sky_1
+		available = {
+			OR = { controls_state = 389  389 = { owner = { is_puppet_of = ROOT } } }
+			set_temp_variable = { science_cost = 20000 }
+			science_cost_scripted_trigger = yes
+		}
+		completion_reward = {
+			set_temp_variable = { science_change = -20000 }
+			tnk_change_science = yes
+			add_tech_bonus = {
+				bonus = 0.25
+				ahead_reduction = 1
+				uses = 3
+				category = air_tech_category
+			}
+		}
+	}
+
+	focus = {
+		id = tnkd_sky_3
+		icon = GFX_goal_generic_crates
+		cost = 15
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = tnkd_sky_1
+		}
+
+		relative_position_id = tnkd_sky_1
+		available = {
+			OR = { controls_state = 389  389 = { owner = { is_puppet_of = ROOT } } }
+			set_temp_variable = { science_cost = 20000 }
+			science_cost_scripted_trigger = yes
+		}
+		completion_reward = {
+			set_temp_variable = { science_change = -20000 }
+			tnk_change_science = yes
+			add_resource = {
+				type = advanced
+				amount = 8
+				state = 389
+			}
+			add_resource = {
+				type = circuitry
+				amount = 6
+				state = 389
+			}
+		}
+	}
+
+	focus = {
+		id = tnkd_sky_4
+		icon = GFX_goal_moon_flag
+		cost = 15
+		x = 0
+		y = 2
+		prerequisite = {
+			focus = tnkd_sky_2
+		}
+		prerequisite = {
+			focus = tnkd_sky_3
+		}
+
+		relative_position_id = tnkd_sky_1
+		available = {
+			OR = { controls_state = 389  389 = { owner = { is_puppet_of = ROOT } } }
+			set_temp_variable = { science_cost = 50000 }
+			science_cost_scripted_trigger = yes
+		}
+		completion_reward = {
+			set_temp_variable = { science_change = -50000 }
+			tnk_change_science = yes
+			country_event = nf_tnk.91
+		}
+	}
+
+	focus = {
 		id = tnk_0_bitterness_against_national_electric
 		icon = GFX_goal_tnk_national_electric
 		cost = 15
-		x = 2
 		y = 1
 		prerequisite = {
 			focus = tnk_0
@@ -1201,7 +1370,7 @@ focus_tree = {
 
 	focus = {
 		id = tnk_klein_lobotomite_research_numbers
-		icon = GFX_goal_tnk_lobotomite_numbers
+		icon = GFX_goal_tnkd_test_subjects
 		cost = 15
 		x = -1
 		y = 1
@@ -1224,7 +1393,7 @@ focus_tree = {
 	}
 	focus = {
 		id = tnk_klein_lobotomite_research_strength
-		icon = GFX_goal_tnk_lobotomite_strength
+		icon = GFX_goal_tnkd_extermination
 		cost = 15
 		x = 1
 		y = 1
@@ -1755,46 +1924,6 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = tnkd_working_with_robco
-		icon = GFX_goal_VEG_Vegas_for_the_People
-		cost = 15
-		x = 0
-		y = 1
-		available = {
-			country_exists = VEG
-		}
-		prerequisite = {
-			focus = tnk_0
-		}
-		relative_position_id = tnk_0
-		completion_reward = {
-			if = {
-				limit = {
-					TNK = { is_in_faction = no }
-				}
-				add_ideas = tnkd_humility
-			}
-			VEG = { country_event = nf_tnk.60 }
-		}
-	}
-	focus = {
-		id = tnkd_platinum_chip
-		icon = GFX_goal_VEG_Ring-a-Ding-Ding
-		cost = 30
-		x = 0
-		y = 2
-		available = {
-			is_in_faction_with = VEG
-		}
-		prerequisite = {
-			focus = tnkd_working_with_robco
-		}
-		relative_position_id = tnkd_working_with_robco
-		completion_reward = {
-			add_ideas = moj_platinumOS
-		}
-	}
-	focus = {
 		id = tnkd_new_mojave
 		icon = GFX_goal_NCR_MojaveOutpost
 		cost = 30
@@ -2207,14 +2336,18 @@ focus_tree = {
 				popularity = 0.15
 			}
 			add_stability = 0.1
+			# Mitigates the lopsided cost vs reconciliation: previously -500 pop per controlled
+			# state plus a -0.1 angels-of-death hit and no compensating yield. Now -300 pop
+			# (~1500-2100 total) and a manpower payback representing the conscripted labour.
 			custom_effect_tooltip = tnkd_new_mojave_7_tt_2
 			hidden_effect = {
 				every_controlled_state = {
-					set_temp_variable = { pop_add = -500 }
+					set_temp_variable = { pop_add = -300 }
 					add_state_population = yes
 				}
 			}
-			set_temp_variable = { tnk_angels_of_death_var_change = -0.1 }
+			add_manpower = 2000
+			set_temp_variable = { tnk_angels_of_death_var_change = -0.05 }
             update_tnk_angels_of_death_var = yes
 			if = {
 				limit = { has_dynamic_modifier = { modifier = tnk_broken_mojave_dynamic_modifier } }
@@ -2223,70 +2356,11 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = tnkd_next_steps
-		icon = GFX_goal_tnkd_next_steps
-		cost = 30
-		y = 4
-		available = {
-			has_stability > 0.5
-			has_war_support > 0.5
-			if = {
-				limit = {
-					is_ai = no
-				}
-				OR = {
-					is_in_faction_with = VEG
-					NOT = { country_exists = VEG }
-				}
-			}
-			custom_trigger_tooltip = {
-				tooltip = tnkd_new_mojave_tt
-				AND = {
-					controls_state = 47
-					controls_state = 67
-					controls_state = 137
-					controls_state = 417
-					controls_state = 46
-					controls_state = 573
-					controls_state = 552
-				}
-			}
-		}
-		prerequisite = {
-			focus = tnkd_new_mojave_6
-			focus = tnkd_new_mojave_7
-		}
-		relative_position_id = tnkd_new_mojave
-		completion_reward = {
-			add_state_core = 67
-			add_state_core = 137
-			add_state_core = 417
-			add_state_core = 46
-			add_state_core = 573
-			add_state_core = 552
-			add_victory_points = {
-				province = 3238
-				value = 10
-			}
-			if = {
-				limit = {
-					has_dynamic_modifier = {
-						modifier = tnk_broken_mojave_dynamic_modifier
-					}
-				}
-				remove_dynamic_modifier = {
-					modifier = tnk_broken_mojave_dynamic_modifier
-				}
-			}
-			
-		}
-	}
-	focus = {
 		id = tnkd_defensive_infrastructure
 		icon = GFX_goal_generic_construct_infrastructure
 		cost = 30
 		y = 7
-		x = 14
+		x = 11
 		relative_position_id = tnk_personality_restoration
 		available = {
 			has_completed_focus = tnk_personality_restoration
@@ -3091,41 +3165,17 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = tnkd_taking_sky_reavers
-		icon = GFX_goal_tnkd_sky_reavers
-		cost = 40
-		y = 1
-		x = -2
-		relative_position_id = tnkd_offensive_infrastructure
-		prerequisite = {
-			focus = tnkd_offensive_infrastructure
-		}
-		bypass = {
-			not = { country_exists = SKY }
-		}
-		bypass_effect = {
-			add_war_support = 0.05
-		}
-		will_lead_to_war_with = SKY
-		completion_reward = {
-			add_war_support = 0.05
-			declare_war_on = {
-                target = SKY
-                type = annex_everything
-            }
-		}
-	}
-	focus = {
 		id = tnkd_taking_white_legs
 		icon = GFX_goal_tnkd_white_legs
 		cost = 40
+		x = -2
 		y = 1
-		relative_position_id = tnkd_taking_sky_reavers
+		relative_position_id = tnkd_offensive_infrastructure
 		available = {
 			not = { country_exists = SKY }
 		}
 		prerequisite = {
-			focus = tnkd_taking_sky_reavers
+			focus = tnkd_offensive_infrastructure
 		}
 		bypass = {
 			not = { country_exists = WHT }
@@ -3369,9 +3419,18 @@ focus_tree = {
 		id = tnkd_unity
 		icon = GFX_goal_tnkd_unity
 		cost = 30
-		y = 1
-		
+		y = 3
+
 		relative_position_id = tnkd_next_steps
+		available = {
+			if = {
+				limit = {
+					is_ai = no
+				}
+				VEG = { all_core_land_controlled_by_prev_sphere = yes }
+				SKY = { all_core_land_controlled_by_prev_sphere = yes }
+			}
+		}
 		prerequisite = {
 			focus = tnkd_next_steps
 		}
@@ -3455,7 +3514,7 @@ focus_tree = {
 	focus = {
 		id = tnkd_cohesion_1
 		icon = GFX_goal_tnkd_cohesion
-		cost = 60
+		cost = 30
 		y = 1
 		x = -1
 		relative_position_id = tnkd_perfection_sync
@@ -3475,7 +3534,7 @@ focus_tree = {
 	focus = {
 		id = tnkd_cohesion_2
 		icon = GFX_goal_tnkd_cohesion
-		cost = 30
+		cost = 15
 		y = 1
 		x = 1
 		relative_position_id = tnkd_perfection_sync
@@ -3621,10 +3680,10 @@ focus_tree = {
 		icon = GFX_goal_NCR_Propaganda_1
 		cost = 90
 		y = 1
-		x = -2
-		relative_position_id = tnkd_next_steps
+		x = -3
+		relative_position_id = tnkd_unity
 		prerequisite = {
-			focus = tnkd_next_steps
+			focus = tnkd_unity
 		}
 		available = {
 			all_core_state = {
@@ -3660,10 +3719,10 @@ focus_tree = {
 		icon = GFX_goal_brahmin_cart
 		cost = 90
 		y = 1
-		x = 2
-		relative_position_id = tnkd_next_steps
+		x = 3
+		relative_position_id = tnkd_unity
 		prerequisite = {
-			focus = tnkd_next_steps
+			focus = tnkd_unity
 		}
 		available = {
 			all_core_state = {
@@ -4273,12 +4332,19 @@ focus_tree = {
 			focus = tnkd_a_future_vision
 		}
 		completion_reward = {
+			# Per-neighbour offer: rather than blanket-offering the GECK to every
+			# non-allied neighbour (including factions we'd never actually want to
+			# uplift), each neighbour now triggers nf_tnk.90 for TNK, a per-target
+			# yes/no prompt where the player decides whether to extend the offer.
+			# Allied neighbours still receive the unconditional gift via nf_tnk.31.
+			custom_effect_tooltip = geck_offer_tt
 			every_neighbor_country = {
 				limit = {
 					NOT = { is_in_faction_with = TNK }
 				}
-				custom_effect_tooltip = geck_offer_tt
-				country_event = nf_tnk.30
+				TNK = {
+					country_event = nf_tnk.90
+				}
 			}
 			every_neighbor_country = {
 				limit = {
@@ -4861,6 +4927,11 @@ focus_tree = {
 			add_ideas = {
 				tnkd_charging_laser
 			}
+			# Unlocks the same orbital ARCHIMEDES II strike ability the Mojave Chapter
+			# unlocks via moj_reserve_power_in_archimedes. The base-game ability checks
+			# `has_country_flag = archimedes_ii` and uses the moj_archimedes_ii_cooldown
+			# idea independently of tag, so setting the flag here is enough.
+			set_country_flag = archimedes_ii
 		}
 	}
 	focus = {
@@ -5005,6 +5076,23 @@ focus_tree = {
 			}
 			TNK = {
 				puppet = LUL
+				# Arizona cores fall to the Lunar Legion no matter how TNK acquired them
+				# (annexed, peace-dealt, or just controlling them). The OWB LUL-spawn
+				# event only catches CES-owned or CES-controlled states; this clean-up
+				# transfers anything TNK still holds that the Legion considered its own.
+				every_owned_state = {
+					limit = {
+						OR = {
+							is_core_of = CES
+							state = 359
+							state = 553
+							state = 49
+							state = 130
+							state = 438
+						}
+					}
+					LUL = { transfer_state = PREV }
+				}
 			}
 			set_temp_variable = {
                 global.tnk_ces_war_countdown_temp = 60

@@ -11,7 +11,6 @@ increase_tnk_ncr_war_countdown = {
 			remove_mission = tnkd_ncr_war_mission
 			activate_mission = tnkd_ncr_war_mission
 		}
-		reset_tnk_ncr_war_warning = yes
 	}
 }
 decrease_tnk_ncr_war_countdown = {
@@ -27,7 +26,6 @@ decrease_tnk_ncr_war_countdown = {
 			remove_mission = tnkd_ncr_war_mission
 			activate_mission = tnkd_ncr_war_mission
 		}
-		reset_tnk_ncr_war_warning = yes
 	}
 }
 increase_tnk_ces_war_countdown = {
@@ -43,7 +41,6 @@ increase_tnk_ces_war_countdown = {
 			remove_mission = tnkd_ces_war_mission
 			activate_mission = tnkd_ces_war_mission
 		}
-		reset_tnk_ces_war_warning = yes
 	}
 }
 decrease_tnk_ces_war_countdown = {
@@ -59,34 +56,6 @@ decrease_tnk_ces_war_countdown = {
 			remove_mission = tnkd_ces_war_mission
 			activate_mission = tnkd_ces_war_mission
 		}
-		reset_tnk_ces_war_warning = yes
-	}
-}
-# Resets / (re)activates the parallel "war on the horizon" warning mission.
-# Warning countdown = main war countdown - 30, clamped to min 1. The warning mission
-# fires nf_tnk.84 (NCR) / nf_tnk.85 (CES) ~30 days before the war declaration.
-reset_tnk_ncr_war_warning = {
-	hidden_effect = {
-		set_variable = { global.tnk_ncr_war_warning_countdown = global.tnk_ncr_war_countdown }
-		subtract_from_variable = { var = global.tnk_ncr_war_warning_countdown value = 30 }
-		clamp_variable = { var = global.tnk_ncr_war_warning_countdown min = 1 }
-		if = {
-			limit = { has_active_mission = tnkd_ncr_war_warning_mission }
-			remove_mission = tnkd_ncr_war_warning_mission
-		}
-		activate_mission = tnkd_ncr_war_warning_mission
-	}
-}
-reset_tnk_ces_war_warning = {
-	hidden_effect = {
-		set_variable = { global.tnk_ces_war_warning_countdown = global.tnk_ces_war_countdown }
-		subtract_from_variable = { var = global.tnk_ces_war_warning_countdown value = 30 }
-		clamp_variable = { var = global.tnk_ces_war_warning_countdown min = 1 }
-		if = {
-			limit = { has_active_mission = tnkd_ces_war_warning_mission }
-			remove_mission = tnkd_ces_war_warning_mission
-		}
-		activate_mission = tnkd_ces_war_warning_mission
 	}
 }
 update_tnk_angels_of_death_var = {

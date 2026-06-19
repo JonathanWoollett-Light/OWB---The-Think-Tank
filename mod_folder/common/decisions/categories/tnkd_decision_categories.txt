@@ -17,6 +17,9 @@ tnkd_ncr_category = {
 			original_tag = NCR
 		}
 	}
+	visible = {
+		country_exists = NCR
+	}
 	priority = 1000
 }
 tnkd_ces_category = {
@@ -25,6 +28,9 @@ tnkd_ces_category = {
 			original_tag = TNK
 			original_tag = CES
 		}
+	}
+	visible = {
+		country_exists = CES
 	}
 	priority = 1000
 }

@@ -688,6 +688,43 @@ country_event = {
 					type = support_robot_scurry_equipment
 					amount = 800
 				}
+				# Field commanders mirroring the TNK history file, so the mid-game
+				# Brotherhood-to-Think-Tank transition also starts with generals on the
+				# front instead of nothing. Guarded by a flag in case both paths run.
+				if = {
+					limit = { NOT = { has_country_flag = tnkd_generals_created } }
+					set_country_flag = tnkd_generals_created
+					create_field_marshal = {
+						name = "Klein-Beta"
+						portrait_path = "gfx/leaders/TNK/portrait_tnk_generic_1.dds"
+						traits = {}
+						skill = 3
+						attack_skill = 3
+						defense_skill = 2
+						planning_skill = 3
+						logistics_skill = 2
+					}
+					create_corps_commander = {
+						name = "Sigma-7"
+						portrait_path = "gfx/leaders/TNK/portrait_tnk_generic_2.dds"
+						traits = {}
+						skill = 2
+						attack_skill = 2
+						defense_skill = 3
+						planning_skill = 2
+						logistics_skill = 1
+					}
+					create_corps_commander = {
+						name = "Mu-12"
+						portrait_path = "gfx/leaders/TNK/portrait_tnk_generic_1.dds"
+						traits = {}
+						skill = 2
+						attack_skill = 3
+						defense_skill = 2
+						planning_skill = 1
+						logistics_skill = 2
+					}
+				}
 				declare_war_on = {
 					target = MOJ
 					type = annex_everything

@@ -87,6 +87,15 @@
  tnkd_next_steps:0 "Venturing Forward"
  tnkd_next_steps_desc:0 "§OW§ge §Gm§Ro§Mv§Pe §Rf§Oo§gr§Gw§Ra§Mr§Pd §Rt§Oo§gg§Ge§Rt§Mh§Pe§Rr§O."
 
+ tnkd_sky_1:0 "Reavers in the Sky"
+ tnkd_sky_1_desc:0 "Buzzing engines and rusted wings keep wheeling over our heads. §Y[SKY.GetName]§! have squatted on §Y[389.GetName]§! for too long — and what is buried beneath them is rightfully ours. Time to ground the flock."
+ tnkd_sky_2:0 "Seize the Airfield"
+ tnkd_sky_2_desc:0 "With §Y[389.GetName]§! finally in our hands, the runways and hangars are ours to study. Decades of Reaver flight-hours, all of it ours to read."
+ tnkd_sky_3:0 "Recover the Strange Cargo"
+ tnkd_sky_3_desc:0 "Crates stamped with markings even we do not recognise are pulled from the hangars. Whatever fell into §Y[389.GetName]§! decades ago, the Reavers were never going to make use of it. We will."
+ tnkd_sky_4:0 "Excavate the Facility"
+ tnkd_sky_4_desc:0 "Beneath the airfield, sealed doors. Beneath the doors, something older than any of us. We pry the facility open and let what is inside finally see the sun."
+
  tnkd_ces_wall:0 "Eastern Wall"
  tnkd_ces_wall_desc:0 "They shall crash against our walls, like waves agaist a cliff."
 

@@ -1306,6 +1306,284 @@ country_event = {
             base = 100
         }
 		add_ideas = tnkd_intervention
+		# Per-nation tech uplift: push the recipient one rung up their creature tech
+		# ladder; if they're already maxed out, redirect the help into general industry
+		# research instead. CHC and TTM have no creature ladder, so they get a flat
+		# research uplift sized to be roughly comparable to one rung.
+		if = {
+			limit = { tag = RCK }
+			if = {
+				limit = { has_tech = insect_beast_upgrade_tech_3 }
+				add_tech_bonus = {
+					bonus = 0.5
+					ahead_reduction = 2
+					uses = 2
+					category = industry
+				}
+				add_tech_bonus = {
+					bonus = 0.5
+					ahead_reduction = 2
+					uses = 2
+					category = industry
+				}
+			}
+			else_if = {
+				limit = { has_tech = insect_equipment_3 }
+				add_tech_bonus = {
+					bonus = 0.5
+					ahead_reduction = 2
+					uses = 2
+					category = industry
+				}
+				set_technology = { insect_beast_upgrade_tech_3 = 1 }
+			}
+			else_if = {
+				limit = { has_tech = insect_beast_upgrade_tech_2 }
+				set_technology = { insect_beast_upgrade_tech_3 = 1 }
+				set_technology = { insect_equipment_3 = 1 }
+			}
+			else_if = {
+				limit = { has_tech = insect_equipment_2 }
+				set_technology = { insect_equipment_3 = 1 }
+				set_technology = { insect_beast_upgrade_tech_2 = 1 }
+			}
+			else_if = {
+				limit = { has_tech = insect_beast_upgrade_tech_1 }
+				set_technology = { insect_beast_upgrade_tech_2 = 1 }
+				set_technology = { insect_equipment_2 = 1 }
+			}
+			else = {
+				set_technology = { insect_equipment_2 = 1 }
+				set_technology = { insect_beast_upgrade_tech_1 = 1 }
+			}
+		}
+		else_if = {
+			limit = { tag = MLT }
+			if = {
+				limit = { has_tech = amphibious_beast_upgrade_tech_4 }
+				add_tech_bonus = {
+					bonus = 0.5
+					ahead_reduction = 2
+					uses = 2
+					category = industry
+				}
+				add_tech_bonus = {
+					bonus = 0.5
+					ahead_reduction = 2
+					uses = 2
+					category = industry
+				}
+			}
+			else_if = {
+				limit = { has_tech = amphibious_beast_equipment_king }
+				add_tech_bonus = {
+					bonus = 0.5
+					ahead_reduction = 2
+					uses = 2
+					category = industry
+				}
+				set_technology = { amphibious_beast_upgrade_tech_4 = 1 }
+			}
+			else_if = {
+				limit = { has_tech = amphibious_beast_upgrade_tech_3 }
+				set_technology = { amphibious_beast_upgrade_tech_4 = 1 }
+				set_technology = { amphibious_beast_equipment_king = 1 }
+			}
+			else_if = {
+				limit = { has_tech = amphibious_beast_equipment_armor }
+				set_technology = { amphibious_beast_equipment_king = 1 }
+				set_technology = { amphibious_beast_upgrade_tech_3 = 1 }
+			}
+			else_if = {
+				limit = { has_tech = amphibious_beast_upgrade_tech_2 }
+				set_technology = { amphibious_beast_upgrade_tech_3 = 1 }
+				set_technology = { amphibious_beast_equipment_armor = 1 }
+			}
+			else_if = {
+				limit = { has_tech = amphibious_beast_equipment_2 }
+				set_technology = { amphibious_beast_equipment_armor = 1 }
+				set_technology = { amphibious_beast_upgrade_tech_2 = 1 }
+			}
+			else_if = {
+				limit = { has_tech = amphibious_beast_upgrade_tech_1 }
+				set_technology = { amphibious_beast_upgrade_tech_2 = 1 }
+				set_technology = { amphibious_beast_equipment_2 = 1 }
+			}
+			else_if = {
+				limit = { has_tech = amphibious_beast_equipment_1 }
+				set_technology = { amphibious_beast_equipment_2 = 1 }
+				set_technology = { amphibious_beast_upgrade_tech_1 = 1 }
+			}
+			else = {
+				set_technology = { amphibious_beast_equipment_1 = 1 }
+			}
+		}
+		else_if = {
+			limit = { tag = TRL }
+			if = {
+				limit = { has_tech = burrowing_beast_upgrade_tech_4 }
+				add_tech_bonus = {
+					bonus = 0.5
+					ahead_reduction = 2
+					uses = 2
+					category = industry
+				}
+				add_tech_bonus = {
+					bonus = 0.5
+					ahead_reduction = 2
+					uses = 2
+					category = industry
+				}
+			}
+			else_if = {
+				limit = { has_tech = burrowing_beast_equipment_brood }
+				add_tech_bonus = {
+					bonus = 0.5
+					ahead_reduction = 2
+					uses = 2
+					category = industry
+				}
+				set_technology = { burrowing_beast_upgrade_tech_4 = 1 }
+			}
+			else_if = {
+				limit = { has_tech = burrowing_beast_upgrade_tech_3 }
+				set_technology = { burrowing_beast_upgrade_tech_4 = 1 }
+				set_technology = { burrowing_beast_equipment_brood = 1 }
+			}
+			else_if = {
+				limit = { has_tech = burrowing_beast_equipment_glowing }
+				set_technology = { burrowing_beast_equipment_brood = 1 }
+				set_technology = { burrowing_beast_upgrade_tech_3 = 1 }
+			}
+			else_if = {
+				limit = { has_tech = burrowing_beast_upgrade_tech_2 }
+				set_technology = { burrowing_beast_upgrade_tech_3 = 1 }
+				set_technology = { burrowing_beast_equipment_glowing = 1 }
+			}
+			else_if = {
+				limit = { has_tech = burrowing_beast_equipment_2 }
+				set_technology = { burrowing_beast_equipment_glowing = 1 }
+				set_technology = { burrowing_beast_upgrade_tech_2 = 1 }
+			}
+			else_if = {
+				limit = { has_tech = burrowing_beast_upgrade_tech_1 }
+				set_technology = { burrowing_beast_upgrade_tech_2 = 1 }
+				set_technology = { burrowing_beast_equipment_2 = 1 }
+			}
+			else_if = {
+				limit = { has_tech = burrowing_beast_equipment_1 }
+				set_technology = { burrowing_beast_equipment_2 = 1 }
+				set_technology = { burrowing_beast_upgrade_tech_1 = 1 }
+			}
+			else = {
+				set_technology = { burrowing_beast_equipment_1 = 1 }
+			}
+		}
+		else_if = {
+			limit = { tag = CHC }
+			# CHC has no unique creature tech, so the Think Tank's help just lands as a
+			# straight research uplift split across infantry and industry.
+			add_tech_bonus = {
+				bonus = 0.5
+				ahead_reduction = 2
+				uses = 2
+				category = infantry_weapons_tech_category
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				ahead_reduction = 2
+				uses = 2
+				category = industry
+			}
+		}
+		else_if = {
+			limit = { tag = TTM }
+			# TTM has no unique creature tech either. Mirror the CHC bonus.
+			add_tech_bonus = {
+				bonus = 0.5
+				ahead_reduction = 2
+				uses = 2
+				category = infantry_weapons_tech_category
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				ahead_reduction = 2
+				uses = 2
+				category = industry
+			}
+		}
+		else_if = {
+			limit = { tag = LUM }
+			# Push LUM two rungs up their feral-ghoul tech line per intervention
+			# (mirroring the RCK pattern). At the top (glowing form), redirect the
+			# help into general industry research instead.
+			if = {
+				limit = { has_tech = feral_ghouls_glowing_form }
+				add_tech_bonus = {
+					bonus = 0.5
+					ahead_reduction = 2
+					uses = 2
+					category = industry
+				}
+				add_tech_bonus = {
+					bonus = 0.5
+					ahead_reduction = 2
+					uses = 2
+					category = industry
+				}
+			}
+			else_if = {
+				limit = { has_tech = feral_ghouls_armored_form }
+				# Only one rung left — set it and add an industry top-up.
+				add_tech_bonus = {
+					bonus = 0.5
+					ahead_reduction = 2
+					uses = 2
+					category = industry
+				}
+				set_technology = { feral_ghouls_glowing_form = 1 }
+			}
+			else_if = {
+				limit = { has_tech = feral_ghouls_upgrade_2 }
+				set_technology = { feral_ghouls_armored_form = 1 }
+				set_technology = { feral_ghouls_glowing_form = 1 }
+			}
+			else_if = {
+				limit = { has_tech = feral_ghouls_intermediate_form }
+				set_technology = { feral_ghouls_upgrade_2 = 1 }
+				set_technology = { feral_ghouls_armored_form = 1 }
+			}
+			else_if = {
+				limit = { has_tech = feral_ghouls_upgrade_1 }
+				set_technology = { feral_ghouls_intermediate_form = 1 }
+				set_technology = { feral_ghouls_upgrade_2 = 1 }
+			}
+			else_if = {
+				limit = { has_tech = feral_ghouls_unlock_tech }
+				set_technology = { feral_ghouls_upgrade_1 = 1 }
+				set_technology = { feral_ghouls_intermediate_form = 1 }
+			}
+			else = {
+				set_technology = { feral_ghouls_unlock_tech = 1 }
+				set_technology = { feral_ghouls_upgrade_1 = 1 }
+			}
+		}
+		else_if = {
+			limit = { tag = SHA }
+			# SHA (Shale's Army) has no unique creature tech ladder either. Flat uplift.
+			add_tech_bonus = {
+				bonus = 0.5
+				ahead_reduction = 2
+				uses = 2
+				category = infantry_weapons_tech_category
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				ahead_reduction = 2
+				uses = 2
+				category = industry
+			}
+		}
 	}
 	option = {
 		name = nf_tnk.54.b

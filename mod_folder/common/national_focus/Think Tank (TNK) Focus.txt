@@ -4582,7 +4582,6 @@ focus_tree = {
 		}
 		relative_position_id = tnkd_balanced_science
 		completion_reward = {
-			add_ideas = tnkd_wild_and_wacky_idea
 			add_political_power = 60
 		}
 	}
@@ -4595,13 +4594,13 @@ focus_tree = {
 		prerequisite = {
 			focus = tnkd_seeding_chaos
 		}
+		mutually_exclusive = { focus = tnkd_helping_warren }
 		relative_position_id = tnkd_seeding_chaos
 		completion_reward = {
-			set_temp_variable = { tnk_brain_drain_var_change = -0.02 }
-			update_tnk_brain_drain_var = yes
 			MLT = {
 				country_event = nf_tnk.54
 			}
+			custom_effect_tooltip = tnkd_helping_mirelurks_tt
 		}
 	}
 	focus = {
@@ -4613,13 +4612,13 @@ focus_tree = {
 		prerequisite = {
 			focus = tnkd_seeding_chaos
 		}
+		mutually_exclusive = { focus = tnkd_helping_mirelurks }
 		relative_position_id = tnkd_seeding_chaos
 		completion_reward = {
-			set_temp_variable = { tnk_brain_drain_var_change = -0.02 }
-			update_tnk_brain_drain_var = yes
 			TRL = {
 				country_event = nf_tnk.54
 			}
+			custom_effect_tooltip = tnkd_helping_warren_tt
 		}
 	}
 	focus = {
@@ -4632,11 +4631,10 @@ focus_tree = {
 		}
 		relative_position_id = tnkd_seeding_chaos
 		completion_reward = {
-			set_temp_variable = { tnk_brain_drain_var_change = -0.02 }
-			update_tnk_brain_drain_var = yes
 			CHC = {
 				country_event = nf_tnk.54
 			}
+			custom_effect_tooltip = tnkd_helping_choir_tt
 		}
 	}
 	focus = {
@@ -4650,11 +4648,10 @@ focus_tree = {
 		}
 		relative_position_id = tnkd_seeding_chaos
 		completion_reward = {
-			set_temp_variable = { tnk_brain_drain_var_change = -0.02 }
-			update_tnk_brain_drain_var = yes
 			RCK = {
 				country_event = nf_tnk.54
 			}
+			custom_effect_tooltip = tnkd_helping_roach_tt
 		}
 	}
 	focus = {
@@ -4668,11 +4665,44 @@ focus_tree = {
 		}
 		relative_position_id = tnkd_seeding_chaos
 		completion_reward = {
-			set_temp_variable = { tnk_brain_drain_var_change = -0.02 }
-			update_tnk_brain_drain_var = yes
 			TTM = {
 				country_event = nf_tnk.54
 			}
+			custom_effect_tooltip = tnkd_helping_diana_tt
+		}
+	}
+	focus = {
+		id = tnkd_helping_luminous
+		icon = GFX_goal_LUM_a_priest
+		cost = 15
+		y = 3
+		x = -1
+		prerequisite = {
+			focus = tnkd_seeding_chaos
+		}
+		relative_position_id = tnkd_seeding_chaos
+		completion_reward = {
+			LUM = {
+				country_event = nf_tnk.54
+			}
+			custom_effect_tooltip = tnkd_helping_luminous_tt
+		}
+	}
+	focus = {
+		id = tnkd_helping_shales_army
+		icon = GFX_goal_SHA_Shale
+		cost = 15
+		y = 3
+		x = 1
+		prerequisite = {
+			focus = tnkd_seeding_chaos
+		}
+		relative_position_id = tnkd_seeding_chaos
+		completion_reward = {
+			SHA = {
+				country_event = nf_tnk.54
+			}
+			custom_effect_tooltip = tnkd_helping_shales_army_tt
 		}
 	}
 	focus = {

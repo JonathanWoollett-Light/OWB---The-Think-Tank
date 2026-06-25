@@ -559,18 +559,6 @@ ideas = {
 				production_factory_max_efficiency_factor = 0.2
 			}
 		}
-		tnkd_wild_and_wacky_idea = {
-			picture = generic_psyker
-			allowed = {
-				always = no
-			}
-			removal_cost = -1
-			modifier = {
-				political_power_factor = -0.05
-				stability_factor = -0.05
-				enemy_justify_war_goal_time = -0.05
-			}
-		}
 		tnkd_lul_buff = {
 			picture = HEA_idea_general_staff
 			allowed = {
@@ -615,14 +603,14 @@ ideas = {
 			}
 			removal_cost = -1
 			modifier = {
-				army_core_attack_factor = 0.3
-				army_core_defence_factor = 0.3
-				stability_factor = -0.1
+				army_core_attack_factor = 0.2
+				army_core_defence_factor = 0.2
+				stability_factor = -0.05
 			}
 			targeted_modifier = {
 				tag = TNK
-				attack_bonus_against = -0.1
-				defense_bonus_against = -0.1
+				attack_bonus_against = -0.2
+				defense_bonus_against = -0.2
 			}
 		}
 		tnkd_veg_concessions = {

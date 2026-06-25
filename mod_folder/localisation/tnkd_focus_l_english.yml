@@ -387,6 +387,19 @@
  tnkd_helping_diana:0 "A Lost Scientist"
  tnkd_helping_diana_desc:0 "This entity has the potential to form a stubborn roadblock against the legion with our help."
 
+ tnkd_helping_luminous:0 "Anointing the Faithful"
+ tnkd_helping_luminous_desc:0 "A radiation-blessed cult lit up like signal flares — eager to receive any gift their gods send them, ours included. Their fervour makes them a useful chaos vector."
+ tnkd_helping_shales_army:0 "Strengthening the Behemoth"
+ tnkd_helping_shales_army_desc:0 "Shale's super mutants are crude weapons, but bigger weapons. A nudge of our science upstream and the wasteland gets considerably louder."
+
+ tnkd_helping_roach_tt:0 "If §Y[RCK.GetName]§! accepts:\n  - Pushed one rung up their §Yinsect-beast§! tech ladder; if already maxed, receives §G+50%§! research toward §YIndustry§! (2 uses).\n  - Gains the §Y$tnkd_intervention$§! idea:"
+ tnkd_helping_mirelurks_tt:0 "If §Y[MLT.GetName]§! accepts:\n  - Pushed one rung up their §Yamphibious-beast§! tech ladder; if already maxed, receives §G+50%§! research toward §YIndustry§! (2 uses).\n  - Gains the §Y$tnkd_intervention$§! idea:"
+ tnkd_helping_warren_tt:0 "If §Y[TRL.GetName]§! accepts:\n  - Pushed one rung up their §Yburrowing-beast§! tech ladder; if already maxed, receives §G+50%§! research toward §YIndustry§! (2 uses).\n  - Gains the §Y$tnkd_intervention$§! idea:"
+ tnkd_helping_choir_tt:0 "If §Y[CHC.GetName]§! accepts:\n  - Receives §G+50%§! research toward §YInfantry Weapons§! and §YIndustry§! (2 uses each).\n  - Gains the §Y$tnkd_intervention$§! idea:"
+ tnkd_helping_diana_tt:0 "If §Y[TTM.GetName]§! accepts:\n  - Receives §G+50%§! research toward §YInfantry Weapons§! and §YIndustry§! (2 uses each).\n  - Gains the §Y$tnkd_intervention$§! idea:"
+ tnkd_helping_luminous_tt:0 "If §Y[LUM.GetName]§! accepts:\n  - Pushed two rungs up their §Yferal-ghoul§! tech ladder; if already maxed (glowing form), receives §G+50%§! research toward §YIndustry§! (2 uses).\n  - Gains the §Y$tnkd_intervention$§! idea:"
+ tnkd_helping_shales_army_tt:0 "If §Y[SHA.GetName]§! accepts:\n  - Receives §G+50%§! research toward §YInfantry Weapons§! and §YIndustry§! (2 uses each).\n  - Gains the §Y$tnkd_intervention$§! idea:"
+
  tnkd_controlling_ncr:0 "Pacifying the Republic"
  tnkd_controlling_ncr_desc:0 "It will require a period of chaotic readjustment to bring the territories of the NCR into line."
 
